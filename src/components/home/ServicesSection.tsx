@@ -143,9 +143,15 @@ const ServicesSection = () => {
                       <h3 className="font-display text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-6 font-medium line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                      <p className="text-muted-foreground leading-relaxed mb-4 font-medium min-h-[3.5rem]">
                         {service.description}
                       </p>
+
+                      <div className="mb-6">
+                        <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-accent font-bold">
+                          Glasgow roofing service
+                        </span>
+                      </div>
                       
                       <div className="mt-auto flex flex-col gap-4">
                         <div className="flex items-center gap-2 text-primary font-bold text-sm">
@@ -176,7 +182,7 @@ const ServicesSection = () => {
                               window.location.href = '/contact';
                             }}
                           >
-                            {siteContent.cta.freeQuote}
+                            Request Quote
                           </div>
                         </div>
                       </div>
@@ -207,7 +213,7 @@ const ServicesSection = () => {
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Phone className="w-7 h-7 relative z-10" />
             <div className="flex flex-col items-center relative z-10 leading-tight">
-              <span className="text-sm uppercase tracking-widest font-bold opacity-80">Call Now</span>
+              <span className="text-sm uppercase tracking-widest font-bold opacity-80">Speak Directly With PM Contract</span>
               <span className="text-2xl font-black">{siteSettings.phone}</span>
             </div>
           </motion.a>

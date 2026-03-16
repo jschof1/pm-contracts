@@ -4,153 +4,152 @@
 @tailwind components;
 @tailwind utilities;
 
-/* All Aspect Roofing Design System
+/* PM Contract Design System
    Theme: Sharp, Industrial, Architectural
-   Palette: Greeny Blue + Bright Yellow
+   Palette: Blue + Navy
    All colors MUST be HSL.
-   ZERO BORDER RADIUS - Precision aesthetic
 */
 
 @layer base {
   :root {
-    /* Warm Off-White Background - softer than pure white */
-    --background: 40 20% 96%;
-    --foreground: 215 40% 15%;
+    /* Cool Off-White Background */
+    --background: 215 30% 97%;
+    --foreground: 220 30% 10%;
 
-    /* Cream Card */
-    --card: 40 15% 98%;
-    --card-foreground: 215 40% 15%;
+    /* Clean Card */
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
 
-    --popover: 40 15% 98%;
-    --popover-foreground: 215 40% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
 
-    /* Navy Blue Primary - Deep and professional */
-    --primary: 215 55% 22%;
-    --primary-foreground: 40 15% 98%;
+    /* Navy Primary - Deep and authoritative */
+    --primary: 220 45% 14%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Light Grey Secondary */
-    --secondary: 215 15% 92%;
-    --secondary-foreground: 215 40% 15%;
+    /* Cool Grey Secondary */
+    --secondary: 215 25% 92%;
+    --secondary-foreground: 220 30% 14%;
 
-    /* Muted - warmer grey */
-    --muted: 40 10% 90%;
-    --muted-foreground: 215 20% 40%;
+    /* Muted - cool grey */
+    --muted: 215 18% 91%;
+    --muted-foreground: 220 15% 34%;
 
-    /* Bright Yellow Accent - High converting, action-oriented */
-    --accent: 48 95% 52%;
-    --accent-foreground: 215 40% 15%;
-    /* Dark gold for text on light backgrounds - readable hover state */
-    --accent-text-on-light: 32 95% 28%;
+    /* Blue Accent - Professional, trustworthy */
+    --accent: 210 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    /* Dark blue for text on light backgrounds */
+    --accent-text-on-light: 215 85% 30%;
 
-    /* Yellow Glow */
-    --accent-glow: 50 100% 58%;
-    --accent-soft: 48 85% 70%;
+    /* Blue Glow */
+    --accent-glow: 210 90% 60%;
+    --accent-soft: 210 75% 82%;
 
-    /* Secondary Accent - Lighter blue for trust signals */
-    --accent-secondary: 205 65% 45%;
+    /* Secondary Accent - Navy for trust signals */
+    --accent-secondary: 220 45% 14%;
     --accent-secondary-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 15% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Borders - warmer */
-    --border: 40 10% 85%;
-    --border-inverse: 215 55% 22%;
-    --input: 40 10% 85%;
-    --ring: 48 95% 52%;
+    /* Borders - cool */
+    --border: 215 18% 84%;
+    --border-inverse: 220 45% 14%;
+    --input: 215 18% 84%;
+    --ring: 210 85% 50%;
 
     /* Shape control (runtime-overridden by theme.ts) */
     --radius: 0px;
     --corner-radius: 0px;
 
     /* Custom Brand Colors */
-    --slate-dark: 215 55% 22%;
-    --slate-medium: 215 50% 30%;
-    --slate-light: 215 40% 40%;
-    --amber: 48 95% 52%;
-    --amber-glow: 50 100% 58%;
-    --amber-soft: 48 80% 70%;
-    --navy: 205 65% 45%;
-    --navy-light: 205 55% 55%;
+    --slate-dark: 220 45% 14%;
+    --slate-medium: 220 35% 22%;
+    --slate-light: 220 25% 38%;
+    --amber: 210 85% 50%;
+    --amber-glow: 210 90% 60%;
+    --amber-soft: 210 75% 82%;
+    --navy: 220 45% 14%;
+    --navy-light: 220 35% 24%;
 
     /* Typography */
     --font-display: 'DM Serif Display', serif;
     --font-body: 'DM Sans', sans-serif;
 
-    /* Sharp Industrial Shadows - softer */
-    --shadow-sm: 0 2px 0 0 hsl(215 40% 15% / 0.04);
-    --shadow-md: 0 4px 0 0 hsl(215 40% 15% / 0.06);
-    --shadow-lg: 0 8px 0 0 hsl(215 40% 15% / 0.08);
-    --shadow-xl: 0 12px 0 0 hsl(215 40% 15% / 0.1);
-    --shadow-sharp: 4px 4px 0 0 hsl(215 40% 15% / 0.12);
-    --shadow-sharp-lg: 6px 6px 0 0 hsl(215 40% 15% / 0.15);
-    --shadow-accent: 0 4px 0 0 hsl(48 95% 52% / 0.4);
-    --shadow-accent-glow: 0 0 30px -5px hsl(48 95% 52% / 0.5);
+    /* Sharp Industrial Shadows */
+    --shadow-sm: 0 2px 0 0 hsl(220 30% 10% / 0.04);
+    --shadow-md: 0 4px 0 0 hsl(220 30% 10% / 0.06);
+    --shadow-lg: 0 8px 0 0 hsl(220 30% 10% / 0.08);
+    --shadow-xl: 0 12px 0 0 hsl(220 30% 10% / 0.1);
+    --shadow-sharp: 4px 4px 0 0 hsl(220 30% 10% / 0.12);
+    --shadow-sharp-lg: 6px 6px 0 0 hsl(220 30% 10% / 0.15);
+    --shadow-accent: 0 4px 0 0 hsl(210 85% 50% / 0.4);
+    --shadow-accent-glow: 0 0 30px -5px hsl(210 85% 50% / 0.5);
     --shadow-line: 0 4px 0 0 hsl(var(--border));
     --shadow-line-accent: 0 4px 0 0 hsl(var(--accent));
 
-    /* Glass effects - warmer */
-    --glass-bg: hsl(40 15% 98% / 0.9);
-    --glass-border: hsl(40 10% 82%);
+    /* Glass effects - cool */
+    --glass-bg: hsl(215 20% 98% / 0.9);
+    --glass-border: hsl(215 15% 82%);
     --glass-blur: 20px;
 
-    --sidebar-background: 215 55% 22%;
+    --sidebar-background: 220 45% 14%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 48 95% 52%;
-    --sidebar-primary-foreground: 215 40% 12%;
-    --sidebar-accent: 215 50% 30%;
+    --sidebar-primary: 210 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 35% 22%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 215 50% 30%;
-    --sidebar-ring: 48 95% 52%;
+    --sidebar-border: 220 35% 22%;
+    --sidebar-ring: 210 85% 50%;
   }
 
   .dark {
-    --background: 215 30% 8%;
-    --foreground: 215 10% 95%;
+    --background: 220 30% 8%;
+    --foreground: 215 20% 94%;
 
-    --card: 215 35% 12%;
-    --card-foreground: 215 10% 95%;
+    --card: 220 28% 11%;
+    --card-foreground: 215 20% 94%;
 
-    --popover: 215 35% 12%;
-    --popover-foreground: 215 10% 95%;
+    --popover: 220 28% 11%;
+    --popover-foreground: 215 20% 94%;
 
-    --primary: 215 10% 95%;
-    --primary-foreground: 215 55% 22%;
+    --primary: 215 20% 94%;
+    --primary-foreground: 220 45% 14%;
 
-    --secondary: 215 30% 18%;
-    --secondary-foreground: 215 10% 95%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 215 20% 94%;
 
-    --muted: 215 25% 20%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 220 18% 20%;
+    --muted-foreground: 215 15% 72%;
 
-    --accent: 48 95% 52%;
-    --accent-foreground: 215 40% 12%;
-    --accent-text-on-light: 48 95% 52%;
+    --accent: 210 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-text-on-light: 210 85% 50%;
 
-    --accent-secondary: 205 65% 50%;
+    --accent-secondary: 220 45% 20%;
     --accent-secondary-foreground: 0 0% 100%;
 
     --destructive: 0 63% 45%;
-    --destructive-foreground: 215 10% 95%;
+    --destructive-foreground: 215 20% 94%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 48 95% 52%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 85% 50%;
 
     /* Dark glass effects */
-    --glass-bg: hsl(215 35% 12% / 0.9);
-    --glass-border: hsl(215 25% 25%);
+    --glass-bg: hsl(220 28% 11% / 0.9);
+    --glass-border: hsl(220 20% 25%);
     --shadow-line: 0 4px 0 0 hsl(var(--border));
     --shadow-line-accent: 0 4px 0 0 hsl(var(--accent));
 
-    --sidebar-background: 215 55% 6%;
-    --sidebar-foreground: 215 10% 95%;
-    --sidebar-primary: 48 95% 52%;
-    --sidebar-primary-foreground: 215 40% 12%;
-    --sidebar-accent: 215 40% 15%;
-    --sidebar-accent-foreground: 215 10% 95%;
-    --sidebar-border: 215 40% 15%;
-    --sidebar-ring: 48 95% 52%;
+    --sidebar-background: 220 45% 6%;
+    --sidebar-foreground: 215 20% 94%;
+    --sidebar-primary: 210 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 35% 15%;
+    --sidebar-accent-foreground: 215 20% 94%;
+    --sidebar-border: 220 35% 15%;
+    --sidebar-ring: 210 85% 50%;
   }
 }
 
@@ -454,23 +453,23 @@
   
   .ambient-glow {
     @apply absolute blur-3xl opacity-20 pointer-events-none;
-    background: linear-gradient(135deg, hsl(48 95% 52% / 0.4) 0%, transparent 70%);
+    background: linear-gradient(135deg, hsl(210 85% 50% / 0.4) 0%, transparent 70%);
   }
 
   .ambient-glow-navy {
     @apply absolute blur-3xl opacity-15 pointer-events-none;
-    background: linear-gradient(135deg, hsl(215 55% 35% / 0.4) 0%, transparent 70%);
+    background: linear-gradient(135deg, hsl(220 45% 25% / 0.4) 0%, transparent 70%);
   }
 
   /* Legacy orbs - now rectangular glow */
   .ambient-orb {
     @apply absolute blur-3xl opacity-30 pointer-events-none;
-    background: linear-gradient(135deg, hsl(48 95% 52% / 0.5) 0%, transparent 60%);
+    background: linear-gradient(135deg, hsl(210 85% 50% / 0.5) 0%, transparent 60%);
   }
 
   .ambient-orb-navy {
     @apply absolute blur-3xl opacity-20 pointer-events-none;
-    background: linear-gradient(135deg, hsl(215 55% 35% / 0.4) 0%, transparent 60%);
+    background: linear-gradient(135deg, hsl(220 45% 25% / 0.4) 0%, transparent 60%);
   }
 
   /* =========================================
@@ -491,7 +490,7 @@
 
   /* Text gradient */
   .text-gradient-accent {
-    background: linear-gradient(135deg, hsl(48 95% 52%), hsl(50 100% 60%));
+    background: linear-gradient(135deg, hsl(210 85% 50%), hsl(210 90% 60%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -574,15 +573,15 @@
 
   /* Glow effects */
   .glow-accent {
-    box-shadow: 0 0 30px hsl(48 95% 52% / 0.3);
+    box-shadow: 0 0 30px hsl(210 85% 50% / 0.3);
   }
 
   .glow-accent-lg {
-    box-shadow: 0 0 50px hsl(48 95% 52% / 0.4);
+    box-shadow: 0 0 50px hsl(210 85% 50% / 0.4);
   }
 
   .glow-navy {
-    box-shadow: 0 0 30px hsl(215 55% 35% / 0.3);
+    box-shadow: 0 0 30px hsl(220 45% 25% / 0.3);
   }
 }
 

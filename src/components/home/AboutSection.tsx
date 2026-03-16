@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Users, Clock, Info } from 'lucide-react';
+import { ArrowRight, Award, Users, Clock, Info, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { aboutBrandImage } from '@/data/images';
 import { siteContent } from '@/data/content';
@@ -9,8 +9,9 @@ const AboutSection = () => {
   const content = siteContent.home.about;
   const statsIcons = [
     { label: 'Years Experience', icon: Clock },
-    { label: 'Happy Customers', icon: Users },
-    { label: 'On-Time Delivery', icon: Award },
+    { label: 'Emergency Support', icon: Users },
+    { label: 'Mile Service Radius', icon: Award },
+    { label: 'Liability Insured', icon: Shield },
   ];
   
   return (
@@ -94,6 +95,21 @@ const AboutSection = () => {
                   <div className="text-xs text-primary-foreground/70">{stat.label}</div>
                 </div>
               ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              <div className="bg-primary-foreground/5 border border-primary-foreground/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-2">Roofing First</p>
+                <p className="text-sm text-primary-foreground/80">
+                  Roof repairs, replacement, emergency roofing, leadwork, chimney work, and roofline upgrades remain the core offer.
+                </p>
+              </div>
+              <div className="bg-primary-foreground/5 border border-primary-foreground/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-2">Direct Communication</p>
+                <p className="text-sm text-primary-foreground/80">
+                  Quotes, recommendations, and next steps are explained clearly so customers know exactly what is being proposed.
+                </p>
+              </div>
             </div>
 
             <Button asChild className="action-primary gap-2 border-2 border-accent hover:bg-accent hover:text-primary transition-all duration-300">

@@ -13,7 +13,7 @@ const AddCustomer = () => {
         <div className="max-w-2xl mx-auto rounded-lg border border-border bg-card p-8 space-y-6">
           <h1 className="text-2xl font-semibold text-foreground text-center">Add Customer</h1>
           <iframe
-            src="https://api.leadconnectorhq.com/widget/form/W50yz1jhXbDRpIe9ZPlk"
+            src="https://api.leadconnectorhq.com/widget/form/zRRwRnT3wU57RTnOjnFj"
             width="100%"
             height="600"
             style={{ border: 0 }}

@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
-
 import { siteContent } from '@/data/content';
 
 const TrustSignals = () => {
@@ -71,13 +69,6 @@ const TrustSignals = () => {
                       />
                     </div>
                     
-                    {badge.stars && (
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(badge.stars)].map((_, i) => (
-                          <Star key={i} className="w-2 md:w-2.5 h-2 md:h-2.5 fill-[#FFD700] text-[#B8860B] stroke-[1.5px]" />
-                        ))}
-                      </div>
-                    )}
                   </div>
                   
                   <div className="text-left md:text-center leading-tight">

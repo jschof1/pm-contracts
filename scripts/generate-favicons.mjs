@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const LOGO_SRC = join(ROOT, 'src/assets/brand/square-logo.png');
+const LOGO_SRC = join(ROOT, 'src/assets/pm-logo.png');
 const OUT_DIR = join(ROOT, 'public/favicons');
 
 const SIZES = {

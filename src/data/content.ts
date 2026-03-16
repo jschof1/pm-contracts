@@ -376,11 +376,11 @@ export const siteContent: SiteContent = {
     businessName: "PM Contract",
     shortName: "PM Contracts",
     serviceAreaLabel: "Glasgow, Greenock, and surrounding areas",
-    trustedByline: "Family-run roofing specialists with 30 years of experience.",
+    trustedByline: "Family-run roofing specialists serving Glasgow and the surrounding area.",
   },
   cta: {
-    primaryQuote: "Get Your Free Roof Quote",
-    freeQuote: "Free Quote",
+    primaryQuote: "Request Your Free Roofing Quote",
+    freeQuote: "Get Free Quote",
     callNow: "Call Now",
     callUsNow: "Call Us Now",
     callback: "Or Request a Callback",
@@ -460,30 +460,30 @@ export const siteContent: SiteContent = {
   home: {
     seoPath: "/",
     hero: {
-      badgeReviews: "Family Run",
+      badgeReviews: "Google Business Profile",
       badgeInsured: "Fully Liability Insured",
-      titlePart1: "Roof Repairs",
-      titlePart2: "And Replacements",
-      titlePart3: "You Can Trust",
-      subtitle: "PM Contract delivers roofing, emergency callouts, leadwork, and exterior repair services with 30 years of hands-on experience.",
+      titlePart1: "Premium Roofing",
+      titlePart2: "Repairs & Replacements",
+      titlePart3: "Across Glasgow",
+      subtitle: "PM Contract delivers roof repairs, roof replacement, emergency callouts, leadwork, and roofline work with direct communication and practical advice.",
       experienceYears: "30 years of experience",
       benefits: [
         "24/7 Emergency Roofing",
-        "Free Roof Inspections",
+        "Free Roofing Quotes",
         "Family-Run Service",
-        "Free Gutter Clean Referral Offer",
+        "Roof Repairs & Replacement",
       ],
     },
     urgency: {
-      offer: "Need urgent help? We offer 24/7 emergency roofing support.",
-      slotsLeft: "Fast response available",
+      offer: "Need urgent roofing help? PM Contract offers 24/7 emergency callouts across Glasgow and surrounding areas.",
+      slotsLeft: "Fast response available today",
     },
     about: {
       kicker: "About PM Contract",
-      title: "Family-Run Roofing With Straight Answers",
+      title: "A Family-Run Roofer With A Premium Standard Of Service",
       paragraphs: [
-        "PM Contract is a family-run roofing business led by Peter McPhee. We focus on practical advice, reliable workmanship, and clear communication from the first call to the final handover.",
-        "Whether you need a roof repair, a full replacement, emergency help after bad weather, or support with leadwork, chimneys, roughcasting, and roofline issues, we keep the process simple and honest.",
+        "PM Contract is led by Peter McPhee and built around experienced roofing workmanship, dependable communication, and a straightforward approach to quoting and repairs.",
+        "From urgent roof leaks and storm damage to full roof replacement, leadwork, chimney repairs, and roofline upgrades, we deliver work that is practical, tidy, and clearly explained from the outset.",
       ],
       stats: [
         { number: "30", label: "Years Experience", iconName: "Award" },
@@ -491,13 +491,13 @@ export const siteContent: SiteContent = {
         { number: "60", label: "Mile Service Radius", iconName: "MapPin" },
         { number: "Fully", label: "Liability Insured", iconName: "Shield" },
       ],
-      cta: "Learn More About PM Contract",
+      cta: "Learn More About Our Roofing Team",
     },
     services: {
       kicker: "Roofing Services",
-      titlePart1: "Roofing And",
-      titlePart2: "Exterior Repairs",
-      description: "PM Contract covers the high-intent roofing jobs people usually need most urgently, plus supporting exterior repair services across",
+      titlePart1: "Roofing Services",
+      titlePart2: "Built Around What Homeowners Need Most",
+      description: "PM Contract focuses on the roofing jobs that matter most when protection, speed, and workmanship count across",
       items: [
         {
           title: "Roof Replacement",
@@ -537,9 +537,9 @@ export const siteContent: SiteContent = {
           iconName: "Droplets",
         },
       ],
-      ctaText: "Not sure which service fits your roof issue?",
+      ctaText: "Not sure whether you need a repair, an emergency callout, or a full replacement?",
       ctaButton: "Speak To A Roofer",
-      ctaBrowse: "Or browse all roofing services",
+      ctaBrowse: "Browse all roofing services",
     },
     process: {
       kicker: "How We Work",
@@ -630,10 +630,10 @@ export const siteContent: SiteContent = {
       kicker: "Project Highlights",
       titlePart1: "Selected",
       titlePart2: "Recent Jobs",
-      description: "A look at the kinds of roofing projects PM Contract completes across the service area.",
-      viewAll: "View All Projects",
+      description: "A look at the kind of roofing and roofline work PM Contract completes across Glasgow and the surrounding area.",
+      viewAll: "View All Roofing Projects",
       ctaTitle: "Need A Roofer You Can Depend On?",
-      ctaDescription: "Get in touch today for a free quote, practical advice, and a clear plan for your roofing job.",
+      ctaDescription: "Get a clear quote, practical advice, and direct contact with a family-run roofing company that takes workmanship seriously.",
       ctaButton: "Get a Free Quote",
     },
     testimonials: {
@@ -673,8 +673,8 @@ export const siteContent: SiteContent = {
     },
     objections: {
       kicker: "Common Questions",
-      title: "Still Deciding?",
-      description: "Here are the questions we hear most often from homeowners and property managers.",
+      title: "Still Weighing Up The Job?",
+      description: "These are the questions we hear most often from homeowners who want clear advice before they commit.",
       items: [
         {
           question: "Do I need a repair or a replacement?",
@@ -741,9 +741,9 @@ export const siteContent: SiteContent = {
     },
     cta: {
       kicker: "Get Started Today",
-      titlePart1: "Need Help With",
-      titlePart2: "Your Roof?",
-      description: "Get a free quote, practical advice, and direct communication from a family-run roofing business that values doing the job properly.",
+      titlePart1: "Need A Reliable",
+      titlePart2: "Glasgow Roofer?",
+      description: "Speak directly with PM Contract for a free quote, honest advice, and roofing work carried out with care, speed, and clear communication.",
       benefits: [
         { text: "Free Quote", iconName: "CheckCircle" },
         { text: "24/7 Support", iconName: "Clock" },
@@ -760,7 +760,7 @@ export const siteContent: SiteContent = {
       badges: [
         {
           name: "Google",
-          rating: "GBP",
+          rating: "Google Profile",
           ratingLabel: "Review profile available",
           logo: googleLogo,
         },

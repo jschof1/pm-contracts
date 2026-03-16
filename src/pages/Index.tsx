@@ -5,7 +5,6 @@ import { seoData } from "@/data/seoData";
 import UrgencyBanner from "@/components/home/UrgencyBanner";
 import HeroSection from "@/components/home/HeroSection";
 import TrustSignals from "@/components/home/TrustSignals";
-import WhyResinBound from "@/components/home/WhyResinBound";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
@@ -18,11 +17,10 @@ import ObjectionCrusher from "@/components/home/ObjectionCrusher";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
 
-
 const Index = () => {
   return (
     <Layout>
-      <SEOHead 
+      <SEOHead
         title={seoData.homepage.title}
         description={seoData.homepage.description}
         canonicalPath="/"
@@ -35,7 +33,6 @@ const Index = () => {
       <TrustSignals />
       <AboutSection />
       <ServicesSection />
-      {/* <WhyResinBound /> */}
       <ProcessSteps />
       {/* <BeforeAfterGallery /> */}
       <GuaranteeSection />

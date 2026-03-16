@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-  <rect width="96" height="96" rx="24" fill="#111111"/>
-  <path d="M14 62L35 35L56 62H48L35 47L22 62Z" fill="#f97316"/>
-  <path d="M34 62L56 26L78 62H69L56 43L43 62Z" fill="#fb923c"/>
+  <!-- House roof (blue) -->
+  <path d="M12 44 L48 12 L84 44 L84 52 L12 52 Z" fill="#2986e8"/>
+  <!-- Chimney -->
+  <rect x="66" y="28" width="12" height="24" fill="#1e6dd4"/>
+  <!-- Window (blue, 4-pane grid) -->
+  <rect x="24" y="36" width="24" height="24" fill="#2986e8"/>
+  <path d="M36 36v24M24 48h24" stroke="#1e6dd4" stroke-width="1.5" fill="none"/>
+  <!-- PM text (black, bold) -->
+  <text x="48" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#000" text-anchor="middle">PM</text>
 </svg>

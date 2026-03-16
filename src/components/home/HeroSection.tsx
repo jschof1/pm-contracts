@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Star, Shield, CheckCircle, ArrowRight, Phone, Sparkles } from 'lucide-react';
+import { Shield, CheckCircle, ArrowRight, Phone, Sparkles } from 'lucide-react';
 import SimpleContactForm from '@/components/SimpleContactForm';
 import { siteSettings } from '@/data/siteSettings';
 import { heroBackground } from '@/data/images';
@@ -63,16 +63,11 @@ const HeroSection = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-4 md:mb-8"
             >
-              {/* Google Reviews - Sharp badge with hover glow */}
+              {/* Google profile - sharp badge with hover glow */}
               <div className="label-outline bg-card/10 backdrop-blur-xl border-primary-foreground/20 text-primary-foreground hover-glow group cursor-default px-3 py-1.5 text-xs">
                 {googleBadge?.logo && <img src={googleBadge.logo} alt={googleBadge.name} className="w-4 h-4" loading="lazy" />}
-                <div className="flex items-center gap-0.5">
-                  {[...Array(googleBadge?.stars || 5)].map((_, index) => (
-                    <Star key={index} className="w-3 h-3 fill-[#facc15] text-[#facc15]" />
-                  ))}
-                </div>
                 <span className="font-semibold">
-                  {googleBadge ? `${googleBadge.rating}${googleBadge.rating.includes('/') ? '' : '/5'}` : content.badgeReviews}
+                  {googleBadge?.rating || content.badgeReviews}
                 </span>
               </div>
 
@@ -161,6 +156,23 @@ const HeroSection = () => {
               ))}
             </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6 md:mb-10"
+            >
+              <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-2 text-sm font-semibold text-primary-foreground">
+                Roof repairs and replacement
+              </div>
+              <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-2 text-sm font-semibold text-primary-foreground">
+                Emergency callouts 24/7
+              </div>
+              <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-2 text-sm font-semibold text-primary-foreground">
+                Glasgow and surrounding areas
+              </div>
+            </motion.div>
+
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -218,7 +230,7 @@ const HeroSection = () => {
                   {siteContent.cta.primaryQuote}
                 </h2>
                 <p className="text-sm text-muted-foreground text-center mb-6">
-                  No obligation • Same-day response
+                  No obligation • Direct response from PM Contract
                 </p>
                 <SimpleContactForm compact />
               </div>

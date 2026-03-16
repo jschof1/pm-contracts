@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, Shield, Clock, CheckCircle, Star, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { siteSettings } from '@/data/siteSettings';
 
 import { siteContent } from '@/data/content';
@@ -101,9 +101,8 @@ const CTASection = () => {
               transition={{ delay: 0.2 }}
               className="block"
             >
-              with{' '}
               <span className="relative inline-block text-gradient-accent">
-                {content.titlePart2.replace('with ', '')}
+                {content.titlePart2}
                 <motion.span 
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -148,7 +147,7 @@ const CTASection = () => {
               to="/contact"
               className="action-secondary inline-flex items-center gap-2 bg-transparent text-primary-foreground px-6 py-4 border-primary-foreground/30 hover:border-accent hover:text-accent group"
             >
-              <span>{siteContent.cta.callback}</span>
+              <span>Request a Callback</span>
               <Icons.ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
