@@ -1,0 +1,12 @@
+# PM Contract - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow hidden/internal pages
+Disallow: /special-offer
+Disallow: /feedback
+Disallow: /add-customer
+
+# Sitemap location
+Sitemap: https://rooferglasgow.uk/sitemap.xml

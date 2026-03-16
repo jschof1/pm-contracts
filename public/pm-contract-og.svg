@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111111"/>
+  <circle cx="1020" cy="114" r="220" fill="#1f2937"/>
+  <circle cx="1088" cy="48" r="160" fill="#ea580c" opacity="0.28"/>
+  <path d="M120 380L250 210L380 380H330L250 278L170 380Z" fill="#f97316"/>
+  <path d="M250 380L392 154L536 380H482L392 242L304 380Z" fill="#fb923c"/>
+  <text x="610" y="288" font-family="Arial, Helvetica, sans-serif" font-size="148" font-weight="800" fill="#ffffff">PM</text>
+  <text x="610" y="390" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" fill="#d1d5db">CONTRACTS</text>
+  <text x="610" y="460" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="500" fill="#f3f4f6">Roof repairs, roof replacement, and emergency callouts across Glasgow and surrounding areas.</text>
+</svg>

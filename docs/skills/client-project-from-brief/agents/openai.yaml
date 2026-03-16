@@ -1,0 +1,3 @@
+display_name: Client Project From Brief
+short_description: Build client data/theme from one markdown brief
+default_prompt: Apply this project's business brief to update content, theme, SEO metadata, and verify build outputs.

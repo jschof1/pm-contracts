@@ -1,0 +1,16 @@
+export const siteSettings = {
+  businessName: "PM Contract",
+  phone: "+44 7748 391835",
+  phoneFormatted: "447748391835",
+  email: "pmcontracts99@gmail.com",
+  address: "Balfour Street, Port Glasgow PA14 5HF, UK",
+  feedbackWebhook: "/api/form-proxy?type=negative-review",
+  feedbackGoogleReviewUrl: "",
+  quickFormWebhook: "/api/form-proxy?type=main",
+  quoteFormWebhook: "/api/form-proxy?type=quote",
+  discountFormWebhook: "/api/form-proxy?type=discount",
+  facebookUrl: "",
+  instagramUrl: "",
+  linkedinUrl: "",
+  serviceArea: "Glasgow, Port Glasgow, and surrounding Scotland areas",
+};

@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* All Aspect Roofing Design System
+   Theme: Sharp, Industrial, Architectural
+   Palette: Greeny Blue + Bright Yellow
+   All colors MUST be HSL.
+   ZERO BORDER RADIUS - Precision aesthetic
+*/
+
+@layer base {
+  :root {
+    /* Warm Off-White Background - softer than pure white */
+    --background: 40 20% 96%;
+    --foreground: 215 40% 15%;
+
+    /* Cream Card */
+    --card: 40 15% 98%;
+    --card-foreground: 215 40% 15%;
+
+    --popover: 40 15% 98%;
+    --popover-foreground: 215 40% 15%;
+
+    /* Navy Blue Primary - Deep and professional */
+    --primary: 215 55% 22%;
+    --primary-foreground: 40 15% 98%;
+
+    /* Light Grey Secondary */
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 215 40% 15%;
+
+    /* Muted - warmer grey */
+    --muted: 40 10% 90%;
+    --muted-foreground: 215 20% 40%;
+
+    /* Bright Yellow Accent - High converting, action-oriented */
+    --accent: 48 95% 52%;
+    --accent-foreground: 215 40% 15%;
+    /* Dark gold for text on light backgrounds - readable hover state */
+    --accent-text-on-light: 32 95% 28%;
+
+    /* Yellow Glow */
+    --accent-glow: 50 100% 58%;
+    --accent-soft: 48 85% 70%;
+
+    /* Secondary Accent - Lighter blue for trust signals */
+    --accent-secondary: 205 65% 45%;
+    --accent-secondary-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 15% 98%;
+
+    /* Borders - warmer */
+    --border: 40 10% 85%;
+    --border-inverse: 215 55% 22%;
+    --input: 40 10% 85%;
+    --ring: 48 95% 52%;
+
+    /* Shape control (runtime-overridden by theme.ts) */
+    --radius: 0px;
+    --corner-radius: 0px;
+
+    /* Custom Brand Colors */
+    --slate-dark: 215 55% 22%;
+    --slate-medium: 215 50% 30%;
+    --slate-light: 215 40% 40%;
+    --amber: 48 95% 52%;
+    --amber-glow: 50 100% 58%;
+    --amber-soft: 48 80% 70%;
+    --navy: 205 65% 45%;
+    --navy-light: 205 55% 55%;
+
+    /* Typography */
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Sharp Industrial Shadows - softer */
+    --shadow-sm: 0 2px 0 0 hsl(215 40% 15% / 0.04);
+    --shadow-md: 0 4px 0 0 hsl(215 40% 15% / 0.06);
+    --shadow-lg: 0 8px 0 0 hsl(215 40% 15% / 0.08);
+    --shadow-xl: 0 12px 0 0 hsl(215 40% 15% / 0.1);
+    --shadow-sharp: 4px 4px 0 0 hsl(215 40% 15% / 0.12);
+    --shadow-sharp-lg: 6px 6px 0 0 hsl(215 40% 15% / 0.15);
+    --shadow-accent: 0 4px 0 0 hsl(48 95% 52% / 0.4);
+    --shadow-accent-glow: 0 0 30px -5px hsl(48 95% 52% / 0.5);
+    --shadow-line: 0 4px 0 0 hsl(var(--border));
+    --shadow-line-accent: 0 4px 0 0 hsl(var(--accent));
+
+    /* Glass effects - warmer */
+    --glass-bg: hsl(40 15% 98% / 0.9);
+    --glass-border: hsl(40 10% 82%);
+    --glass-blur: 20px;
+
+    --sidebar-background: 215 55% 22%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 48 95% 52%;
+    --sidebar-primary-foreground: 215 40% 12%;
+    --sidebar-accent: 215 50% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 50% 30%;
+    --sidebar-ring: 48 95% 52%;
+  }
+
+  .dark {
+    --background: 215 30% 8%;
+    --foreground: 215 10% 95%;
+
+    --card: 215 35% 12%;
+    --card-foreground: 215 10% 95%;
+
+    --popover: 215 35% 12%;
+    --popover-foreground: 215 10% 95%;
+
+    --primary: 215 10% 95%;
+    --primary-foreground: 215 55% 22%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 215 10% 95%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 48 95% 52%;
+    --accent-foreground: 215 40% 12%;
+    --accent-text-on-light: 48 95% 52%;
+
+    --accent-secondary: 205 65% 50%;
+    --accent-secondary-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 215 10% 95%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 48 95% 52%;
+
+    /* Dark glass effects */
+    --glass-bg: hsl(215 35% 12% / 0.9);
+    --glass-border: hsl(215 25% 25%);
+    --shadow-line: 0 4px 0 0 hsl(var(--border));
+    --shadow-line-accent: 0 4px 0 0 hsl(var(--accent));
+
+    --sidebar-background: 215 55% 6%;
+    --sidebar-foreground: 215 10% 95%;
+    --sidebar-primary: 48 95% 52%;
+    --sidebar-primary-foreground: 215 40% 12%;
+    --sidebar-accent: 215 40% 15%;
+    --sidebar-accent-foreground: 215 10% 95%;
+    --sidebar-border: 215 40% 15%;
+    --sidebar-ring: 48 95% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-normal tracking-tight;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  /* Tighter section padding for area pages */
+  .area-section-padding {
+    @apply py-6 md:py-10 lg:py-12;
+  }
+
+  /* =========================================
+     SHARP INDUSTRIAL CARDS
+     ========================================= */
+  
+  /* Sharp card with thick left accent border */
+  .surface-panel {
+    @apply relative bg-card border-2 border-border backdrop-blur-xl rounded-xl;
+    box-shadow: var(--shadow-sharp);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .surface-panel:hover {
+    box-shadow: var(--shadow-sharp-lg);
+    transform: translateY(-2px);
+    border-color: hsl(var(--accent) / 0.65);
+  }
+
+  /* Neutral surface card without directional accent border */
+  .surface-card {
+    @apply relative bg-card border-2 border-border rounded-xl;
+    box-shadow: var(--shadow-sharp);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .surface-card:hover {
+    box-shadow: var(--shadow-sharp-lg);
+    border-color: hsl(var(--accent) / 0.65);
+    transform: translateY(-2px);
+  }
+
+  /* Industrial card with bottom shadow line */
+  .surface-panel-lined, .card-industrial {
+    @apply relative bg-card border-2 border-border rounded-xl;
+    box-shadow: 0 4px 0 0 hsl(var(--border));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .surface-panel-lined:hover, .card-industrial:hover {
+    box-shadow: 0 6px 0 0 hsl(var(--accent));
+    transform: translateY(-2px);
+  }
+
+  /* Glass card - sharp variant */
+  .surface-glass, .card-glass {
+    @apply relative border-2 bg-card/90 backdrop-blur-xl rounded-2xl;
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .surface-glass:hover, .card-glass:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+    border-color: hsl(var(--accent) / 0.5);
+  }
+
+  /* Elegant card - sharp with accent top border */
+  .surface-panel-accent {
+    @apply relative bg-card border-2 border-border backdrop-blur-sm rounded-xl;
+    border-top: 4px solid hsl(var(--accent));
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .surface-panel-accent:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-accent-glow);
+    transform: translateY(-3px);
+  }
+
+  .surface-inverse {
+    @apply relative bg-primary text-primary-foreground border-2 border-slate-medium/50 rounded-xl;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Legacy aliases (kept for backward compatibility) */
+  .card-sharp {
+    @apply relative bg-card border-2 border-border backdrop-blur-xl rounded-xl;
+    box-shadow: var(--shadow-sharp);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid hsl(var(--accent));
+  }
+
+  .card-sharp:hover {
+    box-shadow: var(--shadow-sharp-lg);
+    transform: translate(-2px, -4px);
+    border-color: hsl(var(--accent));
+  }
+
+  .card-elegant {
+    @apply relative bg-card border-2 border-border backdrop-blur-sm rounded-xl;
+    border-top: 4px solid hsl(var(--accent));
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elegant:hover {
+    box-shadow: var(--shadow-xl), var(--shadow-accent-glow);
+    transform: translateY(-6px);
+  }
+
+  .card-dark {
+    @apply relative bg-primary text-primary-foreground border-2 border-slate-medium/50 rounded-xl;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* =========================================
+     ARCHITECTURAL CORNER ACCENTS
+     ========================================= */
+  
+  .corner-accent {
+    @apply relative;
+  }
+
+  .corner-accent::before,
+  .corner-accent::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid hsl(var(--accent));
+    pointer-events: none;
+  }
+
+  .corner-accent::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: var(--corner-radius);
+  }
+
+  .corner-accent::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: var(--corner-radius);
+  }
+
+  /* =========================================
+     BUTTONS - SHARP INDUSTRIAL
+     ========================================= */
+  
+  .action-primary, .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-300 rounded-lg;
+    @apply bg-accent text-accent-foreground border-2 border-accent;
+    box-shadow: var(--shadow-sharp);
+  }
+
+  .action-primary:hover, .btn-primary:hover {
+    box-shadow: var(--shadow-sharp-lg), var(--shadow-accent-glow);
+    transform: translate(-2px, -2px);
+  }
+
+  .action-primary-inverse {
+    border-color: hsl(var(--border-inverse));
+  }
+
+  .action-secondary, .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-300 rounded-lg;
+    @apply bg-transparent text-foreground border-2 border-border;
+  }
+
+  .action-secondary:hover, .btn-secondary:hover {
+    @apply border-accent text-accent;
+    box-shadow: var(--shadow-sharp);
+    transform: translate(-2px, -2px);
+  }
+
+  .action-inverse, .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-300 rounded-lg;
+    @apply bg-primary text-primary-foreground border-2 border-primary;
+    box-shadow: var(--shadow-sharp);
+  }
+
+  .action-inverse:hover, .btn-dark:hover {
+    @apply bg-slate-medium;
+    transform: translate(-2px, -2px);
+  }
+
+  /* White fill button for primary (dark) sections */
+  .action-primary-foreground {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-300;
+    background-color: hsl(var(--primary-foreground));
+    color: hsl(var(--primary));
+    border: 2px solid hsl(var(--primary-foreground));
+    border-radius: var(--corner-radius);
+    box-shadow: var(--shadow-sharp);
+  }
+
+  .action-primary-foreground:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+    box-shadow: var(--shadow-sharp-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  /* Legacy CTA Button */
+  .action-accent, .btn-cta {
+    @apply bg-accent text-accent-foreground font-bold uppercase tracking-wide transition-all duration-300 border-2 border-accent rounded-lg;
+    box-shadow: var(--shadow-sharp);
+  }
+
+  .action-accent:hover, .btn-cta:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-sharp-lg), var(--shadow-accent-glow);
+  }
+
+  /* Legacy Navy Button */
+  .action-inverse-alt, .btn-navy {
+    @apply bg-primary text-primary-foreground font-bold transition-all duration-300 rounded-lg;
+  }
+
+  .action-inverse-alt:hover, .btn-navy:hover {
+    @apply bg-slate-medium;
+  }
+
+  /* =========================================
+     DIVIDERS & BORDERS
+     ========================================= */
+  
+  .divider-accent {
+    @apply w-full h-1 bg-accent;
+  }
+
+  .border-accent-left {
+    border-left: 4px solid hsl(var(--accent));
+  }
+
+  .border-accent-top {
+    border-top: 4px solid hsl(var(--accent));
+  }
+
+  .border-accent-bottom {
+    border-bottom: 4px solid hsl(var(--accent));
+  }
+
+  /* =========================================
+     ARCHITECTURAL GRID OVERLAY
+     ========================================= */
+  
+  .grid-overlay {
+    @apply pointer-events-none absolute inset-0 opacity-5;
+    background-image: 
+      linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .grid-overlay-accent {
+    @apply pointer-events-none absolute inset-0 opacity-10;
+    background-image: 
+      linear-gradient(hsl(var(--accent)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* =========================================
+     AMBIENT EFFECTS - RECTANGULAR
+     ========================================= */
+  
+  .ambient-glow {
+    @apply absolute blur-3xl opacity-20 pointer-events-none;
+    background: linear-gradient(135deg, hsl(48 95% 52% / 0.4) 0%, transparent 70%);
+  }
+
+  .ambient-glow-navy {
+    @apply absolute blur-3xl opacity-15 pointer-events-none;
+    background: linear-gradient(135deg, hsl(215 55% 35% / 0.4) 0%, transparent 70%);
+  }
+
+  /* Legacy orbs - now rectangular glow */
+  .ambient-orb {
+    @apply absolute blur-3xl opacity-30 pointer-events-none;
+    background: linear-gradient(135deg, hsl(48 95% 52% / 0.5) 0%, transparent 60%);
+  }
+
+  .ambient-orb-navy {
+    @apply absolute blur-3xl opacity-20 pointer-events-none;
+    background: linear-gradient(135deg, hsl(215 55% 35% / 0.4) 0%, transparent 60%);
+  }
+
+  /* =========================================
+     TYPOGRAPHY UTILITIES
+     ========================================= */
+  
+  .section-label {
+    @apply text-accent font-semibold text-sm uppercase tracking-widest;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl text-foreground;
+  }
+
+  .section-title-light {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl text-primary-foreground;
+  }
+
+  /* Text gradient */
+  .text-gradient-accent {
+    background: linear-gradient(135deg, hsl(48 95% 52%), hsl(50 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Sharp underline accent */
+  .underline-accent {
+    @apply relative inline-block;
+  }
+
+  .underline-accent::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-1 bg-accent;
+  }
+
+  /* =========================================
+     BADGE - SHARP WITH UNDERLINE
+     ========================================= */
+  
+  .label-outline, .badge-sharp {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-card border-2 border-border text-sm font-semibold rounded-lg;
+    border-bottom: 3px solid hsl(var(--accent));
+  }
+
+  .label-solid, .badge-sharp-filled {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground text-sm font-bold rounded-lg border-2 border-primary;
+    box-shadow: var(--shadow-sharp);
+  }
+
+  /* =========================================
+     TRUST BADGE - SHARP
+     ========================================= */
+  
+  .label-trust, .trust-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-card border-2 border-border font-semibold rounded-lg;
+    border-left: 3px solid hsl(var(--accent));
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Semantic icon surfaces */
+  .surface-icon {
+    @apply flex items-center justify-center rounded-lg bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-sharp);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .surface-icon-muted {
+    @apply flex items-center justify-center rounded-lg bg-card text-foreground;
+    box-shadow: var(--shadow-sharp);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .surface-icon-accent {
+    @apply flex items-center justify-center rounded-lg bg-accent text-accent-foreground;
+    box-shadow: var(--shadow-sharp);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  /* =========================================
+     LEGACY UTILITIES (for backward compat)
+     ========================================= */
+  
+  .card-bold {
+    @apply bg-card border-2 border-border rounded-xl;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .card-bold:hover {
+    @apply border-accent;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .card-accent-left {
+    @apply bg-card border-2 border-border rounded-xl;
+    border-left: 4px solid hsl(var(--accent));
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Glow effects */
+  .glow-accent {
+    box-shadow: 0 0 30px hsl(48 95% 52% / 0.3);
+  }
+
+  .glow-accent-lg {
+    box-shadow: 0 0 50px hsl(48 95% 52% / 0.4);
+  }
+
+  .glow-navy {
+    box-shadow: 0 0 30px hsl(215 55% 35% / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Staggered animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  /* Hover lift */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* Sharp hover - offset translate */
+  .hover-sharp {
+    @apply transition-all duration-300;
+  }
+
+  .hover-sharp:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  /* Backdrop blur utilities */
+  .backdrop-blur-glass {
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+  }
+
+  /* =========================================
+     PREMIUM MICRO-INTERACTIONS
+     ========================================= */
+
+  /* Animated underline link */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-accent;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Corner brackets - architectural detail */
+  .corner-brackets {
+    @apply relative;
+  }
+
+  .corner-brackets::before,
+  .corner-brackets::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 20;
+  }
+
+  .corner-brackets::before {
+    top: -2px;
+    left: -2px;
+    border-top: 3px solid hsl(var(--accent));
+    border-left: 3px solid hsl(var(--accent));
+    border-top-left-radius: var(--corner-radius);
+  }
+
+  .corner-brackets::after {
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 3px solid hsl(var(--accent));
+    border-right: 3px solid hsl(var(--accent));
+    border-bottom-right-radius: var(--corner-radius);
+  }
+
+  .corner-brackets:hover::before,
+  .corner-brackets:hover::after {
+    opacity: 1;
+  }
+
+  .corner-brackets:hover::before {
+    transform: translate(-4px, -4px);
+  }
+
+  .corner-brackets:hover::after {
+    transform: translate(4px, 4px);
+  }
+
+  /* Shimmer text effect */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Diagonal clip effect */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+  }
+
+  .clip-diagonal-reverse {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px));
+  }
+
+  /* Accent line that animates in */
+  .accent-line-animated {
+    @apply relative overflow-hidden;
+  }
+
+  .accent-line-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-1 bg-accent;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .accent-line-animated:hover::after,
+  .group:hover .accent-line-animated::after {
+    transform: translateX(0);
+  }
+
+  /* Pulse ring effect for icons */
+  .pulse-ring {
+    @apply relative;
+  }
+
+  .pulse-ring::before {
+    content: '';
+    @apply absolute inset-0 border-2 border-accent;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Number reveal animation container */
+  .number-reveal {
+    @apply overflow-hidden;
+  }
+
+  .number-reveal > * {
+    animation: number-tick 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* Staggered children reveal */
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+
+  /* Decorative accent bar */
+  .accent-bar {
+    @apply relative;
+  }
+
+  .accent-bar::before {
+    content: '';
+    @apply absolute -left-4 top-0 w-1 h-full bg-accent;
+  }
+
+  /* Hover glow effect */
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px -5px hsl(var(--accent) / 0.5);
+  }
+
+  /* Icon container with accent corner */
+  .icon-accent-corner {
+    @apply relative;
+  }
+
+  .icon-accent-corner::after {
+    content: '';
+    @apply absolute -top-1 -right-1 w-3 h-3 bg-accent;
+  }
+
+  /* Reveal mask effect */
+  .reveal-mask {
+    clip-path: inset(0 100% 0 0);
+    animation: reveal-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Floating animation */
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Border that draws itself */
+  .border-draw {
+    @apply relative;
+  }
+
+  .border-draw::before {
+    content: '';
+    @apply absolute inset-0 border-2 border-accent;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .border-draw:hover::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Theme-aware decorative corner utilities */
+  .theme-corner-tl {
+    border-top-left-radius: var(--corner-radius);
+  }
+
+  .theme-corner-tr {
+    border-top-right-radius: var(--corner-radius);
+  }
+
+  .theme-corner-bl {
+    border-bottom-left-radius: var(--corner-radius);
+  }
+
+  .theme-corner-br {
+    border-bottom-right-radius: var(--corner-radius);
+  }
+
+  /* TrustPilot brand green (#00b67a) */
+  .trustpilot-green {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(130deg) brightness(95%) contrast(101%);
+  }
+}
