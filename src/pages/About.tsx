@@ -124,7 +124,7 @@ const About = () => {
             >
               <img 
                 src={aboutBrandImage}
-                alt="PM Contract team vehicle"
+                alt="PM Roofers team vehicle"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -238,7 +238,7 @@ const About = () => {
                 href={`tel:${siteSettings.phoneFormatted}`}
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-foreground text-primary-foreground font-semibold rounded-md hover:bg-primary-foreground hover:text-primary transition-colors"
               >
-                {siteContent.cta.callNow} {siteSettings.phone}
+                {siteContent.cta.callNow}
               </a>
             </div>
             {/* Certifications */}

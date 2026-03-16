@@ -1,6 +1,10 @@
 {
-  "name": "PM Contract",
-  "short_name": "PM Contract",
+  "name": "PM Roofers",
+  "short_name": "PM Roofers",
+  "description": "PM Roofers - roof repairs, replacements, and emergency roofing across Glasgow and surrounding areas.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/favicons/web-app-manifest-192x192.png",
@@ -29,5 +33,6 @@
   ],
   "theme_color": "#1e3a5f",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait"
 }

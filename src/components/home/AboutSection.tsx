@@ -34,7 +34,7 @@ const AboutSection = () => {
             <div className="surface-card aspect-[4/3] bg-slate-medium overflow-hidden border-4 border-accent/20">
               <img 
                 src={aboutBrandImage}
-                alt="PM Contract team and vehicle"
+                alt="PM Roofers team and vehicle"
                 className="w-full h-full object-cover"
                 width={800}
                 height={600}

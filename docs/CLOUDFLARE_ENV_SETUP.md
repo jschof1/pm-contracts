@@ -11,12 +11,12 @@ The Pages Function forwards each request to a server-side webhook stored in Clou
 
 ## Required Cloudflare env vars
 
-Set these on the Dominion EPC / Dominion Trade Pages project:
+Set these on the PM Roofers Cloudflare Pages project:
 
-- `QUOTE_FORM_WEBHOOK`
-- `MAIN_FORM_WEBHOOK`
-- `NEGATIVE_REVIEW_WEBHOOK`
-- `DISCOUNT_FORM_WEBHOOK`
+- `QUOTE_FORM_WEBHOOK=https://services.leadconnectorhq.com/hooks/lgMnKq09kTzFVsHzOjd3/webhook-trigger/t9vDXCdo1uXVOq7ntXC7`
+- `MAIN_FORM_WEBHOOK=https://services.leadconnectorhq.com/hooks/lgMnKq09kTzFVsHzOjd3/webhook-trigger/QOpFlrRpMKgmjShfVwUR`
+- `NEGATIVE_REVIEW_WEBHOOK=https://services.leadconnectorhq.com/hooks/lgMnKq09kTzFVsHzOjd3/webhook-trigger/SIDrDVRQ135NPZl0UgbS`
+- `DISCOUNT_FORM_WEBHOOK=https://services.leadconnectorhq.com/hooks/lgMnKq09kTzFVsHzOjd3/webhook-trigger/b8Rq77KyHvC3YYRGwCB1`
 
 If the legacy email function is still used, also set:
 
@@ -41,7 +41,7 @@ npx wrangler pages secret put RESEND_API_KEY --project-name <pages-project-name>
 
 ## Deployment note
 
-- Production domain stays on `dominionepc.com`.
+- Production domain should be `pmroofers.com`.
 - After setting the secrets above, trigger a new deployment so the Pages Functions pick up the env vars.
 
 ## Hosting transfer note
@@ -52,6 +52,6 @@ Before the domain cutover:
 
 1. Confirm the Cloudflare Pages project is serving the correct production build.
 2. Confirm forms work against the Cloudflare env-backed webhook proxy.
-3. Confirm DNS records required for `dominionepc.com`.
+3. Confirm DNS records required for `pmroofers.com`.
 4. Lower TTL if needed before nameserver or record changes.
 5. Schedule the switch and smoke test the live domain immediately after the change.

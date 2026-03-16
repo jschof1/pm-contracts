@@ -75,7 +75,7 @@ const createArea = (
   slug,
   description: `Trusted roofing and roof repair services in ${name}.`,
   longDescription:
-    `PM Contract provides roofing, roof repairs, emergency callouts, and exterior property repair services in ${name}. ${localHighlight ? localHighlight + " " : ""}We focus on practical advice, honest communication, and high-quality workmanship for homeowners and commercial clients across the ${name} area.`,
+    `PM Roofers provides roofing, roof repairs, emergency callouts, and exterior property repair services in ${name}. ${localHighlight ? localHighlight + " " : ""}We focus on practical advice, honest communication, and high-quality workmanship for homeowners and commercial clients across the ${name} area.`,
   neighbourhoods,
   keyFacts: [
     `Trusted in ${name} with 30 years of experience`,
@@ -109,7 +109,7 @@ const createArea = (
 });
 
 export const areas: Area[] = [
-  createArea("Glasgow", "glasgow", ["City Centre", "Bearsden", "Newton Mearns", "Pollokshields"], 220, "Glasgow is a major focus area for PM Contract, especially for homeowners searching for fast roof repair and dependable replacement work."),
+  createArea("Glasgow", "glasgow", ["City Centre", "Bearsden", "Newton Mearns", "Pollokshields"], 220, "Glasgow is a major focus area for PM Roofers, especially for homeowners searching for fast roof repair and dependable replacement work."),
   createArea("Edinburgh", "edinburgh", ["Morningside", "Leith", "Corstorphine", "Newington"], 150, "We support customers across Edinburgh with practical roofing solutions and clear communication from survey through to completion."),
   createArea("Paisley", "paisley", ["Ralston", "Glenburn", "Foxbar", "Renfrew Road"], 98, "Paisley properties regularly need prompt roof repair support after heavy weather, and we cover the area with straightforward, experienced service."),
   createArea("East Kilbride", "east-kilbride", ["St Leonards", "The Murray", "Westwood", "Greenhills"], 92, "From urgent leaks to full replacements, we help East Kilbride homeowners protect their properties with practical roofing work."),
@@ -118,12 +118,12 @@ export const areas: Area[] = [
   createArea("Hamilton", "hamilton", ["Bothwell", "Burnbank", "High Blantyre", "Chatelherault"], 88, "Hamilton homeowners rely on us for prompt roof repairs, guttering upgrades, and replacement advice where needed."),
   createArea("Cumbernauld", "cumbernauld", ["Condorrat", "Carrickstone", "Seafar", "Westfield"], 116, "Cumbernauld sits close to our service base, making it a strong area for routine repairs and urgent roofing callouts."),
   createArea("Kirkcaldy", "kirkcaldy", ["Dysart", "Templehall", "Strathallan", "Thornton"], 66, "We travel to Kirkcaldy for selected roofing jobs where experience and clean communication are a priority."),
-  createArea("Kilmarnock", "kilmarnock", ["Hurlford", "Crookedholm", "Onthank", "Riccarton"], 71, "Kilmarnock customers use PM Contract for practical roofing support with transparent recommendations and quick scheduling."),
+  createArea("Kilmarnock", "kilmarnock", ["Hurlford", "Crookedholm", "Onthank", "Riccarton"], 71, "Kilmarnock customers use PM Roofers for practical roofing support with transparent recommendations and quick scheduling."),
   createArea("Ayr", "ayr", ["Alloway", "Forehill", "Seafield", "Whitletts"], 69, "Ayr falls within our wider coverage area for replacement work, repair jobs, and external weatherproofing support."),
-  createArea("Coatbridge", "coatbridge", ["Bargeddie", "Carnbroe", "Kirkwood", "Whifflet"], 95, "Coatbridge is a regular roofing service area for PM Contract thanks to our focus on fast response and reliable workmanship."),
-  createArea("Greenock", "greenock", ["Gourock", "Branchton", "Cartsdyke", "Larkfield"], 126, "Greenock is close to the business address and remains one of the strongest local areas for PM Contract's family-run roofing service."),
+  createArea("Coatbridge", "coatbridge", ["Bargeddie", "Carnbroe", "Kirkwood", "Whifflet"], 95, "Coatbridge is a regular roofing service area for PM Roofers thanks to our focus on fast response and reliable workmanship."),
+  createArea("Greenock", "greenock", ["Gourock", "Branchton", "Cartsdyke", "Larkfield"], 126, "Greenock is close to the business address and remains one of the strongest local areas for PM Roofers' family-run roofing service."),
   createArea("Stirling", "stirling", ["Bridge of Allan", "Raploch", "Causewayhead", "Bannockburn"], 61, "We support Stirling customers looking for professional roof repairs and replacement planning without sales pressure."),
-  createArea("Airdrie", "airdrie", ["Coatdyke", "Clarkston", "Chapelhall", "Glenmavis"], 83, "Airdrie homeowners can contact PM Contract for 24/7 roofing support, replacement advice, and external repair work."),
+  createArea("Airdrie", "airdrie", ["Coatdyke", "Clarkston", "Chapelhall", "Glenmavis"], 83, "Airdrie homeowners can contact PM Roofers for 24/7 roofing support, replacement advice, and external repair work."),
 ];
 
 export const getAreaData = (slug: string): Area | undefined => {

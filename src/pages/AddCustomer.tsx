@@ -6,7 +6,7 @@ const AddCustomer = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Customer Portal | PM Contract</title>
+        <title>Customer Portal | PM Roofers</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="container mx-auto py-12 px-4">
@@ -20,7 +20,7 @@ const AddCustomer = () => {
             title="Add Customer Form"
           />
           <p className="text-muted-foreground text-center text-sm">
-            For support, call <a className="text-primary underline" href={`tel:${siteSettings.phoneFormatted}`}>{siteSettings.phone}</a> or email{" "}
+            For support, use the <a className="text-primary underline" href={`tel:${siteSettings.phoneFormatted}`}>call now link</a> or email{" "}
             <a className="text-primary underline" href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a>.
           </p>
         </div>

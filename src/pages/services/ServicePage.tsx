@@ -95,7 +95,7 @@ const ServicePage = ({ slugOverride }: ServicePageProps) => {
                   className="inline-flex items-center justify-center px-10 py-5 border-2 border-primary-foreground text-primary-foreground font-bold rounded-lg hover:bg-primary-foreground hover:text-primary transition-all text-lg"
                 >
                   <Phone className="w-5 h-5 mr-3" />
-                  Call {siteSettings.phone}
+                  Call Now
                 </a>
               </div>
             </motion.div>
@@ -222,7 +222,7 @@ const ServicePage = ({ slugOverride }: ServicePageProps) => {
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg hover:bg-primary/90 transition-all shadow-sharp"
                 >
                   <Phone className="w-5 h-5" />
-                  Call Now: {siteSettings.phone}
+                  Call Now
                 </a>
                 <a
                   href="#quote"

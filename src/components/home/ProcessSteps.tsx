@@ -80,7 +80,7 @@ const ProcessSteps = () => {
                   </div>
                   <div>
                     <p className="text-accent-foreground/80 text-[10px] md:text-xs font-bold uppercase tracking-wider">{content.directLineLabel}</p>
-                    <p className="text-accent-foreground font-display text-xl md:text-2xl font-bold">{siteSettings.phone}</p>
+                    <p className="text-accent-foreground font-display text-xl md:text-2xl font-bold">{siteContent.cta.callNow}</p>
                   </div>
                 </div>
                 <Link to="/contact" className="action-inverse w-full justify-center py-3 text-sm flex items-center gap-2 font-bold relative z-10">

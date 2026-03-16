@@ -5,7 +5,7 @@ import { siteContent } from "./data/content";
 
 type PageTemplateProps = PageMetaData;
 
-const BASE_URL = "https://rooferglasgow.uk";
+const BASE_URL = siteSettings.websiteUrl;
 
 const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTemplateProps) => {
   const fullTitle =
@@ -14,7 +14,7 @@ const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTempla
   const metaDescription =
     description ||
     `Roof repairs, roof replacement, emergency roofing and exterior property services across ${siteContent.brand.serviceAreaLabel}.`;
-  const metaImage = ogImage || `${BASE_URL}/pm-contract-og.svg`;
+  const metaImage = ogImage || `${BASE_URL}/pm-roofers-og.svg`;
   const canonicalUrl = `${BASE_URL}${path === "/" || !path ? "" : path}`;
 
   const robots = noindex
@@ -33,9 +33,9 @@ const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTempla
     email: siteSettings.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Balfour Street",
-      addressLocality: "Port Glasgow",
-      postalCode: "PA14 5HF",
+      streetAddress: "11 Lanrig Place",
+      addressLocality: "Glasgow",
+      postalCode: "G69 9AT",
       addressCountry: "GB",
     },
     priceRange: "££",

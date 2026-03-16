@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Areas from "./pages/Areas";
 import Reviews from "./pages/Reviews";
 import Feedback from "./pages/Feedback";
+import FeedbackGoogle from "./pages/FeedbackGoogle";
 import GetQuote from "./pages/GetQuote";
 import DiscountForm from "./pages/DiscountForm";
 import DiscountPage from "./pages/DiscountPage";
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/projects/:slug" element={<ProjectPage />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/feedback/google" element={<FeedbackGoogle />} />
           <Route path="/get-quote" element={<GetQuote />} />
           <Route path="/special-offer" element={<DiscountForm />} />
           <Route path="/discount" element={<DiscountPage />} />

@@ -10,7 +10,7 @@ const HeroSection = () => {
   const googleBadge = siteContent.home.trustSignals.badges.find((badge) => badge.name.toLowerCase() === 'google');
   
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-primary overflow-hidden">
+    <section className="relative flex min-h-[calc(100vh-7rem)] items-center overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -47,8 +47,8 @@ const HeroSection = () => {
       <div className="ambient-glow w-[600px] h-[400px] -top-20 -left-20 animate-glow-pulse" />
       <div className="ambient-glow-navy w-[400px] h-[300px] bottom-20 right-20 animate-glow-pulse animation-delay-500" />
 
-      <div className="container-custom relative z-10 py-6 md:py-20">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+      <div className="container-custom relative z-10 py-4 md:py-10 lg:py-12">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +83,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="font-display text-5xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-4 md:mb-6"
+              className="mb-4 font-display text-4xl leading-[1.05] md:mb-5 md:text-5xl lg:text-[3.4rem] xl:text-[4rem]"
             >
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
@@ -123,7 +123,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-primary-foreground/85 mb-4 md:mb-8 max-w-xl leading-relaxed mx-auto lg:mx-0"
+              className="mx-auto mb-4 max-w-xl text-base leading-relaxed text-primary-foreground/85 md:mb-6 md:text-lg lg:mx-0"
             >
               {content.subtitle}{' '}
               <strong className="text-accent font-semibold relative">
@@ -139,7 +139,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-3 mb-6 md:mb-10"
+              className="mb-5 grid grid-cols-2 gap-2 md:mb-6 md:gap-3"
             >
               {content.benefits.map((point, index) => (
                 <motion.div
@@ -148,7 +148,7 @@ const HeroSection = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
                   whileHover={{ x: 4 }}
-                  className="surface-card flex items-center gap-3 text-sm font-medium text-primary-foreground/95 bg-card/5 backdrop-blur-sm px-4 py-1 border-primary-foreground/10 border-l-4 border-l-accent group cursor-default"
+                  className="surface-card flex items-center gap-3 border-l-4 border-l-accent border-primary-foreground/10 bg-card/5 px-4 py-2 text-sm font-medium text-primary-foreground/95 backdrop-blur-sm group cursor-default"
                 >
                   <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
                   <span>{point}</span>
@@ -160,7 +160,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6 md:mb-10"
+              className="mb-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start md:mb-6"
             >
               <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-2 text-sm font-semibold text-primary-foreground">
                 Roof repairs and replacement
@@ -178,7 +178,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full [&>a]:flex-1 [&>a]:min-w-0 justify-center lg:justify-start"
+              className="flex w-full flex-col justify-center gap-3 [&>a]:min-w-0 [&>a]:flex-1 sm:flex-row lg:justify-start"
             >
               <motion.a
                 href={`tel:${siteSettings.phoneFormatted}`}
@@ -189,7 +189,7 @@ const HeroSection = () => {
                 {/* Shimmer effect on hover */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Phone className="w-5 h-5 relative z-10 text-accent-foreground" />
-                <span className="relative z-10">{siteSettings.phone}</span>
+                <span className="relative z-10">{siteContent.cta.callNow}</span>
               </motion.a>
               <motion.a
                 href="/contact"
@@ -208,7 +208,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+            className="hidden lg:block lg:self-stretch"
           >
             <div className="surface-glass p-1 relative corner-accent group">
               {/* Glow effect behind card */}
@@ -225,12 +225,12 @@ const HeroSection = () => {
                 {siteContent.cta.freeQuote.toUpperCase()}
               </motion.div>
               
-              <div className="surface-panel-accent relative bg-card/95 backdrop-blur-xl p-8 pt-10 border-border/50">
+              <div className="surface-panel-accent relative border-border/50 bg-card/95 p-6 pt-8 backdrop-blur-xl xl:p-8 xl:pt-10">
                 <h2 className="font-display text-2xl text-foreground mb-1 text-center">
                   {siteContent.cta.primaryQuote}
                 </h2>
                 <p className="text-sm text-muted-foreground text-center mb-6">
-                  No obligation • Direct response from PM Contract
+                  No obligation • Direct response from PM Roofers
                 </p>
                 <SimpleContactForm compact />
               </div>

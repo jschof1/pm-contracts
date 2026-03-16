@@ -51,7 +51,7 @@ const ProjectPage = () => {
   return (
     <Layout>
       <SEOHead 
-        title={`${project.title} | ${project.location} | PM Contract`}
+        title={`${project.title} | ${project.location} | PM Roofers`}
         description={project.description}
         canonicalPath={`/projects/${project.slug}`}
       />
@@ -131,7 +131,7 @@ const ProjectPage = () => {
                   className="inline-flex items-center justify-center px-10 py-5 border-2 border-primary-foreground text-primary-foreground font-bold rounded-lg hover:bg-primary-foreground hover:text-primary transition-all text-lg"
                 >
                   <Phone className="w-5 h-5 mr-3" />
-                  Call {siteSettings.phone}
+                  Call Now
                 </a>
               </div>
             </motion.div>
@@ -170,8 +170,8 @@ const ProjectPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: Home, value: 15, suffix: '+', label: 'Years Experience' },
-              { icon: Star, value: 5, label: 'Placeholder Rating', isDecimal: true },
+              { icon: Home, value: 30, suffix: '+', label: 'Years Experience' },
+              { icon: Star, value: 5, label: 'Google Rating', isDecimal: true, suffix: '/5' },
               { icon: Clock, value: 24, suffix: 'hr', label: 'Response Time' },
               { icon: Award, value: 100, suffix: '%', label: 'Customer Focus' },
             ].map((stat, index) => (
@@ -186,7 +186,7 @@ const ProjectPage = () => {
                 <stat.icon className="w-8 h-8 mx-auto mb-3 text-accent group-hover:scale-110 transition-transform" />
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
                   {stat.isDecimal ? (
-                    <span>{stat.value}</span>
+                    <span>{stat.value}{stat.suffix || ''}</span>
                   ) : (
                     <Counter value={stat.value} suffix={stat.suffix} />
                   )}
@@ -358,14 +358,14 @@ const ProjectPage = () => {
                   <div className="relative z-10">
                     <h4 className="font-display text-2xl font-bold mb-4">Need immediate help?</h4>
                     <p className="text-primary-foreground/70 mb-8 text-sm leading-relaxed">
-                      Speak to PM Contract about the right roofing or exterior service for your property and get clear advice on the next step.
+                      Speak to PM Roofers about the right roofing or exterior service for your property and get clear advice on the next step.
                     </p>
                     <a 
                       href={`tel:${siteSettings.phoneFormatted}`}
                       className="inline-flex items-center justify-center w-full py-5 bg-accent text-accent-foreground font-bold hover:bg-card hover:text-primary transition-all gap-3 shadow-sharp text-lg"
                     >
                       <Phone className="w-5 h-5" />
-                      Call {siteSettings.phone}
+                      Call Now
                     </a>
                   </div>
                 </motion.div>
@@ -382,7 +382,7 @@ const ProjectPage = () => {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">More Recent Work</h2>
               <p className="text-muted-foreground max-w-xl">
-                Explore other recent PM Contract projects from across the Glasgow service area.
+                Explore other recent PM Roofers projects from across the Glasgow service area.
               </p>
             </div>
             <Link to="/" className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group">

@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { siteContent } from '@/data/content';
+import { siteSettings } from '@/data/siteSettings';
 
-const BASE_URL = 'https://rooferglasgow.uk';
-const DEFAULT_IMAGE = '/images/logo.png';
+const BASE_URL = siteSettings.websiteUrl;
+const DEFAULT_IMAGE = '/pm-roofers-og.svg';
 const SITE_NAME = siteContent.brand.businessName;
 
 interface SEOHeadProps {

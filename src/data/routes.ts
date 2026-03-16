@@ -1,8 +1,9 @@
+import { siteSettings } from "./siteSettings.ts";
 import { areas } from "./areas.ts";
 import { services } from "./services.ts";
 import { routeSeo } from "./content.ts";
 
-export const SITE_BASE_URL = "https://rooferglasgow.uk";
+export const SITE_BASE_URL = siteSettings.websiteUrl;
 
 export interface RouteDefinition {
   path: string;

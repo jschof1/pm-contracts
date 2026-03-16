@@ -82,8 +82,8 @@ const FeedbackPage = () => {
   return (
     <>
       <SEOHead
-        title="Feedback | PM Contract"
-        description="Private feedback form for PM Contract."
+        title={`Feedback | ${siteSettings.businessName}`}
+        description={`Private feedback form for ${siteSettings.businessName}.`}
         canonicalPath="/feedback"
         noindex
       />
@@ -154,7 +154,7 @@ const FeedbackPage = () => {
                   <div>
                     <Input
                       type="tel"
-                      placeholder={`Your phone (optional, e.g. ${siteSettings.phone})`}
+                      placeholder="Your phone (optional)"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       maxLength={20}
@@ -185,7 +185,7 @@ const FeedbackPage = () => {
                 <h2 className="text-xl font-bold text-foreground mb-2">Thank you for your feedback</h2>
                 <p className="text-muted-foreground text-sm">
                   {selectedRating && selectedRating >= 4
-                    ? "We appreciate the positive feedback. Our public review profile is still being finalised, but your response has been recorded."
+                    ? "We appreciate the positive feedback. If our public Google review profile is not live yet, your response has still been recorded."
                     : "We appreciate you taking the time to share your experience. A member of our team will be in touch shortly to discuss how we can make things right."}
                 </p>
               </div>

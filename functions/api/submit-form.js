@@ -47,7 +47,7 @@ const buildHtml = (payload) => {
     .join("");
 
   return `<h2>New Website Enquiry</h2>
-<p>A new submission was sent from rooferglasgow.uk.</p>
+<p>A new submission was sent from pmroofers.com.</p>
 <table style="border-collapse:collapse;border:1px solid #ddd;">${rows}</table>`;
 };
 
@@ -77,7 +77,7 @@ export async function onRequestPost(context) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "PM Contract Website <onboarding@resend.dev>",
+      from: "PM Roofers Website <onboarding@resend.dev>",
       to: "pmcontracts99@gmail.com",
       subject: `New enquiry (${source})`,
       reply_to: payload.email || undefined,

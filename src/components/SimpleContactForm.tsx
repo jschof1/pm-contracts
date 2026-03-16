@@ -18,16 +18,16 @@ interface SimpleContactFormProps {
 }
 
 const services = [
-  'Roof Cleaning',
-  'Gutter Cleaning',
-  'Patio & Driveway Cleaning',
-  'Window Cleaning',
-  'Conservatory Cleaning',
-  'Steam Cleaning',
-  'Brickwork Cleaning',
-  'Car Park Cleaning',
-  'Rubbish Removal',
-  'Other Cleaning Service',
+  'Roof Repairs',
+  'Roof Replacement',
+  'Emergency Roof Repairs',
+  'Leadwork',
+  'Chimney Repairs',
+  'Roughcasting',
+  'UPVC Gutters',
+  'Damp Proofing',
+  'Skylight Repairs',
+  'Other Roofing Work',
 ];
 
 const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
@@ -100,7 +100,7 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
           </label>
           <Input
             type="tel"
-            placeholder={siteSettings.phone}
+            placeholder="Your best callback number"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="bg-background border-border h-12 text-base px-4"

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" role="img" aria-labelledby="title desc">
-  <title id="title">PM Contracts</title>
-  <desc id="desc">PM Contracts horizontal wordmark for header</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 48" role="img" aria-labelledby="title desc">
+  <title id="title">PM Roofers</title>
+  <desc id="desc">PM Roofers horizontal wordmark for header</desc>
   <!-- House icon (scaled from logo-mark, positioned left) -->
   <g transform="translate(0, 4) scale(0.38)">
     <path d="M14 62L35 35L56 62H48L35 47L22 62Z" fill="#f97316"/>
@@ -8,6 +8,6 @@
   </g>
   <!-- PM - smaller, on the left -->
   <text x="42" y="32" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#1a1d24">PM</text>
-  <!-- CONTRACTS - bigger, on the right -->
-  <text x="72" y="34" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1a1d24">CONTRACTS</text>
+  <!-- ROOFERS - bigger, on the right -->
+  <text x="72" y="34" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1a1d24">ROOFERS</text>
 </svg>

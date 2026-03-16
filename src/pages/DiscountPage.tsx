@@ -116,7 +116,7 @@ const DiscountPage = () => {
           phone: formData.phone.trim(),
           message: formData.message.trim(),
           source: "special-offer-page",
-          offer: "FREE GUTTER CLEAN / CURRENT OFFER",
+          offer: "PRIORITY ROOFING QUOTE REQUEST",
           timestamp: new Date().toISOString(),
         }),
       });
@@ -127,7 +127,7 @@ const DiscountPage = () => {
         throw new Error("Submission failed");
       }
     } catch (error) {
-      toast.error("Something went wrong. Please try again or call us directly.");
+      toast.error("Something went wrong. Please try again or use the call now button.");
     } finally {
       setIsSubmitting(false);
     }
@@ -137,8 +137,8 @@ const DiscountPage = () => {
     return (
       <>
         <SEOHead
-          title="Free Gutter Clean Referral Offer | PM Contract"
-          description="Claim PM Contract's referral offer and ask about current savings on roofing and exterior repair work."
+          title="Priority Roofing Quote Request | PM Roofers"
+          description="Request a priority roofing quote from PM Roofers for urgent repairs, replacements, and exterior protection work."
           canonicalPath="/discount"
           noindex
         />
@@ -149,7 +149,7 @@ const DiscountPage = () => {
           </div>
           <h1 className="text-3xl font-bold text-foreground">You're In! 🎉</h1>
           <p className="text-muted-foreground text-lg">
-            Your <span className="text-primary font-semibold">referral offer</span> has been noted. 
+            Your <span className="text-primary font-semibold">priority quote request</span> has been noted.
             We'll call you shortly to discuss your roofing or exterior project.
           </p>
           <div className="pt-4 border-t border-border">
@@ -160,7 +160,7 @@ const DiscountPage = () => {
               href={`tel:${siteSettings.phoneFormatted}`}
               className="text-xl font-bold text-primary hover:underline"
             >
-              {siteSettings.phone}
+              Call Now
             </a>
           </div>
         </div>
@@ -172,8 +172,8 @@ const DiscountPage = () => {
   return (
     <>
       <SEOHead
-        title="Free Gutter Clean Referral Offer | PM Contract"
-        description="Claim PM Contract's referral offer and ask about current savings on roofing and exterior repair work."
+        title="Priority Roofing Quote Request | PM Roofers"
+        description="Request a priority roofing quote from PM Roofers for urgent repairs, replacements, and exterior protection work."
         canonicalPath="/discount"
         noindex
       />
@@ -214,10 +214,10 @@ const DiscountPage = () => {
                 <Gift className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-black text-foreground">
-                Your <span className="text-primary">Current Offer</span> Is Waiting!
+                Your <span className="text-primary">Priority Quote</span> Is Waiting
               </h3>
               <p className="text-muted-foreground">
-                You're seconds away from claiming your current PM Contract offer. Are you sure you want to leave?
+                You're seconds away from requesting a fast callback from PM Roofers. Are you sure you want to leave?
               </p>
             </div>
 
@@ -245,13 +245,13 @@ const DiscountPage = () => {
                 }}
                 className="w-full h-12 font-bold text-base"
               >
-                🎁 YES! I Want My 15% Discount
+                Yes - Keep My Priority Quote
               </Button>
               <button
                 onClick={() => setShowExitPopup(false)}
                 className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                No thanks, I'll pay full price
+                No thanks, I'll come back later
               </button>
             </div>
           </div>
@@ -270,15 +270,15 @@ const DiscountPage = () => {
             <div className="text-center space-y-3">
               <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-3 py-1 rounded-full text-xs font-bold animate-pulse">
                 <Clock className="w-3 h-3" />
-                LIMITED TIME ONLY
+                Priority callback request
               </div>
               
               <div className="space-y-1">
                 <h1 className="text-3xl md:text-4xl font-black text-foreground">
-                  Get <span className="text-primary">15% OFF</span>
+                  Get a <span className="text-primary">Fast Roofing Callback</span>
                 </h1>
                 <p className="text-muted-foreground">
-                  Your next home improvement project
+                  For urgent repairs, replacement quotes, and roofing advice
                 </p>
               </div>
 
@@ -286,7 +286,7 @@ const DiscountPage = () => {
               <div className="flex items-center justify-center gap-2 text-sm">
                 <Users className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">
-                  <span className="font-bold text-foreground">47 people</span> claimed this offer today
+                  <span className="font-bold text-foreground">Fast response</span> from a local roofing team
                 </span>
               </div>
             </div>
@@ -325,7 +325,7 @@ const DiscountPage = () => {
                 <Label htmlFor="message" className="text-foreground font-medium text-sm">What do you need? (optional)</Label>
                 <Textarea
                   id="message"
-                  placeholder="Kitchen, bathroom, renovation..."
+                  placeholder="Roof leak, replacement, roughcasting, guttering..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={2}
@@ -340,7 +340,7 @@ const DiscountPage = () => {
                 size="lg"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Claiming..." : "🎁 CLAIM MY 15% DISCOUNT"}
+                {isSubmitting ? "Sending..." : "Request Priority Callback"}
               </Button>
 
               {/* Micro-commitments */}
@@ -363,7 +363,7 @@ const DiscountPage = () => {
               </div>
               <div className="text-sm">
                 <span className="font-semibold text-foreground">{recentNames[recentClaim]}</span>
-                <span className="text-muted-foreground"> just claimed their discount</span>
+                  <span className="text-muted-foreground"> just requested a roofing callback</span>
               </div>
             </div>
           </div>
@@ -381,14 +381,14 @@ const DiscountPage = () => {
               <Star className="w-5 h-5 fill-[#facc15] text-[#facc15]" />
             </div>
             <span className="text-sm text-muted-foreground">
-              <span className="font-bold text-foreground">4.9/5</span> from 200+ reviews
+              <span className="font-bold text-foreground">5/5</span> Google Reviews
             </span>
           </div>
 
           {/* Quick Trust Points */}
           <div className="grid grid-cols-3 gap-2 text-center text-xs">
             <div className="bg-card/50 rounded-lg p-3 border border-border">
-              <div className="font-bold text-foreground">20+ Years</div>
+              <div className="font-bold text-foreground">30+ Years</div>
               <div className="text-muted-foreground">Experience</div>
             </div>
             <div className="bg-card/50 rounded-lg p-3 border border-border">
@@ -403,13 +403,13 @@ const DiscountPage = () => {
 
           {/* What You Get */}
           <div className="bg-card/50 rounded-xl p-4 border border-border space-y-3">
-            <h3 className="font-bold text-foreground text-center">What's Included:</h3>
+            <h3 className="font-bold text-foreground text-center">What You Get:</h3>
             <div className="space-y-2">
               {[
-                "15% off your entire project",
+                "Priority callback from PM Roofers",
                 "Free no-obligation quote",
-                "Priority scheduling",
-                "Written guarantee on all work"
+                "Straightforward advice on the right next step",
+                "A roofing-specific plan for your job"
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />

@@ -179,7 +179,7 @@ const TermsOfService = () => {
               <div className="mt-4 text-muted-foreground">
                 <p><strong>{siteSettings.businessName}</strong></p>
                 <p>Email: {siteSettings.email}</p>
-                <p>Phone: {siteSettings.phone}</p>
+                <p>Phone: Call now</p>
               </div>
             </section>
           </div>

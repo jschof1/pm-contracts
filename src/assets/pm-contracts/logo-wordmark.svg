@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
-  <title id="title">PM Contracts</title>
-  <desc id="desc">PM Contracts roofing and exterior repairs wordmark</desc>
-  <rect width="360" height="96" rx="18" fill="#111111"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" role="img" aria-labelledby="title desc">
+  <title id="title">PM Roofers</title>
+  <desc id="desc">PM Roofers roofing wordmark</desc>
   <path d="M28 62L50 34L72 62H63L50 46L37 62Z" fill="#f97316"/>
   <path d="M54 62L76 28L98 62H89L76 42L63 62Z" fill="#fb923c"/>
-  <text x="118" y="49" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#ffffff">PM</text>
-  <text x="118" y="76" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#d1d5db">CONTRACTS</text>
+  <text x="118" y="49" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#111827">PM</text>
+  <text x="118" y="76" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#334155">ROOFERS</text>
 </svg>

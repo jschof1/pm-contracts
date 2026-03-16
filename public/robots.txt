@@ -1,4 +1,4 @@
-# PM Contract - robots.txt
+# PM Roofers - robots.txt
 
 User-agent: *
 Allow: /
@@ -9,4 +9,4 @@ Disallow: /feedback
 Disallow: /add-customer
 
 # Sitemap location
-Sitemap: https://rooferglasgow.uk/sitemap.xml
+Sitemap: https://pmroofers.com/sitemap.xml

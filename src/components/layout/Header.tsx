@@ -49,7 +49,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-[130] w-full transition-all duration-300",
         isScrolled
           ? "bg-card/50 backdrop-blur-md shadow-line border-b-4 border-accent py-2"
           : "bg-card border-b-2 border-border py-3",
@@ -68,7 +68,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 z-20">
             <NavigationMenu>
               <NavigationMenuList>
                 {mainLinks.map((link, index) => (
@@ -77,7 +77,7 @@ const Header = () => {
                     {index === 1 && (
                       <>
                         <NavigationMenuItem>
-                          <NavigationMenuTrigger className="text-sm font-bold bg-transparent text-foreground hover:text-accent-text-on-light">
+                          <NavigationMenuTrigger className="h-10 px-4 py-0 text-sm font-bold bg-transparent text-foreground hover:text-accent-text-on-light">
                             {servicesLabel}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
@@ -115,7 +115,7 @@ const Header = () => {
                         </NavigationMenuItem>
 
                         <NavigationMenuItem>
-                          <NavigationMenuTrigger className="text-sm font-bold bg-transparent text-foreground hover:text-accent-text-on-light">
+                          <NavigationMenuTrigger className="h-10 px-4 py-0 text-sm font-bold bg-transparent text-foreground hover:text-accent-text-on-light">
                             {areasLabel}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
@@ -146,7 +146,7 @@ const Header = () => {
                       <Link
                         to={link.href}
                         className={cn(
-                          "px-4 py-2 text-sm font-bold transition-colors relative",
+                          "relative inline-flex h-10 items-center px-4 py-0 text-sm font-bold transition-colors",
                           location.pathname === link.href
                             ? "text-accent-text-on-light"
                             : "text-foreground hover:text-accent-text-on-light",
@@ -154,7 +154,7 @@ const Header = () => {
                       >
                         {link.title}
                         {location.pathname === link.href && (
-                          <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent-text-on-light" />
+                          <span className="absolute -bottom-1 left-4 right-4 h-0.5 bg-accent-text-on-light" />
                         )}
                       </Link>
                     </NavigationMenuItem>

@@ -72,8 +72,8 @@ const DiscountForm = () => {
     return (
       <Layout>
         <SEOHead
-          title="Special Offer Request | PM Contract"
-          description="Request the current PM Contract offer for roofing and exterior repair work."
+          title="Priority Quote Request | PM Roofers"
+          description="Request a priority roofing quote from PM Roofers."
           canonicalPath="/special-offer"
           noindex
         />
@@ -84,7 +84,7 @@ const DiscountForm = () => {
             </div>
             <h1 className="text-2xl font-bold text-foreground">Thank You!</h1>
             <p className="text-muted-foreground">
-              Your request has been received. We'll send your exclusive discount details to your email shortly.
+              Your request has been received. We'll be in touch shortly to discuss the right next step for your roofing project.
             </p>
           </div>
         </div>
@@ -95,8 +95,8 @@ const DiscountForm = () => {
   return (
     <Layout>
       <SEOHead
-          title="Special Offer Request | PM Contract"
-          description="Request the current PM Contract offer for roofing and exterior repair work."
+          title="Priority Quote Request | PM Roofers"
+          description="Request a priority roofing quote from PM Roofers."
         canonicalPath="/special-offer"
         noindex
       />
@@ -107,10 +107,10 @@ const DiscountForm = () => {
               <Gift className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-2xl font-bold text-foreground mb-2">
-              Claim Your Exclusive Discount
+              Request A Priority Roofing Quote
             </h1>
             <p className="text-muted-foreground">
-              Fill in your details below and we'll send you a special offer.
+              Fill in your details below and we will call you back to discuss your roofing job.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ const DiscountForm = () => {
               size="lg"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Submitting..." : "Get My Discount"}
+              {isSubmitting ? "Submitting..." : "Request Callback"}
             </Button>
           </form>
         </div>

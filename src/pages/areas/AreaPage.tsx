@@ -56,7 +56,6 @@ const getServiceIcon = (slug: string) => {
     'skylight-repairs-and-replacement': Droplets,
     'dry-rot-repair': Wrench,
     'damp-proofing': CloudRain,
-    'jet-washing': Sparkles,
   };
   return icons[slug] || Building;
 };
@@ -76,7 +75,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
     name: 'Glasgow',
     slug: 'glasgow',
     description: 'Professional roofing and exterior repair services across Glasgow.',
-    longDescription: 'PM Contract provides roof repairs, roof replacement, leadwork, chimney repairs and exterior protection work across Glasgow and surrounding areas.',
+    longDescription: 'PM Roofers provides roof repairs, roof replacement, leadwork, chimney repairs and exterior protection work across Glasgow and surrounding areas.',
     neighbourhoods: ['Dennistoun', 'Bishopbriggs', 'Robroyston', 'Springburn', 'Rutherglen', 'Bearsden'],
     keyFacts: ['30 years experience', 'Fully liability insured', '24/7 emergency response'],
     testimonial: {
@@ -196,7 +195,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Phone className="w-6 h-6 animate-pulse" />
-                  Call Now: {siteSettings.phone}
+                  Call Now
                 </motion.a>
                 <a 
                   href="#quote" 
@@ -416,7 +415,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <Phone className="w-5 h-5 animate-pulse relative z-10" />
-              <span className="relative z-10">Discuss Your {areaData.name} Project: {siteSettings.phone}</span>
+              <span className="relative z-10">Discuss Your {areaData.name} Project</span>
             </motion.a>
             <div className="mt-5">
               <Link
@@ -449,11 +448,11 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                 Trusted Locally
               </span>
               <h2 className="font-display text-3xl md:text-4xl text-secondary-foreground mb-4 relative inline-block">
-                Why {areaData.name} Customers Choose PM Contract
+                Why {areaData.name} Customers Choose PM Roofers
                 <span className="absolute -bottom-1 left-0 w-16 h-1 bg-accent" />
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                With {areaData.yearsServing}+ years of roofing experience and a growing track record across {areaData.name}, PM Contract is known for honest advice, reliable service, and visible results.
+                With {areaData.yearsServing}+ years of roofing experience and a growing track record across {areaData.name}, PM Roofers is known for honest advice, reliable service, and visible results.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
@@ -482,7 +481,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Phone className="w-5 h-5 animate-pulse relative z-10" />
-                <span className="relative z-10">Call Now: {siteSettings.phone}</span>
+                <span className="relative z-10">Call Now</span>
               </motion.a>
             </motion.div>
             
@@ -530,7 +529,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               Recent Roofing Projects in {areaData.name}
             </h2>
             <p className="text-muted-foreground">
-              See examples of PM Contract work completed across the {areaData.name} area
+              See examples of PM Roofers work completed across the {areaData.name} area
             </p>
           </motion.div>
           
@@ -587,7 +586,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg"
             >
               <Phone className="w-5 h-5 animate-pulse" />
-              Book Your {areaData.name} Roofing Quote: {siteSettings.phone}
+              Book Your {areaData.name} Roofing Quote
             </a>
           </motion.div>
         </div>
@@ -674,7 +673,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-xl"
             >
               <Phone className="w-5 h-5 animate-pulse" />
-              Join Our Happy Customers: {siteSettings.phone}
+              Join Our Happy Customers
             </a>
             <p className="text-primary-foreground/60 text-sm mt-4">
               <Link to="/reviews" className="hover:text-primary-foreground underline">Read more reviews →</Link>
@@ -737,7 +736,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg"
               >
                 <Phone className="w-5 h-5 animate-pulse" />
-                Call For Instant Answers: {siteSettings.phone}
+                Call For Instant Answers
               </a>
             </motion.div>
           </div>

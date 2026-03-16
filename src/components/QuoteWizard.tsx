@@ -50,8 +50,8 @@ const propertyTypes = [
 
 const sizeRanges = [
   { value: 'small', label: 'Small Job / Single Area' },
-  { value: 'medium', label: 'Multi-Area Property Clean' },
-  { value: 'large', label: 'Full Exterior Deep Clean' },
+  { value: 'medium', label: 'Multi-Area Roofing Repair' },
+  { value: 'large', label: 'Full Roof Replacement Project' },
   { value: 'commercial', label: 'Commercial Project' },
   { value: 'unsure', label: 'Not Sure - Need Survey' },
 ];
@@ -355,7 +355,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => updateFormData('phone', e.target.value)}
-                      placeholder={siteSettings.phone}
+                      placeholder="Your best callback number"
                       className="mt-1 h-9 md:h-10"
                     />
                   </div>

@@ -4,7 +4,7 @@ import { services } from '@/data/services';
 import { areas } from '@/data/areas';
 import { siteContent } from '@/data/content';
 
-const BASE_URL = 'https://rooferglasgow.uk';
+const BASE_URL = siteSettings.websiteUrl;
 
 interface BreadcrumbItem {
   name: string;
@@ -74,9 +74,9 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
           email: siteSettings.email,
           address: showFullAddress ? {
             '@type': 'PostalAddress',
-            streetAddress: 'Balfour Street',
-            addressLocality: 'Port Glasgow',
-            postalCode: 'PA14 5HF',
+            streetAddress: '11 Lanrig Place',
+            addressLocality: 'Glasgow',
+            postalCode: 'G69 9AT',
             addressCountry: 'GB',
           } : {
             '@type': 'PostalAddress',
@@ -108,8 +108,8 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
               closes: '19:00',
             },
           ],
-          image: `${BASE_URL}/images/logo.png`,
-          logo: `${BASE_URL}/images/logo.png`,
+          image: `${BASE_URL}/pm-roofers-og.svg`,
+          logo: `${BASE_URL}/favicons/web-app-manifest-512x512.png`,
           sameAs: [
             siteSettings.facebookUrl,
             siteSettings.instagramUrl,
@@ -127,7 +127,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
           url: BASE_URL,
           logo: {
             '@type': 'ImageObject',
-            url: `${BASE_URL}/images/logo.png`,
+            url: `${BASE_URL}/favicons/web-app-manifest-512x512.png`,
             width: '512',
             height: '512',
           },
@@ -242,7 +242,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
             ? data.image
             : data.image
               ? `${BASE_URL}${data.image}`
-              : `${BASE_URL}/images/logo.png`;
+              : `${BASE_URL}/pm-roofers-og.svg`;
           schema = {
             '@context': 'https://schema.org',
             '@type': 'Article',
@@ -262,7 +262,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
               '@id': `${BASE_URL}/#organization`,
               logo: {
                 '@type': 'ImageObject',
-                url: `${BASE_URL}/images/logo.png`,
+                url: `${BASE_URL}/favicons/web-app-manifest-512x512.png`,
               },
             },
             datePublished: data.datePublished,

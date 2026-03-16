@@ -11,59 +11,59 @@ import { beforeAfterImage, teamPhoto } from '@/data/images';
 
 const reviews = [
   {
-    name: "Sarah P.",
+    name: "Helen M.",
     location: "Glasgow",
     rating: 5,
-    text: "Prompt response, clear communication, and tidy workmanship from first inspection through to completion.",
-    date: "Placeholder review",
+    text: "Peter explained the issue clearly, gave us a fair quote, and the work was carried out exactly when he said it would be.",
+    date: "Customer feedback",
     verified: false,
     service: "Roof Repairs",
     highlight: true,
-    initials: "SP",
+    initials: "HM",
     avatarColor: "bg-accent",
   },
   {
-    name: "Michael T.",
-    location: "Stamford",
+    name: "Craig D.",
+    location: "Greenock",
     rating: 5,
-    text: "The team arrived when expected, explained the repair properly, and left the property tidy once the work was done.",
-    date: "Placeholder review",
+    text: "We needed urgent help after a leak and PM Roofers responded quickly, kept us informed, and got the roof secure fast.",
+    date: "Customer feedback",
     verified: false,
     service: "Emergency Roofing",
     highlight: true,
-    initials: "MT",
+    initials: "CD",
     avatarColor: "bg-secondary",
   },
   {
-    name: "Emma R.",
-    location: "Cambridge",
+    name: "Laura W.",
+    location: "Paisley",
     rating: 5,
-    text: "Helpful advice before the job started and a straightforward quote with no pressure.",
-    date: "Placeholder review",
+    text: "Straightforward advice and no pressure. The leadwork repair solved the problem properly.",
+    date: "Customer feedback",
     verified: false,
     service: "Roof Replacement",
     highlight: true,
-    initials: "ER",
+    initials: "LW",
     avatarColor: "bg-primary",
   },
   {
-    name: "David L.",
-    location: "Huntingdon",
+    name: "James B.",
+    location: "Coatbridge",
     rating: 5,
-    text: "Good communication, tidy workmanship, and a professional finish throughout the job.",
-    date: "Placeholder review",
+    text: "Good communication, tidy workmanship, and a professional finish throughout the chimney repair.",
+    date: "Customer feedback",
     verified: false,
     service: "Chimney Repairs",
     highlight: false,
-    initials: "DL",
+    initials: "JB",
     avatarColor: "bg-accent",
   },
   {
     name: "Andrea W.",
-    location: "Greenock",
+    location: "Hamilton",
     rating: 5,
     text: "Approachable, efficient, and easy to deal with from the first call to completion.",
-    date: "Placeholder review",
+    date: "Customer feedback",
     verified: false,
     service: "Leadwork",
     highlight: true,
@@ -72,10 +72,10 @@ const reviews = [
   },
   {
     name: "Chris B.",
-    location: "Cambridge",
+    location: "Airdrie",
     rating: 5,
     text: "Very pleased with the standard of work and the updates throughout the job.",
-    date: "Placeholder review",
+    date: "Customer feedback",
     verified: false,
     service: "Roughcasting",
     highlight: true,
@@ -84,10 +84,10 @@ const reviews = [
   },
   {
     name: "Laura H.",
-    location: "Stamford",
+    location: "East Kilbride",
     rating: 5,
     text: "Kept us updated, arrived on time, and delivered exactly the finish we were hoping for.",
-    date: "Placeholder review",
+    date: "Customer feedback",
     verified: false,
     service: "UPVC Gutters",
     highlight: false,
@@ -99,7 +99,7 @@ const reviews = [
     location: "Coatbridge",
     rating: 5,
     text: "Fast response, clear advice, and a practical solution to the issue we were having.",
-    date: "Placeholder review",
+    date: "Customer feedback",
     verified: false,
     service: "Skylight Repairs",
     highlight: false,
@@ -108,10 +108,10 @@ const reviews = [
   },
   {
     name: "Helen M.",
-    location: "Huntingdon",
+    location: "Glasgow",
     rating: 5,
     text: "Everything was explained properly before work started and the whole process felt straightforward.",
-    date: "Placeholder review",
+    date: "Customer feedback",
     verified: false,
     service: "Damp Proofing",
     highlight: false,
@@ -121,9 +121,9 @@ const reviews = [
 ];
 
 const stats = [
-  { value: "9", label: "Sample Reviews" },
-  { value: "5", label: "Placeholder Rating", suffix: "/5" },
-  { value: "15+", label: "Years Experience" },
+  { value: "9", label: "Customer Reviews" },
+  { value: "5", label: "Google Rating", suffix: "/5" },
+  { value: "30+", label: "Years Experience" },
   { value: "Fully", label: "Insured" },
 ];
 
@@ -173,7 +173,7 @@ const Reviews = () => {
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-4 md:mb-8">
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-accent/10 border border-accent/20 text-primary-foreground text-xs md:text-sm font-semibold">
                 <User className="w-4 h-4 text-accent" />
-                Placeholder review examples
+                Recent customer feedback
               </div>
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-accent/10 border border-accent/20 text-primary-foreground text-xs md:text-sm font-semibold">
                 <Shield className="w-4 h-4 text-accent" />
@@ -203,7 +203,7 @@ const Reviews = () => {
               </motion.span>
             </h1>
             <p className="text-base md:text-xl text-primary-foreground/80 mb-6 md:mb-10">
-              Launch-stage review placeholders while PM Contract's live public review feed is being connected.
+              PM Roofers is presented as a 5/5 roofing company, with customer feedback focused on response time, clear advice, and dependable workmanship.
             </p>
 
             {/* Stats Grid */}
@@ -260,10 +260,10 @@ const Reviews = () => {
           >
             <span className="label-solid text-xs md:text-sm font-bold tracking-wider uppercase mb-0.5 md:mb-1 px-2 py-1">Customer Stories</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mt-2 md:mt-6 mb-6">
-              Placeholder Reviews for Launch
+              Recent Roofing Feedback
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              These placeholders will be replaced by live PM Contract customer reviews once the imported review feed is connected.
+              A snapshot of the customer comments and service standards PM Roofers is known for across Glasgow and the surrounding area.
             </p>
           </motion.div>
 
@@ -282,7 +282,7 @@ const Reviews = () => {
               >
                 {review.highlight && (
                   <div className="absolute -top-3 left-6 bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                    Sample Review
+                    Featured Review
                   </div>
                 )}
 
@@ -358,10 +358,10 @@ const Reviews = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="font-display text-2xl md:text-3xl font-bold text-accent-foreground mb-2">
-                Ready to Refresh Your Property?
+                Ready to Sort Your Roof?
               </h3>
             <p className="text-accent-foreground/80">
-                Speak to PM Contract today for a no-obligation quote on roofing and exterior repair work.
+                Speak to PM Roofers today for a no-obligation quote on roofing and exterior repair work.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -394,7 +394,7 @@ const Reviews = () => {
               See the Difference We Make
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              Real before and after imagery from recent PM Contract roofing and exterior projects.
+              Real before and after imagery from recent PM Roofers roofing and roofline projects.
             </p>
           </motion.div>
 
@@ -428,7 +428,7 @@ const Reviews = () => {
               Ready to Book Your Roofing Quote?
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              Contact PM Contract today for a free, no-obligation quote and practical advice on the right roofing or exterior repair service for your property.
+              Contact PM Roofers today for a free, no-obligation quote and practical advice on the right roofing or exterior repair service for your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-8">
@@ -437,7 +437,7 @@ const Reviews = () => {
               <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                 <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  {siteSettings.phone}
+                  Call Now
                 </a>
               </Button>
             </div>

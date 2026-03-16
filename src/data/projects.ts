@@ -36,7 +36,7 @@ export const projects: Project[] = [
     beforeImage: projectTwo,
     testimonial: {
       text: "Peter talked us through the whole process clearly and the new roof has completely changed the look of the house.",
-      author: "PM Contract customer, Glasgow"
+      author: "PM Roofers customer, Glasgow"
     }
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     afterImage: projectTwo,
     testimonial: {
       text: "They got to us quickly, explained what had failed, and sorted the roof before the damage spread any further.",
-      author: "PM Contract customer, Greenock"
+      author: "PM Roofers customer, Greenock"
     }
   },
   {
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     afterImage: projectThree,
     testimonial: {
       text: "We had ongoing problems around the chimney and they fixed the issue properly rather than patching over it.",
-      author: "PM Contract customer, Paisley"
+      author: "PM Roofers customer, Paisley"
     }
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     afterImage: projectFive,
     testimonial: {
       text: "The house looks smarter and the water now runs away properly. Really easy team to deal with.",
-      author: "PM Contract customer, Cumbernauld"
+      author: "PM Roofers customer, Cumbernauld"
     }
   }
 ];

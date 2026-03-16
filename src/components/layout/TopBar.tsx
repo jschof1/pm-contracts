@@ -20,7 +20,7 @@ const TopBar = () => {
             className="flex items-center gap-2 font-semibold hover:text-accent transition-colors px-3 py-1 border-2 border-primary-foreground/20 hover:border-accent"
           >
             <Phone className="h-4 w-4 text-accent" />
-            <span>{siteSettings.phone}</span>
+            <span>Call Now</span>
           </a>
         </div>
       </div>

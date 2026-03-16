@@ -95,7 +95,7 @@ const Services = () => {
                 transition={{ delay: 0.3 }}
                 className="relative inline-block text-gradient-accent"
               >
-                Cleaning Services
+                Roofing Services
                 <motion.span 
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -124,7 +124,7 @@ const Services = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-5 h-5" />
-                {siteContent.servicesPage.heroSecondaryCtaPrefix} {siteSettings.phone}
+                {siteContent.cta.callNow}
               </motion.a>
             </div>
           </motion.div>

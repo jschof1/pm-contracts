@@ -180,7 +180,7 @@ const ProjectsSection = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-5 h-5 group-hover/phone:rotate-12 transition-transform" />
-                {siteSettings.phone}
+                {siteContent.cta.callNow}
               </motion.a>
               <Link
                 to="/contact"

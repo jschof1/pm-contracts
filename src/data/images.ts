@@ -11,8 +11,6 @@ const roofWork = new URL('../assets/pm-contracts/image11.webp', import.meta.url)
 const roofWorkAlt = new URL('../assets/pm-contracts/image13.webp', import.meta.url).href;
 const gutters = new URL('../assets/pm-contracts/image16.webp', import.meta.url).href;
 const damp = new URL('../assets/pm-contracts/image19.webp', import.meta.url).href;
-const joinery = new URL('../assets/pm-contracts/image22.webp', import.meta.url).href;
-const pmLogo = new URL('../assets/pm-logo.png', import.meta.url).href;
 
 export const heroBackground = heroMain;
 export const heroBackgroundAreas = heroAlt;
@@ -40,8 +38,6 @@ export const serviceImages: Record<string, string> = {
   'upvc-gutters': gutters,
   'dry-rot-repair': damp,
   'damp-proofing': damp,
-  'jet-washing': joinery,
-  'general-joinery': joinery,
 };
 
 export const getServiceImage = (href: string): string =>
@@ -55,8 +51,8 @@ export const areaPageGalleryImages = {
   cityscape: heroBackgroundAreas,
 } as const;
 
-export const headerLogo = pmLogo;
-export const footerLogo = pmLogo;
+export const headerLogo = new URL('../assets/pm-contracts/logo-wordmark-horizontal.svg', import.meta.url).href;
+export const footerLogo = new URL('../assets/pm-contracts/logo-wordmark.svg', import.meta.url).href;
 
 export const paymentLogos = {
   visa: new URL('../assets/payment/visa.svg', import.meta.url).href,

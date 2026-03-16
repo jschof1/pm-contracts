@@ -142,7 +142,7 @@ const FAQ = () => {
                 href={`tel:${siteSettings.phoneFormatted}`}
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                {siteContent.cta.callNow} {siteSettings.phone}
+                {siteContent.cta.callNow}
               </a>
             </div>
             {/* Certifications */}

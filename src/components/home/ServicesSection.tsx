@@ -213,8 +213,8 @@ const ServicesSection = () => {
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Phone className="w-7 h-7 relative z-10" />
             <div className="flex flex-col items-center relative z-10 leading-tight">
-              <span className="text-sm uppercase tracking-widest font-bold opacity-80">Speak Directly With PM Contract</span>
-              <span className="text-2xl font-black">{siteSettings.phone}</span>
+              <span className="text-sm uppercase tracking-widest font-bold opacity-80">Speak Directly With PM Roofers</span>
+              <span className="text-2xl font-black">{siteContent.cta.callNow}</span>
             </div>
           </motion.a>
           <div className="mt-5">

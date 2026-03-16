@@ -10,8 +10,6 @@ const skylightImg = new URL("../assets/pm-contracts/image15.webp", import.meta.u
 const guttersImg = new URL("../assets/pm-contracts/image16.webp", import.meta.url).href;
 const dryRotImg = new URL("../assets/pm-contracts/image18.webp", import.meta.url).href;
 const dampImg = new URL("../assets/pm-contracts/image19.webp", import.meta.url).href;
-const jetWashImg = new URL("../assets/pm-contracts/image21.webp", import.meta.url).href;
-const joineryImg = new URL("../assets/pm-contracts/image22.webp", import.meta.url).href;
 
 export interface ServiceFeature {
   title: string;
@@ -283,42 +281,6 @@ export const services: Service[] = [
     benefitsTitle: "Protect The Property Interior",
     benefitsDescription:
       "Where roof or exterior failures are contributing to damp, we prioritise practical repair work to reduce further damage.",
-  },
-  {
-    title: "Jet Washing",
-    slug: "jet-washing",
-    description: "Jet washing for exterior surfaces where a clean, refreshed finish helps complete the job.",
-    heroText:
-      "Jet washing is available as a supporting service for selected exterior surfaces that need to be cleaned up and refreshed.",
-    images: { hero: heroImg, main: jetWashImg, gallery: [jetWashImg] },
-    benefits: [
-      "Refresh tired outside surfaces",
-      "Supporting exterior maintenance service",
-      "Domestic and commercial use",
-      "Clear advice on suitable surfaces",
-    ],
-    process: standardProcess,
-    benefitsTitle: "An Extra Service Where It Adds Value",
-    benefitsDescription:
-      "Jet washing is positioned as a supporting service so the site stays focused on PM Contract's primary roofing offer.",
-  },
-  {
-    title: "General Joinery",
-    slug: "general-joinery",
-    description: "General joinery and related building work carried out alongside PM Contract's core roofing services.",
-    heroText:
-      "We also take on selected joinery and building jobs where they support the broader repair or improvement works.",
-    images: { hero: heroImg, main: joineryImg, gallery: [joineryImg] },
-    benefits: [
-      "Selected joinery works",
-      "Helpful add-on to bigger jobs",
-      "Handled by an experienced trade team",
-      "Quoted clearly before work starts",
-    ],
-    process: standardProcess,
-    benefitsTitle: "Useful Support Work Around The Main Job",
-    benefitsDescription:
-      "Joinery stays secondary to the main roofing offer so the business remains clearly positioned around high-intent roofing services.",
   },
 ];
 

@@ -11,7 +11,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground relative z-[9999] border-t-4 border-accent">
+    <footer className="relative z-10 bg-primary text-primary-foreground border-t-4 border-accent">
       {/* Main Footer */}
       <div className="container-custom py-10 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
@@ -104,7 +104,7 @@ const Footer = () => {
                   <div className="w-7 h-7 md:w-8 md:h-8 bg-accent/20 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-all">
                     <Phone className="h-3.5 w-3.5 md:h-4 md:w-4 text-accent group-hover:text-accent-foreground" />
                   </div>
-                  <span className="pt-1">{siteSettings.phone}</span>
+                  <span className="pt-1">{siteContent.cta.callNow}</span>
                 </a>
               </li>
               <li>
@@ -168,7 +168,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t-4 border-accent relative z-[9999]">
+      <div className="relative border-t-4 border-accent">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60 font-medium">

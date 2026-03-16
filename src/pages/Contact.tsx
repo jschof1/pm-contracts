@@ -24,7 +24,7 @@ const contactInfo = [
     let href = item.href;
 
     if (item.contentType === 'phone') {
-      content = siteSettings.phone;
+      content = siteContent.cta.callNow;
       href = `tel:${siteSettings.phoneFormatted}`;
     }
     if (item.contentType === 'email') {
@@ -169,7 +169,7 @@ const Contact = () => {
                   transition={{ delay: 0.1 }}
                 >
                   <Phone className="w-5 h-5 shrink-0 back" />
-                  {siteContent.cta.callNow}: {siteSettings.phone}
+                  {siteContent.cta.callNow}
                 </motion.a>
               </div>
             </motion.div>
@@ -222,7 +222,7 @@ const Contact = () => {
           <div className="bg-muted rounded-lg h-80 overflow-hidden relative">
             <img
               src={teamPhoto}
-              alt="PM Contract service area coverage"
+              alt="PM Roofers service area coverage"
               className="w-full h-full object-cover"
               width={1200}
               height={320}

@@ -41,7 +41,7 @@ const BeforeAfterGallery = () => {
           <div className="surface-card overflow-hidden">
             <img 
               src={beforeAfterImage}
-              alt="Before and after exterior cleaning example"
+              alt="Before and after roofing project example"
               className="w-full h-auto object-cover"
               loading="lazy"
             />
