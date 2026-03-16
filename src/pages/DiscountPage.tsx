@@ -93,7 +93,7 @@ const DiscountPage = () => {
       setRecentClaim(prev => (prev + 1) % recentNames.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [recentNames.length]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

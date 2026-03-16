@@ -8,7 +8,7 @@
  */
 export function normalizeUKPhone(phone: string): string {
   // Remove all whitespace and non-digit characters except +
-  let cleaned = phone.replace(/[^\d+]/g, '');
+  const cleaned = phone.replace(/[^\d+]/g, '');
   
   // If empty, return empty
   if (!cleaned) return '';

@@ -335,6 +335,7 @@ export const routeSeo: Record<string, SeoEntry> = {
     title: "Leave Feedback | PM Roofers",
     description: "Private feedback page for PM Roofers customers.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
   },
   "/get-quote": {
     title: "Get a Quote | PM Roofers",
@@ -345,11 +346,13 @@ export const routeSeo: Record<string, SeoEntry> = {
     title: "Priority Quote Request | PM Roofers",
     description: "Request a priority roofing quote from PM Roofers.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
   },
   "/discount": {
     title: "Priority Quote Request | PM Roofers",
     description: "Fast-track your PM Roofers quote request for roofing and exterior repair work.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
   },
   "/privacy-policy": {
     title: "Privacy Policy | PM Roofers",

@@ -57,7 +57,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
     let schema: object | null = null;
 
     switch (type) {
-      case 'LocalBusiness':
+      case 'LocalBusiness': {
         const isAreaPage = data && 'name' in data && !('title' in data) && !('description' in data && 'slug' in data && !('name' in data));
         const businessName = isAreaPage && 'name' in data ? `${siteSettings.businessName} ${data.name}` : siteSettings.businessName;
         
@@ -117,6 +117,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
           ].filter(Boolean),
         };
         break;
+      }
 
       case 'Organization':
         schema = {
