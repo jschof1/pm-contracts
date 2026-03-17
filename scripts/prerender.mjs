@@ -4,14 +4,36 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import http from 'node:http';
+import net from 'node:net';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '..', 'dist');
 const routesFile = path.join(__dirname, 'generated', 'prerender-routes.json');
 const previewHost = '127.0.0.1';
-const previewPort = 4173;
-const baseUrl = `http://${previewHost}:${previewPort}`;
 const browserArgs = ['--no-sandbox', '--disable-setuid-sandbox'];
+
+const getAvailablePort = () =>
+  new Promise((resolve, reject) => {
+    const server = net.createServer();
+
+    server.on('error', reject);
+    server.listen(0, previewHost, () => {
+      const address = server.address();
+      if (!address || typeof address === 'string') {
+        server.close(() => reject(new Error('Unable to determine an available preview port.')));
+        return;
+      }
+
+      const { port } = address;
+      server.close((error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(port);
+      });
+    });
+  });
 
 const resolveChromeExecutablePath = () => {
   const envCandidates = [
@@ -49,7 +71,7 @@ const resolveChromeExecutablePath = () => {
   return null;
 };
 
-const waitForServer = (processHandle, timeoutMs = 60000) =>
+const waitForServer = (processHandle, previewUrl, timeoutMs = 60000) =>
   new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
       cleanup();
@@ -57,10 +79,10 @@ const waitForServer = (processHandle, timeoutMs = 60000) =>
     }, timeoutMs);
 
     const pollServer = () => {
-      const request = http.get(baseUrl, (response) => {
+      const request = http.get(previewUrl, (response) => {
         response.resume();
         cleanup();
-        resolve(baseUrl);
+        resolve(previewUrl);
       });
 
       request.on('error', () => {
@@ -89,6 +111,8 @@ const waitForServer = (processHandle, timeoutMs = 60000) =>
   });
 
 const startPreviewServer = async () => {
+  const previewPort = await getAvailablePort();
+  const previewUrl = `http://${previewHost}:${previewPort}`;
   const preview = spawn('node', ['node_modules/vite/bin/vite.js', 'preview', '--host', previewHost, '--port', String(previewPort), '--strictPort'], {
     cwd: path.join(__dirname, '..'),
     stdio: 'pipe',
@@ -104,7 +128,7 @@ const startPreviewServer = async () => {
     }
   });
 
-  const url = await waitForServer(preview);
+  const url = await waitForServer(preview, previewUrl);
   return { processHandle: preview, url };
 };
 
@@ -160,12 +184,13 @@ async function prerender() {
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 45000 });
 
         const html = await page.content();
+        const normalizedHtml = html.replaceAll(baseUrl, '');
         const outputPath = route === '/'
           ? path.join(distDir, 'index.html')
           : path.join(distDir, route, 'index.html');
 
         fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-        fs.writeFileSync(outputPath, html);
+        fs.writeFileSync(outputPath, normalizedHtml);
         console.log(`  ✓ Saved to ${outputPath}`);
 
         await page.close();

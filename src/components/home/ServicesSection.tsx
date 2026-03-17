@@ -105,8 +105,11 @@ const ServicesSection = () => {
                         src={serviceImage} 
                         alt={service.title}
                         className="w-full h-full object-cover"
+                        width={720}
+                        height={256}
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.7 }}
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                       
@@ -174,16 +177,13 @@ const ServicesSection = () => {
                             <Phone className="w-4 h-4" />
                             {siteContent.cta.callNow}
                           </div>
-                          <div
-                            className="action-primary w-full py-3 text-center font-bold text-sm flex items-center justify-center gap-2 cursor-pointer"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              window.location.href = '/contact';
-                            }}
+                          <Link
+                            to="/get-quote"
+                            className="action-primary w-full py-3 text-center font-bold text-sm flex items-center justify-center gap-2"
+                            onClick={(e) => e.stopPropagation()}
                           >
                             Request Quote
-                          </div>
+                          </Link>
                         </div>
                       </div>
                     </div>

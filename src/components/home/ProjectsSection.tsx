@@ -98,6 +98,8 @@ const ProjectsSection = () => {
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover"
+                    width={720}
+                    height={256}
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.7 }}
                     loading="lazy"
@@ -183,7 +185,7 @@ const ProjectsSection = () => {
                 {siteContent.cta.callNow}
               </motion.a>
               <Link
-                to="/contact"
+                to="/get-quote"
                 className="action-secondary px-8 py-4 flex items-center justify-center gap-2 font-bold text-lg bg-transparent text-primary-foreground border-primary-foreground/30 hover:border-accent hover:text-accent"
               >
                 {content.ctaButton}

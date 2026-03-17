@@ -22,6 +22,8 @@ const Footer = () => {
                 src={footerLogo} 
                 alt={siteContent.brand.businessName} 
                 className="h-16 md:h-24 w-auto brightness-0 invert"
+                width={260}
+                height={72}
                 loading="lazy"
               />
             </div>
@@ -142,25 +144,25 @@ const Footer = () => {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.visa} alt="Visa" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.visa} alt="Visa" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.mastercard} alt="Mastercard" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.mastercard} alt="Mastercard" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.amex} alt="American Express" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.amex} alt="American Express" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.paypal} alt="PayPal" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.paypal} alt="PayPal" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.applePay} alt="Apple Pay" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.applePay} alt="Apple Pay" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.googlePay} alt="Google Pay" className="h-4 md:h-6 w-auto" loading="lazy" />
+                <img src={paymentLogos.googlePay} alt="Google Pay" className="h-4 md:h-6 w-auto" width={120} height={80} loading="lazy" />
               </div>
               <div className="flex items-center justify-center h-6 md:h-8 bg-primary-foreground/5 rounded-md px-1.5 md:px-2">
-                <img src={paymentLogos.klarna} alt="Klarna" className="h-6 md:h-8 w-auto" loading="lazy" />
+                <img src={paymentLogos.klarna} alt="Klarna" className="h-6 md:h-8 w-auto" width={120} height={80} loading="lazy" />
               </div>
             </div>
           </div>

@@ -141,6 +141,8 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             src={areaBackgroundImage} 
             alt={`${areaData.name} area`}
             className="w-full h-full object-cover"
+            width={1600}
+            height={900}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/85" />
         </div>

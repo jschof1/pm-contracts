@@ -45,8 +45,10 @@ const FAQ = () => {
         <div className="absolute inset-0 opacity-10">
           <img 
             src={craftsmanshipImage} 
-            alt="" 
+            alt="Close-up of detailed roofing workmanship" 
             className="w-full h-full object-cover"
+            width={1600}
+            height={900}
             loading="lazy"
           />
         </div>
@@ -83,6 +85,29 @@ const FAQ = () => {
         <div className="absolute top-8 left-8 w-20 h-20 border-l-4 border-t-4 theme-corner-tl border-primary/10" />
         <div className="absolute bottom-8 right-8 w-20 h-20 border-r-4 border-b-4 theme-corner-br border-primary/10" />
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 bg-card border border-border rounded-2xl p-6 md:p-8"
+          >
+            <h2 className="font-display text-2xl text-foreground mb-4">
+              Roofing Questions We Hear Every Week
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              Most customers contacting PM Roofers want clear answers before they commit to any work. They want to know
+              whether a leak can be repaired or whether the roof is at the stage where replacement makes more sense.
+              They ask how quickly we can attend after storm damage, whether emergency callouts are available, and what
+              areas around Glasgow we can realistically cover.
+            </p>
+            <p className="text-muted-foreground">
+              This page brings those common questions together in one place so you can understand the process before you
+              request a survey. If you do not see your situation covered here, you can move straight to our
+              <a href="/get-quote" className="ml-1 font-semibold text-accent-text-on-light hover:underline">free quote form</a>
+              or call the team for direct advice.
+            </p>
+          </motion.div>
           {faqCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}

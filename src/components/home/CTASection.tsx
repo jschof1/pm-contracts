@@ -144,10 +144,10 @@ const CTASection = () => {
             </motion.a>
             
             <Link
-              to="/contact"
+              to="/get-quote"
               className="action-secondary inline-flex items-center gap-2 bg-transparent text-primary-foreground px-6 py-4 border-primary-foreground/30 hover:border-accent hover:text-accent group"
             >
-              <span>Request a Callback</span>
+              <span>Get Free Quote</span>
               <Icons.ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>

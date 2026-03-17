@@ -65,6 +65,8 @@ const TrustSignals = () => {
                         src={badge.logo} 
                         alt={badge.name}
                         className="h-4 md:h-8 w-auto object-contain"
+                        width={96}
+                        height={32}
                         loading="lazy"
                       />
                     </div>
@@ -106,6 +108,8 @@ const TrustSignals = () => {
                   src={cert.logo} 
                   alt={cert.name}
                   className="h-6 md:h-8 w-auto object-contain max-w-[60px] md:max-w-[80px]"
+                  width={80}
+                  height={32}
                   loading="lazy"
                 />
               </motion.div>

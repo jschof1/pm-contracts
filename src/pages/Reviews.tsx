@@ -148,8 +148,10 @@ const Reviews = () => {
         <div className="absolute inset-0">
           <img 
             src={teamPhoto} 
-            alt="" 
+            alt="PM Roofers team on site during roofing work" 
             className="w-full h-full object-cover opacity-[0.08] md:opacity-[0.12]"
+            width={1600}
+            height={900}
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
@@ -366,7 +368,7 @@ const Reviews = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" variant="secondary" className="font-semibold">
-                <Link to="/contact">Get Free Quote</Link>
+                <Link to="/get-quote">Get Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10">
                 <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-center gap-2">
@@ -409,6 +411,8 @@ const Reviews = () => {
               src={beforeAfterImage}
               alt="Before and after roofing project example"
               className="w-full h-auto"
+              width={1600}
+              height={900}
               loading="lazy"
             />
           </motion.div>
@@ -432,7 +436,7 @@ const Reviews = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-8">
-                <Link to="/contact">Get Your Free Quote</Link>
+                <Link to="/get-quote">Get Your Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                 <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-center gap-2">

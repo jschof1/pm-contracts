@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, ArrowRight, Phone, Sparkles } from 'lucide-react';
 import SimpleContactForm from '@/components/SimpleContactForm';
 import { siteSettings } from '@/data/siteSettings';
@@ -65,7 +66,7 @@ const HeroSection = () => {
             >
               {/* Google profile - sharp badge with hover glow */}
               <div className="label-outline bg-card/10 backdrop-blur-xl border-primary-foreground/20 text-primary-foreground hover-glow group cursor-default px-3 py-1.5 text-xs">
-                {googleBadge?.logo && <img src={googleBadge.logo} alt={googleBadge.name} className="w-4 h-4" loading="lazy" />}
+                {googleBadge?.logo && <img src={googleBadge.logo} alt={googleBadge.name} className="w-4 h-4" width={16} height={16} loading="lazy" />}
                 <span className="font-semibold">
                   {googleBadge?.rating || content.badgeReviews}
                 </span>
@@ -191,15 +192,16 @@ const HeroSection = () => {
                 <Phone className="w-5 h-5 relative z-10 text-accent-foreground" />
                 <span className="relative z-10">{siteContent.cta.callNow}</span>
               </motion.a>
-              <motion.a
-                href="/contact"
+              <motion.div
                 className="lg:hidden action-secondary inline-flex items-center justify-center gap-2 bg-card/10 backdrop-blur-xl text-primary-foreground px-8 py-4 text-lg border-primary-foreground/20 group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {siteContent.cta.freeQuote}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+                <Link to="/get-quote" className="inline-flex items-center justify-center gap-2">
+                  {siteContent.cta.freeQuote}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
 

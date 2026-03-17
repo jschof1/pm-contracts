@@ -227,6 +227,24 @@ const ProjectPage = () => {
                 <p className="text-base md:text-xl text-muted-foreground mb-12 leading-relaxed border-l-4 border-accent pl-6 italic">
                   {project.description}
                 </p>
+                <div className="space-y-5 mb-12 text-muted-foreground leading-relaxed">
+                  <p>
+                    This {project.style.toLowerCase()} project in {project.location} reflects the kind of roofing work
+                    PM Roofers is regularly asked to carry out across Glasgow and the surrounding areas. Customers
+                    usually come to us when the issue has moved beyond a minor maintenance job and they need clear
+                    advice on the right next step, realistic timescales, and workmanship that protects the property for
+                    the long term.
+                  </p>
+                  <p>
+                    On jobs like this, we focus on making the scope clear from the outset, keeping communication direct,
+                    and tying every repair or replacement decision back to the condition of the roof rather than pushing
+                    unnecessary work. If you are dealing with something similar, you can move straight to our
+                    <a href="/get-quote" className="ml-1 font-semibold text-accent-text-on-light hover:underline">quote form</a>
+                    or review the wider
+                    <a href="/services" className="ml-1 font-semibold text-accent-text-on-light hover:underline">roofing services</a>
+                    we provide.
+                  </p>
+                </div>
                 
                 {/* Before/After Comparison */}
                 {project.beforeImage && project.afterImage && (
@@ -242,6 +260,8 @@ const ProjectPage = () => {
                             src={project.beforeImage}
                             alt="Before"
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                            width={640}
+                            height={480}
                             loading="lazy"
                           />
                           <div className="absolute top-0 left-0 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 uppercase tracking-tighter shadow-sharp">Before</div>
@@ -253,6 +273,8 @@ const ProjectPage = () => {
                             src={project.afterImage}
                             alt="After"
                             className="w-full h-full object-cover"
+                            width={640}
+                            height={480}
                             loading="lazy"
                           />
                           <div className="absolute top-0 left-0 bg-accent text-accent-foreground text-[10px] font-bold px-3 py-1 uppercase tracking-tighter shadow-sharp">After</div>

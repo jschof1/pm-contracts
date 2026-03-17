@@ -63,6 +63,8 @@ const Header = () => {
               src={headerLogo}
               alt={siteContent.brand.businessName}
               className="h-12 md:h-14 w-auto"
+              width={260}
+              height={72}
               loading="eager"
             />
           </Link>

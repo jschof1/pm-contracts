@@ -222,9 +222,9 @@ const Services = () => {
                     </div>
                     {/* Content with accent top border */}
                     <div className="p-8 flex flex-col flex-grow bg-card relative border-t-4 border-t-accent theme-corner-bl theme-corner-br">
-                      <h2 className="font-display text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                      <h3 className="font-display text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
                         {service.title}
-                      </h2>
+                      </h3>
                       <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
                         {service.description}
                       </p>
