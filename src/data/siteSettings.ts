@@ -6,9 +6,12 @@ export const siteSettings = {
   email: "pmcontracts99@gmail.com",
   address: "11 Lanrig Place, Glasgow G69 9AT, UK",
   feedbackWebhook: "/api/form-proxy?type=negative-review",
-  feedbackGoogleReviewUrl: "/feedback/google",
-  googleBusinessProfileUrl: "",
-  googleBusinessReviewUrl: "",
+  feedbackGoogleReviewUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJee578yNDiEgRkcs0jdiX8lE",
+  googleBusinessProfileUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJee578yNDiEgRkcs0jdiX8lE",
+  googleBusinessReviewUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJee578yNDiEgRkcs0jdiX8lE",
   quickFormWebhook: "/api/form-proxy?type=main",
   quoteFormWebhook: "/api/form-proxy?type=quote",
   discountFormWebhook: "/api/form-proxy?type=discount",

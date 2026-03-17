@@ -29,8 +29,8 @@ const FeedbackGoogle = () => {
           </div>
           <h1 className="mb-3 text-3xl font-bold text-foreground">Thanks for the 5-star feedback</h1>
           <p className="mb-6 text-muted-foreground">
-            Our Google Business Profile review link is still being finalised as part of the PM Roofers launch.
-            Once the profile is live, this page will redirect straight to the public review form.
+            If you are not redirected automatically, use the button below to open the live Google review form for
+            PM Roofers.
           </p>
 
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
