@@ -23,7 +23,7 @@ const ServicePage = ({ slugOverride }: ServicePageProps) => {
     return <Navigate to="/404" replace />;
   }
 
-  const seo = getServiceSEO(data.title, data.slug);
+  const seo = getServiceSEO(data.title);
 
   return (
     <Layout>

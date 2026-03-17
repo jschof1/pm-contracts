@@ -33,11 +33,11 @@ export const seoData = {
 };
 
 export const getServiceSEO = (title: string) => ({
-  title: `${title} | ${siteContent.brand.businessName} | ${siteContent.brand.serviceAreaLabel}`,
-  description: `${title} across ${siteContent.brand.serviceAreaLabel}. Family-run roofing specialists with 30 years of experience, 24/7 support, and free quotes.`,
+  title: `${title} in Glasgow | ${siteContent.brand.businessName}`,
+  description: `${title} in Glasgow and surrounding areas. Family-run roofers offering free quotes and fast response.`,
 });
 
 export const getAreaSEO = (name: string) => ({
   title: `Roofers in ${name} | ${siteContent.brand.businessName}`,
-  description: `Roof replacement, roof repairs, emergency roofing, leadwork, chimneys, and roofline services in ${name}. Family-run, fully liability insured, and available across the wider Glasgow region.`,
+  description: `Roof repairs, roof replacement, leadwork, gutters, and emergency roofing in ${name}. Family-run roofers with free quotes and fast response.`,
 });

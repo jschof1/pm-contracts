@@ -2,13 +2,10 @@ import { spawn } from 'node:child_process';
 
 const isTruthy = (value) => Boolean(value) && value !== '0' && value !== 'false';
 
-const shouldSkipPrerender =
-  isTruthy(process.env.SKIP_PRERENDER) ||
-  isTruthy(process.env.CI) ||
-  isTruthy(process.env.CF_PAGES);
+const shouldSkipPrerender = isTruthy(process.env.SKIP_PRERENDER);
 
 if (shouldSkipPrerender) {
-  console.log('Skipping prerender during CI/Cloudflare build.');
+  console.log('Skipping prerender because SKIP_PRERENDER is enabled.');
   process.exit(0);
 }
 

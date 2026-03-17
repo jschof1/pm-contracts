@@ -133,11 +133,10 @@ async function prerender() {
   const executablePath = resolveChromeExecutablePath();
 
   if (!executablePath) {
-    console.warn(
-      'No Chrome executable detected, so prerender is being skipped. ' +
-      'Set PUPPETEER_EXECUTABLE_PATH or install Chrome to enable prerender builds.'
+    throw new Error(
+      'No Chrome executable detected for prerendering. ' +
+      'Set PUPPETEER_EXECUTABLE_PATH or install Chrome so production builds ship crawlable HTML.'
     );
-    return;
   }
 
   const { processHandle: previewServer, url: baseUrl } = await startPreviewServer();

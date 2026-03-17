@@ -297,7 +297,7 @@ export const routeSeo: Record<string, SeoEntry> = {
   "/": {
     title: "PM Roofers | Roofers in Glasgow & Surrounding Areas",
     description:
-      "Family-run roofing company offering roof repairs, roof replacement, emergency roofing, leadwork, roughcasting, and roofline services across Glasgow and surrounding areas.",
+      "Family-run roofers for repairs, replacements, leadwork, and emergency callouts across Glasgow and surrounding areas.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/about": {

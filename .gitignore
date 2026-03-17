@@ -25,3 +25,4 @@ dist-ssr
 src/pages/projects/allaspects.html
 /.opencode
 tmp/
+tests/seo-regressions.test.mjs
