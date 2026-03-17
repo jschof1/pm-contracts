@@ -51,7 +51,7 @@ export const areaPageGalleryImages = {
   cityscape: heroBackgroundAreas,
 } as const;
 
-export const headerLogo = new URL('../assets/pm-contracts/logo-wordmark-horizontal.svg', import.meta.url).href;
+export const headerLogo = new URL('../assets/pm-logo-wide.png', import.meta.url).href;
 export const footerLogo = new URL('../assets/pm-contracts/logo-wordmark.svg', import.meta.url).href;
 
 export const paymentLogos = {
