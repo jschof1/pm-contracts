@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const LOGO_SRC = join(ROOT, 'src/assets/pm-contracts/logo-mark.svg');
+const LOGO_SRC = join(ROOT, 'src/assets/pm-logo.png');
 const OUT_DIR = join(ROOT, 'public/favicons');
 
 const SIZES = {
@@ -36,8 +36,8 @@ async function main() {
   }
 
   await mkdir(OUT_DIR, { recursive: true });
-  await copyFile(LOGO_SRC, join(OUT_DIR, 'favicon.svg'));
-  console.log('Written favicon.svg');
+  // await copyFile(LOGO_SRC, join(OUT_DIR, 'favicon.svg'));
+  // console.log('Written favicon.svg');
 
   const inputBuffer = await readFile(LOGO_SRC);
   const image = sharp(inputBuffer);

@@ -52,7 +52,7 @@ export const areaPageGalleryImages = {
 } as const;
 
 export const headerLogo = new URL('../assets/pm-logo-wide.png', import.meta.url).href;
-export const footerLogo = new URL('../assets/pm-contracts/logo-wordmark.svg', import.meta.url).href;
+export const footerLogo = new URL('../assets/pm-logo-wide.png', import.meta.url).href;
 
 export const paymentLogos = {
   visa: new URL('../assets/payment/visa.svg', import.meta.url).href,
