@@ -15,6 +15,7 @@ import {
 import { getAreaData, getNearbyAreas, getAreaImage, Area } from '@/data/areas';
 import { services } from '@/data/services';
 import { siteSettings } from '@/data/siteSettings';
+import { projects } from '@/data/projects';
 import SimpleContactForm from '@/components/SimpleContactForm';
 import { areaPageGalleryImages } from '@/data/images';
 import { GoogleReviewBadge, CertificationLogos } from '@/components/shared/TrustBadgeBar';
@@ -60,6 +61,34 @@ const getServiceIcon = (slug: string) => {
   return icons[slug] || Building;
 };
 
+const projectStylesByService: Record<string, string[]> = {
+  'roof-repairs': ['Roof Replacement', 'Leadwork'],
+  'roof-replacement': ['Roof Replacement'],
+  'emergency-roof-repairs': ['Emergency Roof Repair'],
+  leadwork: ['Leadwork'],
+  'chimney-repairs': ['Leadwork'],
+  roughcasting: ['Roof Replacement'],
+  'upvc-gutters': ['UPVC Gutters'],
+  'skylight-repairs-and-replacement': ['Emergency Roof Repair'],
+  'dry-rot-repair': ['Roof Replacement'],
+  'damp-proofing': ['Roof Replacement'],
+};
+
+const getProofProjects = (areaData: Area) => {
+  const preferredStyles = areaData.popularServices.flatMap((service) => projectStylesByService[service] ?? []);
+  const matchingProjects = projects.filter((project) => preferredStyles.includes(project.style));
+  const fallbackProjects = projects.filter((project) => !matchingProjects.includes(project));
+  return [...matchingProjects, ...fallbackProjects].slice(0, 2);
+};
+
+const getFeaturedServices = (areaData: Area) => {
+  const matchingServices = areaData.popularServices
+    .map((slug) => services.find((service) => service.slug === slug))
+    .filter((service): service is (typeof services)[number] => service !== undefined);
+  const fallbackServices = services.filter((service) => !areaData.popularServices.includes(service.slug));
+  return [...matchingServices, ...fallbackServices].slice(0, 3);
+};
+
 interface AreaPageProps {
   slugOverride?: string;
 }
@@ -74,17 +103,12 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
   const defaultArea: Area = {
     name: 'Glasgow',
     slug: 'glasgow',
+    region: 'greater-glasgow',
     description: 'Professional roofing and exterior repair services across Glasgow.',
     longDescription: 'PM Roofers provides roof repairs, roof replacement, leadwork, chimney repairs and exterior protection work across Glasgow and surrounding areas.',
+    nearbySummary: 'Glasgow remains a core service area for inspections, repairs, replacement work, and practical roofing support across the wider city.',
     neighbourhoods: ['Dennistoun', 'Bishopbriggs', 'Robroyston', 'Springburn', 'Rutherglen', 'Bearsden'],
     keyFacts: ['30 years experience', 'Fully liability insured', '24/7 emergency response'],
-    testimonial: {
-      name: 'Recent customer',
-      text: 'Friendly service, honest advice, and a very noticeable improvement once the clean was finished.',
-      project: 'Roofing Project',
-      rating: 5,
-    },
-    additionalTestimonials: [],
     popularServices: ['roof-repairs', 'roof-replacement', 'emergency-roof-repairs'],
     faqs: [],
     projectsCompleted: 250,
@@ -92,8 +116,10 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
   };
   
   const areaData = data || defaultArea;
-  const seo = getAreaSEO(areaData.name);
+  const seo = getAreaSEO(areaData);
   const areaBackgroundImage = getAreaImage(areaData.slug);
+  const proofProjects = getProofProjects(areaData);
+  const featuredServices = getFeaturedServices(areaData);
 
   const benefits = [
     { text: `Local service across ${areaData.name} and surrounding areas`, icon: MapPin },
@@ -139,7 +165,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
         <div className="absolute inset-0">
           <img 
             src={areaBackgroundImage} 
-            alt={`${areaData.name} area`}
+            alt="Representative homes and roofing work across the PM Roofers service area"
             className="w-full h-full object-cover"
             width={1600}
             height={900}
@@ -341,6 +367,38 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             </motion.p>
           </motion.div>
 
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {featuredServices.map((service, index) => {
+              const Icon = getServiceIcon(service.slug);
+
+              return (
+                <motion.div
+                  key={service.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="surface-card p-6 border-t-4 border-t-accent"
+                >
+                  <div className="w-12 h-12 rounded-sm bg-accent/10 text-accent flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent mb-2">
+                    Popular In {areaData.name}
+                  </p>
+                  <h3 className="font-display text-2xl text-primary mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground mb-5 line-clamp-3">{service.description}</p>
+                  <Link
+                    to={`/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80"
+                  >
+                    View service <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
@@ -528,68 +586,79 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             className="text-center mb-12"
           >
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
-              Recent Roofing Projects in {areaData.name}
+              Related Roofing Work For Customers in {areaData.name}
             </h2>
             <p className="text-muted-foreground">
-              See examples of PM Roofers work completed across the {areaData.name} area
+              Real project examples from across our wider service area that match the roofing jobs we commonly handle around {areaData.name}.
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { image: areaPageGalleryImages.beforeAfter, title: 'Roof Repair & Weatherproofing', desc: 'A repair-focused job completed to stop water ingress and leave the roof secure for the long term.' },
-              { image: areaPageGalleryImages.workers, title: 'Gutter & Roofline Upgrade', desc: 'Roofline components replaced and tidied to improve drainage and overall exterior presentation.' },
-              { image: areaPageGalleryImages.flatRoof, title: 'Exterior Refurbishment Work', desc: 'Exterior maintenance work carried out to restore presentation and protect the structure.' },
-            ].map((project, i) => (
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {proofProjects.map((project, i) => (
               <motion.div
-                key={project.title}
+                key={project.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="bg-card rounded-lg overflow-hidden group border-2 border-border hover:border-accent transition-colors"
               >
+                <Link to={`/projects/${project.slug}`} className="block h-full">
                 <div className="h-56 overflow-hidden">
                   <img 
                     src={project.image} 
-                    alt={`${project.title} in ${areaData.name}`}
+                    alt={`${project.title} by PM Roofers`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
                 <div className="p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent mb-2">
+                    {project.style}
+                  </p>
                   <h3 className="font-semibold text-lg text-card-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{project.desc}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground mb-2">
                     <MapPin className="w-4 h-4" />
-                    <span>{areaData.name}</span>
+                    <span>{project.location}</span>
                   </div>
-                  <div className="flex items-center gap-0.5">
-                    <Star className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
-                    <Star className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
-                    <Star className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
-                    <Star className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
-                    <Star className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
+                  {project.testimonial && (
+                    <p className="text-sm text-card-foreground italic mb-4">
+                      "{project.testimonial.text}"
+                    </p>
+                  )}
+                  <div className="flex items-center justify-between gap-3 pt-4 border-t border-border/50">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, starIndex) => (
+                        <Star key={starIndex} className="w-4 h-4 fill-[#facc15] text-[#facc15]" />
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-primary font-semibold">
+                      View project <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {project.features.slice(0, 3).map((feature) => (
+                      <li key={feature} className="text-xs rounded-full bg-secondary px-3 py-1 text-secondary-foreground">
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+                </Link>
               </motion.div>
             ))}
           </div>
           
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <a 
-              href={`tel:${siteSettings.phoneFormatted}`}
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg"
-            >
-              <Phone className="w-5 h-5 animate-pulse" />
-              Book Your {areaData.name} Roofing Quote
-            </a>
+            <Link to="/projects" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80">
+              Browse more roofing work <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -605,63 +674,83 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             className="text-center mb-12"
           >
             <h2 className="font-display text-3xl md:text-4xl text-primary-foreground mb-4">
-              What Our {areaData.name} Customers Say
+              Proof From Across Our Roofing Work
             </h2>
             <p className="text-primary-foreground/70">
-              Real reviews from real homeowners across {areaData.name}
+              Recent project examples and customer feedback from across our wider service area, shown without pretending every review came from {areaData.name}.
             </p>
           </motion.div>
-          
-          {/* Featured Testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 md:p-10 mb-8 max-w-3xl mx-auto"
-          >
-            <Quote className="w-12 h-12 text-accent mb-6" />
-            <p className="text-xl md:text-2xl text-primary-foreground leading-relaxed mb-6">
-              "{areaData.testimonial.text}"
-            </p>
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <p className="font-semibold text-primary-foreground">{areaData.testimonial.name}</p>
-                <p className="text-primary-foreground/70 text-sm">{areaData.testimonial.project} • {areaData.name}</p>
-              </div>
-              <div className="flex items-center gap-0.5">
-                {[...Array(areaData.testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Additional Testimonials */}
-          {areaData.additionalTestimonials.length > 0 && (
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {areaData.additionalTestimonials.map((review, index) => (
+
+          <div className="grid lg:grid-cols-[1.35fr,0.95fr] gap-6 max-w-6xl mx-auto">
+            <div className="grid gap-6">
+              {proofProjects.map((project, index) => (
                 <motion.div
-                  key={review.name}
+                  key={project.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-primary-foreground/5 backdrop-blur-sm rounded-lg p-6"
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-primary-foreground/10"
                 >
                   <div className="flex items-center gap-0.5 mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
+                    {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                     ))}
                   </div>
-                  <p className="text-primary-foreground/90 mb-4">"{review.text}"</p>
-                  <div>
-                    <p className="font-medium text-primary-foreground text-sm">{review.name}</p>
-                    <p className="text-primary-foreground/60 text-xs">{review.project}</p>
+                  <Quote className="w-10 h-10 text-accent mb-4" />
+                  <p className="text-lg text-primary-foreground leading-relaxed mb-5">
+                    "{project.testimonial?.text ?? project.description}"
+                  </p>
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <p className="font-semibold text-primary-foreground">{project.title}</p>
+                      <p className="text-primary-foreground/70 text-sm">{project.style} • {project.location}</p>
+                    </div>
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold"
+                    >
+                      View project <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </motion.div>
               ))}
             </div>
-          )}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-primary-foreground/10"
+            >
+              <h3 className="font-display text-2xl text-primary-foreground mb-4">
+                Why Customers Book PM Roofers
+              </h3>
+              <p className="text-primary-foreground/70 mb-6">
+                The exact job may differ from one town to the next, but the service standards stay the same across {areaData.name} and the rest of our coverage area.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  `${areaData.projectsCompleted}+ projects completed across this service area`,
+                  `${areaData.yearsServing}+ years of roofing experience`,
+                  'Family-run, fully insured service with clear quotes and tidy site standards',
+                ].map((point) => (
+                  <div key={point} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                    <p className="text-primary-foreground/90">{point}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-lg border border-primary-foreground/10 bg-primary-foreground/5 p-5">
+                <p className="text-primary-foreground/80 text-sm mb-4">
+                  Want broader customer feedback before booking? See the main reviews page for recent comments from across Glasgow and surrounding areas.
+                </p>
+                <Link to="/reviews" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold">
+                  Read more reviews <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
           
           {/* CTA */}
           <motion.div
@@ -675,11 +764,8 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-xl"
             >
               <Phone className="w-5 h-5 animate-pulse" />
-              Join Our Happy Customers
+              Book Your Roofing Quote
             </a>
-            <p className="text-primary-foreground/60 text-sm mt-4">
-              <Link to="/reviews" className="hover:text-primary-foreground underline">Read more reviews →</Link>
-            </p>
           </motion.div>
         </div>
       </section>
@@ -758,7 +844,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               We Also Cover These Nearby Areas
             </h2>
             <p className="text-muted-foreground">
-              Roofing and exterior services across Glasgow and the surrounding region
+              Other towns in the same part of our service area where we regularly handle roofing surveys, repairs, and replacement work.
             </p>
           </motion.div>
           
@@ -780,7 +866,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                     <div className="relative h-48 overflow-hidden theme-corner-tl theme-corner-tr">
                       <motion.img 
                         src={nearbyAreaImage} 
-                        alt={`Roofing services in ${nearbyArea.name}`}
+                        alt="Representative roofing work across the PM Roofers service area"
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.7 }}
@@ -810,7 +896,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                       </h3>
                       
                       <p className="text-muted-foreground leading-relaxed mb-6 font-medium line-clamp-2 flex-grow">
-                        Roofing and exterior services across {nearbyArea.name} and surrounding neighbourhoods.
+                        {nearbyArea.nearbySummary}
                       </p>
                       
                       <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
