@@ -387,7 +387,6 @@ const Areas = () => {
                   <Phone className="w-7 h-7 md:w-5 md:h-5 flex-shrink-0" />
                   {siteContent.cta.callNow}
                 </span>
-                <span>{siteContent.cta.callNow}</span>
               </motion.a>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-6 md:pt-12 border-t border-primary-foreground/10">
