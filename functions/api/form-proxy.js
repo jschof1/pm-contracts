@@ -5,6 +5,76 @@ const WEBHOOK_ENV_BY_TYPE = {
   discount: "DISCOUNT_FORM_WEBHOOK",
 };
 
+const QUOTE_VALUE_LABELS = {
+  propertyType: {
+    residential: "Residential Property",
+    commercial: "Commercial Property",
+  },
+  projectSize: {
+    small: "Small Job / Single Area",
+    medium: "Multi-Area Roofing Repair",
+    large: "Full Roof Replacement Project",
+    commercial: "Commercial Project",
+    unsure: "Not Sure - Need Survey",
+  },
+  serviceInterest: {
+    "roof-replacement": "Roof Replacement",
+    "roof-repairs": "Roof Repairs",
+    "emergency-roof-repairs": "Emergency Roof Repairs",
+    leadwork: "Leadwork",
+    "chimney-repairs": "Chimney Repairs",
+    roughcasting: "Roughcasting",
+    "upvc-gutters": "UPVC Gutters",
+    other: "Other Roofing or Exterior Work",
+  },
+  preferredStyle: {
+    repair: "Repair Existing Roof",
+    replacement: "Full Roof Replacement",
+    maintenance: "Preventative Maintenance",
+    "exterior-upgrade": "Exterior Upgrade / Protection",
+    unsure: "Need Expert Advice",
+  },
+};
+
+const formatQuoteValue = (key, value) => {
+  if (value === undefined || value === null) {
+    return "";
+  }
+
+  const trimmedValue = String(value).trim();
+  if (!trimmedValue) {
+    return "";
+  }
+
+  return QUOTE_VALUE_LABELS[key]?.[trimmedValue] ?? trimmedValue;
+};
+
+const buildQuoteSummary = (payload) => {
+  const lines = [
+    "Info:",
+  ];
+
+  const fields = [
+    ["Name", formatQuoteValue("name", payload.name)],
+    ["Phone", formatQuoteValue("phone", payload.phone)],
+    ["Email", formatQuoteValue("email", payload.email)],
+    ["Postcode", formatQuoteValue("postcode", payload.postcode)],
+    ["Property Type", formatQuoteValue("propertyType", payload.propertyType)],
+    ["Service Required", formatQuoteValue("serviceInterest", payload.serviceInterest)],
+    ["Project Size", formatQuoteValue("projectSize", payload.projectSize)],
+    ["Preferred Style", formatQuoteValue("preferredStyle", payload.preferredStyle)],
+    ["Message", formatQuoteValue("message", payload.message)],
+  ];
+
+  for (const [label, value] of fields) {
+    if (value) {
+      lines.push(`- ${label}: ${value}`);
+    }
+  }
+
+  return lines.join("\n");
+};
+
 const jsonResponse = (body, status = 200) =>
   new Response(JSON.stringify(body), {
     status,
@@ -75,12 +145,20 @@ export async function onRequestPost(context) {
   }
 
   const payload = await normalizePayload(request);
+  const forwardedPayload =
+    formType === "quote"
+      ? {
+          ...payload,
+          summary: buildQuoteSummary(payload),
+        }
+      : payload;
+
   const upstream = await fetch(webhookUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(forwardedPayload),
   });
 
   if (!upstream.ok) {
