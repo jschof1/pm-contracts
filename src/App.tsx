@@ -21,6 +21,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ProjectPage from "./pages/projects/ProjectPage";
 import SlugPage from "./pages/SlugPage";
 import AddCustomer from "./pages/AddCustomer";
+import MarketingForm from "./pages/MarketingForm";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/add-customer" element={<AddCustomer />} />
+          <Route path="/marketing-form" element={<MarketingForm />} />
           <Route path="/:slug" element={<SlugPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

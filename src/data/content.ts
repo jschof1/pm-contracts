@@ -372,6 +372,12 @@ export const routeSeo: Record<string, SeoEntry> = {
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
+  "/marketing-form": {
+    title: "Customer Submitted | PM Roofers",
+    description: "Your quote request has been received.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
 };
 
 export const siteContent: SiteContent = {
