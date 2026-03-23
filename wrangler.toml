@@ -1,0 +1,9 @@
+# Cloudflare Pages — pm-contracts (pmroofers.com)
+# Synced with dashboard; KV added for internal lead inbox.
+name = "pm-contracts"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-03-16"
+
+[[kv_namespaces]]
+binding = "LEADS_KV"
+id = "c798ad7590824ce9b3b7fb914b547d1e"

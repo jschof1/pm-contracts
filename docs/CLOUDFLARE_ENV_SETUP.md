@@ -24,19 +24,35 @@ If the legacy email function is still used, also set:
 
 ## Wrangler commands
 
-Replace `<pages-project-name>` with the live Cloudflare Pages project name before running:
+**Pages project name:** `pm-contracts` (domain: `pmroofers.com`).
+
+If Wrangler reports multiple accounts, set the account that owns this project (Workers & Pages → overview URL contains the id, or use `npx wrangler whoami`):
 
 ```bash
-npx wrangler pages secret put QUOTE_FORM_WEBHOOK --project-name <pages-project-name>
-npx wrangler pages secret put MAIN_FORM_WEBHOOK --project-name <pages-project-name>
-npx wrangler pages secret put NEGATIVE_REVIEW_WEBHOOK --project-name <pages-project-name>
-npx wrangler pages secret put DISCOUNT_FORM_WEBHOOK --project-name <pages-project-name>
+export CLOUDFLARE_ACCOUNT_ID="<your-account-id>"
+```
+
+Install project dev dependencies so `npm run cf:*` works:
+
+```bash
+npm install
+```
+
+### Existing form webhooks (already set on production)
+
+These four secrets are **already configured** on `pm-contracts` (verify with `npm run cf:secrets:list`). Re-run `put` only when rotating URLs:
+
+```bash
+npx wrangler pages secret put QUOTE_FORM_WEBHOOK --project-name pm-contracts
+npx wrangler pages secret put MAIN_FORM_WEBHOOK --project-name pm-contracts
+npx wrangler pages secret put NEGATIVE_REVIEW_WEBHOOK --project-name pm-contracts
+npx wrangler pages secret put DISCOUNT_FORM_WEBHOOK --project-name pm-contracts
 ```
 
 If needed:
 
 ```bash
-npx wrangler pages secret put RESEND_API_KEY --project-name <pages-project-name>
+npx wrangler pages secret put RESEND_API_KEY --project-name pm-contracts
 ```
 
 ## Internal lead inbox (`/internal/leads`)
@@ -45,45 +61,28 @@ npx wrangler pages secret put RESEND_API_KEY --project-name <pages-project-name>
 
 **Standalone ingest** (`POST /api/lead-submissions`) is optional: use it only for automations that cannot go through `form-proxy` (then set `LEADS_INGEST_SECRET` and optionally `GHL_LEAD_WEBHOOK_FORWARD`).
 
-### Setup order (use your real Pages project name everywhere)
+### Setup order (`pm-contracts`)
 
-1. **Keep existing form webhooks working** — Ensure these secrets are already set (re-run `put` if you are rotating values). No change to behaviour when you add KV.
+1. **Form webhooks** — Already present in Cloudflare (`npm run cf:secrets:list`). No change required for GHL forwarding.
 
-```bash
-PROJECT="<pages-project-name>"
+2. **KV for the inbox** — A KV namespace is defined in repo root `wrangler.toml` as binding **`LEADS_KV`**. After you merge and deploy, confirm under **Workers & Pages** → **pm-contracts** → **Settings** → **Functions** that **`LEADS_KV`** is listed (Git deploys pick up `wrangler.toml`; if the binding is missing, add it manually and select namespace id `c798ad7590824ce9b3b7fb914b547d1e`).
 
-npx wrangler pages secret put QUOTE_FORM_WEBHOOK --project-name "$PROJECT"
-npx wrangler pages secret put MAIN_FORM_WEBHOOK --project-name "$PROJECT"
-npx wrangler pages secret put NEGATIVE_REVIEW_WEBHOOK --project-name "$PROJECT"
-npx wrangler pages secret put DISCOUNT_FORM_WEBHOOK --project-name "$PROJECT"
-```
-
-2. **Create a KV namespace** (once per account; pick any label):
+3. **Password for `/internal/leads`** — Run locally (Wrangler will prompt; value is not echoed in the terminal history if you type interactively):
 
 ```bash
-npx wrangler kv namespace create "PM_LEADS"
+npm run cf:secret:leads-password
 ```
 
-Copy the **`id`** from the command output.
-
-3. **Bind KV to the Pages project** — In Cloudflare: **Workers & Pages** → your Pages project → **Settings** → **Functions** → **KV namespace bindings** → **Add binding** → variable name **`LEADS_KV`** → select the namespace you created. (Wrangler cannot attach this binding for hosted Pages in one line; the dashboard step is required.)
-
-4. **Password for the internal page** — Pick a strong password; the team will enter it on `/internal/leads`.
+4. **(Optional) Standalone `POST /api/lead-submissions`** — Only if an external system posts to that URL (not needed for normal site forms):
 
 ```bash
-npx wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name "$PROJECT"
+npm run cf:secret:ingest
+npm run cf:secret:ghl-forward
 ```
 
-5. **(Optional) Standalone webhook ingest** — Only if something will `POST` directly to `/api/lead-submissions` (not needed for quote/contact forms via `form-proxy`):
+5. **Deploy** — Push to `main` or **Retry deployment** in Cloudflare so production loads `wrangler.toml` + new secret.
 
-```bash
-npx wrangler pages secret put LEADS_INGEST_SECRET --project-name "$PROJECT"
-npx wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name "$PROJECT"
-```
-
-6. **Deploy** — Trigger a new production deployment so Functions see `LEADS_KV` and secrets.
-
-7. **Smoke test** — Submit a test quote on the live site; confirm it still appears in GHL, then open `https://pmroofers.com/internal/leads`, enter the password, and confirm the submission appears with `formType` in the payload.
+6. **Smoke test** — Submit a test quote; confirm GHL receives it; open `https://pmroofers.com/internal/leads`, enter the password, confirm the row appears (`formType` in the stored payload).
 
 ## Deployment note
 

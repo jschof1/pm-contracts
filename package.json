@@ -13,7 +13,13 @@
     "generate:favicons": "node scripts/generate-favicons.mjs",
     "validate:data": "node node_modules/tsx/dist/cli.mjs scripts/validate-data.mjs",
     "lint": "node node_modules/eslint/bin/eslint.js .",
-    "preview": "node node_modules/vite/bin/vite.js preview"
+    "preview": "node node_modules/vite/bin/vite.js preview",
+    "cf:whoami": "wrangler whoami",
+    "cf:pages:list": "wrangler pages project list",
+    "cf:secrets:list": "wrangler pages secret list --project-name pm-contracts",
+    "cf:secret:leads-password": "wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name pm-contracts",
+    "cf:secret:ingest": "wrangler pages secret put LEADS_INGEST_SECRET --project-name pm-contracts",
+    "cf:secret:ghl-forward": "wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name pm-contracts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -91,7 +97,8 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19",
-    "vite-plugin-react-meta-map": "^1.0.9"
+    "vite-plugin-react-meta-map": "^1.0.9",
+    "wrangler": "^4.76.0"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.18.0"
