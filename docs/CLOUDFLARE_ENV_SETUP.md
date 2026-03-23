@@ -41,24 +41,49 @@ npx wrangler pages secret put RESEND_API_KEY --project-name <pages-project-name>
 
 ## Internal lead inbox (`/internal/leads`)
 
-The LeadConnector webhook URL is **inbound only** (it receives POSTs; it does not return a list of leads). To show submissions on the private page:
+**How it works with your existing quote/contact/discount forms:** The site still posts only to `/api/form-proxy?type=…`. That function **still forwards to the same Go High Level webhook URLs** as today. If **`LEADS_KV`** is bound, each **successful** forward is also appended to KV, so the team page can list submissions **without** changing GHL or adding a second webhook.
 
-1. Create a **KV namespace** in Cloudflare and bind it to your Pages project as **`LEADS_KV`** (Pages → Settings → Functions → KV namespace bindings).
-2. Set these **secrets** (or vars where noted):
+**Standalone ingest** (`POST /api/lead-submissions`) is optional: use it only for automations that cannot go through `form-proxy` (then set `LEADS_INGEST_SECRET` and optionally `GHL_LEAD_WEBHOOK_FORWARD`).
 
-- `SECRET_LEADS_PAGE_PASSWORD` — password for `/internal/leads` (team enters this in the browser; validated on `GET /api/lead-submissions`).
-- `LEADS_INGEST_SECRET` — shared secret; send as header `X-Leads-Ingest-Secret` on ingest POSTs.
-- `GHL_LEAD_WEBHOOK_FORWARD` — optional; your LeadConnector webhook URL. When set, each ingest POST is forwarded there after storage so GHL automations still run.
+### Setup order (use your real Pages project name everywhere)
 
-3. Point your automation at **`POST https://<your-domain>/api/lead-submissions`** with header `X-Leads-Ingest-Secret: <same as LEADS_INGEST_SECRET>` and the same JSON body you would send to LeadConnector. If `GHL_LEAD_WEBHOOK_FORWARD` is set, the function stores the payload and forwards it to LeadConnector.
-
-Alternatively, add a **second** webhook action in GHL that POSTs to `/api/lead-submissions` (with the secret header) in addition to the existing LeadConnector URL.
+1. **Keep existing form webhooks working** — Ensure these secrets are already set (re-run `put` if you are rotating values). No change to behaviour when you add KV.
 
 ```bash
-npx wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name <pages-project-name>
-npx wrangler pages secret put LEADS_INGEST_SECRET --project-name <pages-project-name>
-npx wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name <pages-project-name>
+PROJECT="<pages-project-name>"
+
+npx wrangler pages secret put QUOTE_FORM_WEBHOOK --project-name "$PROJECT"
+npx wrangler pages secret put MAIN_FORM_WEBHOOK --project-name "$PROJECT"
+npx wrangler pages secret put NEGATIVE_REVIEW_WEBHOOK --project-name "$PROJECT"
+npx wrangler pages secret put DISCOUNT_FORM_WEBHOOK --project-name "$PROJECT"
 ```
+
+2. **Create a KV namespace** (once per account; pick any label):
+
+```bash
+npx wrangler kv namespace create "PM_LEADS"
+```
+
+Copy the **`id`** from the command output.
+
+3. **Bind KV to the Pages project** — In Cloudflare: **Workers & Pages** → your Pages project → **Settings** → **Functions** → **KV namespace bindings** → **Add binding** → variable name **`LEADS_KV`** → select the namespace you created. (Wrangler cannot attach this binding for hosted Pages in one line; the dashboard step is required.)
+
+4. **Password for the internal page** — Pick a strong password; the team will enter it on `/internal/leads`.
+
+```bash
+npx wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name "$PROJECT"
+```
+
+5. **(Optional) Standalone webhook ingest** — Only if something will `POST` directly to `/api/lead-submissions` (not needed for quote/contact forms via `form-proxy`):
+
+```bash
+npx wrangler pages secret put LEADS_INGEST_SECRET --project-name "$PROJECT"
+npx wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name "$PROJECT"
+```
+
+6. **Deploy** — Trigger a new production deployment so Functions see `LEADS_KV` and secrets.
+
+7. **Smoke test** — Submit a test quote on the live site; confirm it still appears in GHL, then open `https://pmroofers.com/internal/leads`, enter the password, and confirm the submission appears with `formType` in the payload.
 
 ## Deployment note
 

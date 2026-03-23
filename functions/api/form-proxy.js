@@ -171,5 +171,33 @@ export async function onRequestPost(context) {
     );
   }
 
+  // Optional: mirror successful forwards into the same KV list as /api/lead-submissions
+  // so /internal/leads shows quote, contact, discount, and feedback forms without a second GHL webhook.
+  if (env.LEADS_KV) {
+    const KV_KEY = "pm_lead_submissions_v1";
+    const MAX = 100;
+    try {
+      const raw = await env.LEADS_KV.get(KV_KEY);
+      let list = [];
+      try {
+        const parsed = raw ? JSON.parse(raw) : [];
+        list = Array.isArray(parsed) ? parsed : [];
+      } catch {
+        list = [];
+      }
+      list.unshift({
+        id: crypto.randomUUID(),
+        receivedAt: new Date().toISOString(),
+        payload: {
+          formType,
+          ...forwardedPayload,
+        },
+      });
+      await env.LEADS_KV.put(KV_KEY, JSON.stringify(list.slice(0, MAX)));
+    } catch {
+      // Non-fatal: GHL forward already succeeded.
+    }
+  }
+
   return jsonResponse({ success: true });
 }
