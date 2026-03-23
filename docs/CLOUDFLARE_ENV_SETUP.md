@@ -39,6 +39,27 @@ If needed:
 npx wrangler pages secret put RESEND_API_KEY --project-name <pages-project-name>
 ```
 
+## Internal lead inbox (`/internal/leads`)
+
+The LeadConnector webhook URL is **inbound only** (it receives POSTs; it does not return a list of leads). To show submissions on the private page:
+
+1. Create a **KV namespace** in Cloudflare and bind it to your Pages project as **`LEADS_KV`** (Pages → Settings → Functions → KV namespace bindings).
+2. Set these **secrets** (or vars where noted):
+
+- `SECRET_LEADS_PAGE_PASSWORD` — password for `/internal/leads` (team enters this in the browser; validated on `GET /api/lead-submissions`).
+- `LEADS_INGEST_SECRET` — shared secret; send as header `X-Leads-Ingest-Secret` on ingest POSTs.
+- `GHL_LEAD_WEBHOOK_FORWARD` — optional; your LeadConnector webhook URL. When set, each ingest POST is forwarded there after storage so GHL automations still run.
+
+3. Point your automation at **`POST https://<your-domain>/api/lead-submissions`** with header `X-Leads-Ingest-Secret: <same as LEADS_INGEST_SECRET>` and the same JSON body you would send to LeadConnector. If `GHL_LEAD_WEBHOOK_FORWARD` is set, the function stores the payload and forwards it to LeadConnector.
+
+Alternatively, add a **second** webhook action in GHL that POSTs to `/api/lead-submissions` (with the secret header) in addition to the existing LeadConnector URL.
+
+```bash
+npx wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name <pages-project-name>
+npx wrangler pages secret put LEADS_INGEST_SECRET --project-name <pages-project-name>
+npx wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name <pages-project-name>
+```
+
 ## Deployment note
 
 - Production domain should be `pmroofers.com`.

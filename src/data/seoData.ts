@@ -32,6 +32,7 @@ export const seoData = {
   discount: getRouteSeo("/discount"),
   specialOffer: getRouteSeo("/special-offer"),
   addCustomer: getRouteSeo("/add-customer"),
+  internalLeads: getRouteSeo("/internal/leads"),
 };
 
 export const getServiceSEO = (title: string) => ({

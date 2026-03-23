@@ -378,6 +378,12 @@ export const routeSeo: Record<string, SeoEntry> = {
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
+  "/internal/leads": {
+    title: "Internal Lead Inbox | PM Roofers",
+    description: "Private team page for reviewing captured lead submissions.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
 };
 
 export const siteContent: SiteContent = {
