@@ -19,7 +19,8 @@
     "cf:secrets:list": "wrangler pages secret list --project-name pm-contracts",
     "cf:secret:leads-password": "wrangler pages secret put SECRET_LEADS_PAGE_PASSWORD --project-name pm-contracts",
     "cf:secret:ingest": "wrangler pages secret put LEADS_INGEST_SECRET --project-name pm-contracts",
-    "cf:secret:ghl-forward": "wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name pm-contracts"
+    "cf:secret:ghl-forward": "wrangler pages secret put GHL_LEAD_WEBHOOK_FORWARD --project-name pm-contracts",
+    "test:lead-ingest": "node scripts/test-lead-ingest.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

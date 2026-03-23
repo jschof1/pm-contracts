@@ -277,9 +277,12 @@ const InternalLeads = () => {
                     <Inbox className="mb-3 h-10 w-10 text-muted-foreground" aria-hidden />
                     <p className="font-medium text-foreground">No submissions yet</p>
                     <p className="mt-2 max-w-md text-sm text-muted-foreground">
-                      When your automation POSTs payloads to{" "}
-                      <code className="rounded bg-muted px-1 py-0.5 text-xs">/api/lead-submissions</code>{" "}
-                      with the ingest secret, they will appear here.
+                      Submissions from your public forms appear here after a successful send to Go High Level (via{" "}
+                      <code className="rounded bg-muted px-1 py-0.5 text-xs">/api/form-proxy</code>
+                      ) once <code className="rounded bg-muted px-1 py-0.5 text-xs">LEADS_KV</code> is bound.
+                      Direct automations can also POST to{" "}
+                      <code className="rounded bg-muted px-1 py-0.5 text-xs">/api/lead-submissions</code> with the
+                      ingest secret.
                     </p>
                   </CardContent>
                 </Card>

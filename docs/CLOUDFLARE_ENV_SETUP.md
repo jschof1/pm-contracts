@@ -84,6 +84,28 @@ npm run cf:secret:ghl-forward
 
 6. **Smoke test** — Submit a test quote; confirm GHL receives it; open `https://pmroofers.com/internal/leads`, enter the password, confirm the row appears (`formType` in the stored payload).
 
+### Test programmatic POST to `/api/lead-submissions`
+
+Requires **`LEADS_INGEST_SECRET`** set in Cloudflare (same value you send in the header).
+
+```bash
+# Replace YOUR_SECRET with the Cloudflare secret value
+export LEADS_INGEST_SECRET='YOUR_SECRET'
+
+npm run test:lead-ingest
+```
+
+Or with `curl`:
+
+```bash
+curl -sS -w "\nHTTP %{http_code}\n" -X POST 'https://pmroofers.com/api/lead-submissions' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Leads-Ingest-Secret: YOUR_SECRET' \
+  -d '{"source":"curl-test","name":"Test","email":"test@example.com","message":"hello"}'
+```
+
+A `200` response with `{"ok":true,...}` means KV stored the row (if `LEADS_KV` is bound). If you get **401**, the secret is missing in Cloudflare or the header value does not match.
+
 ## Deployment note
 
 - Production domain should be `pmroofers.com`.
