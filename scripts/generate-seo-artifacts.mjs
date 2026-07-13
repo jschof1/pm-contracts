@@ -3,22 +3,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { getIndexableRoutes, getPrerenderRoutes, SITE_BASE_URL } from '../src/data/routes.ts';
+import { toAbsoluteSiteUrl } from '../src/lib/siteUrls.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.join(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 
-const toAbsoluteUrl = (routePath) => {
-  if (routePath === '/') {
-    return `${SITE_BASE_URL}/`;
-  }
-  return `${SITE_BASE_URL}${routePath}`;
-};
-
 const buildSitemapXml = (routes) => {
   const lines = routes
     .map((routePath) => {
-      const loc = toAbsoluteUrl(routePath);
+      const loc = toAbsoluteSiteUrl(SITE_BASE_URL, routePath);
       return [
         '  <url>',
         `    <loc>${loc}</loc>`,

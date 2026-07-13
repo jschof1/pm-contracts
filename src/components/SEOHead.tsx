@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { siteContent } from '@/data/content';
 import { siteSettings } from '@/data/siteSettings';
+import { toAbsoluteSiteUrl } from '@/lib/siteUrls';
 
 const BASE_URL = siteSettings.websiteUrl;
 const DEFAULT_IMAGE = '/pm-roofers-og.svg';
@@ -52,7 +53,7 @@ const SEOHead = ({
       element.href = href;
     };
 
-    const fullUrl = `${BASE_URL}${canonicalPath}`;
+    const fullUrl = toAbsoluteSiteUrl(BASE_URL, canonicalPath);
     const fullImageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
     // Basic meta tags

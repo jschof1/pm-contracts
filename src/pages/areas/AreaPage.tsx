@@ -116,14 +116,14 @@ const AreaPage = () => {
       <SEOHead 
         title={seo.title}
         description={seo.description}
-        canonicalPath={`/${areaData.slug}`}
+        canonicalPath={`/${areaData.slug}/`}
       />
       <JsonLd 
         type="BreadcrumbList" 
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'Areas', path: '/areas' },
-          { name: areaData.name, path: `/${areaData.slug}` }
+          { name: 'Areas', path: '/areas/' },
+          { name: areaData.name, path: `/${areaData.slug}/` }
         ]} 
       />
       <JsonLd
@@ -935,7 +935,7 @@ const AreaPage = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
                   <Award className="w-4 h-4 text-accent" />
-                  <span className="text-sm font-medium">Workmanship Guarantee</span>
+                  <span className="text-sm font-medium">Written Scope of Work</span>
                 </div>
                 <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
                   <Star className="w-4 h-4 text-accent" />

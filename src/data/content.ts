@@ -932,7 +932,7 @@ export const siteContent: SiteContent = {
     heroTitlePart2: "Across Glasgow & Beyond",
     heroPrimaryCta: "View Areas",
     heroSecondaryCtaPrefix: "Call",
-    badgeLabel: "Family Run, 24/7, Fully Insured",
+    badgeLabel: "Family Run, Fully Insured",
     sectionKickerSuffix: "Locations",
     sectionTitlePart1: "Areas We",
     sectionTitlePart2: "Cover",

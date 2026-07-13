@@ -9,13 +9,12 @@ import { siteSettings } from '@/data/siteSettings';
 import { MapPin, ArrowRight, ChevronDown, Sparkles, Phone, Shield } from 'lucide-react';
 import { areas, getAreaImage } from '@/data/areas';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
-import { GoogleReviewBadge } from '@/components/shared/TrustBadgeBar';
 import { useState } from 'react';
 
 import { heroBackgroundAreas } from '@/data/images';
 
 const Areas = () => {
-  const [displayCount, setDisplayCount] = useState(9);
+  const [displayCount, setDisplayCount] = useState(12);
   const hasMore = areas.length > displayCount;
 
   const showMore = () => {
@@ -27,13 +26,13 @@ const Areas = () => {
       <SEOHead 
         title={seoData.areas.title}
         description={seoData.areas.description}
-        canonicalPath="/areas"
+        canonicalPath="/areas/"
       />
       <JsonLd 
         type="BreadcrumbList" 
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: siteContent.areasPage.breadcrumbLabel, path: '/areas' }
+          { name: siteContent.areasPage.breadcrumbLabel, path: '/areas/' }
         ]} 
       />
       {/* Hero Section - Services-inspired with background image & architectural details */}
@@ -72,9 +71,6 @@ const Areas = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-3 md:mb-8">
-              <div className="scale-90 md:scale-100 origin-center">
-                <GoogleReviewBadge className="!bg-card/10 !rounded-lg border-2 border-primary-foreground/20" />
-              </div>
               <div className="hidden md:inline-flex label-outline bg-card/10 backdrop-blur-xl border-primary-foreground/20 text-primary-foreground hover-glow scale-90 md:scale-100 origin-center">
                 <Shield className="w-4 h-4 text-accent" />
                 <span className="text-xs font-bold uppercase tracking-wider">{siteContent.areasPage.badgeLabel}</span>
@@ -193,7 +189,7 @@ const Areas = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     <Link
-                      to={`/${area.slug}`}
+                      to={`/${area.slug}/`}
                       className="group block h-full"
                     >
                   <motion.div
@@ -214,7 +210,7 @@ const Areas = () => {
                         <MapPin className="w-6 h-6" />
                       </div>
                       <div className="absolute top-4 right-4 label-solid text-[10px] px-2 py-1 uppercase tracking-tighter">
-                        {area.projectsCompleted}+ Projects
+                        Service Area
                       </div>
                     </div>
                     <div className="p-8 flex flex-col flex-grow bg-card relative border-t-4 border-t-accent theme-corner-bl theme-corner-br">

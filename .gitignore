@@ -32,6 +32,7 @@ dist-ssr
 src/pages/projects/allaspects.html
 /.opencode
 tmp/
+.seo-cache/
 tests/seo-regressions.test.mjs
 docs/plans/2026-03-18-area-content-depth-pass.md
 docs/plans/2026-03-18-area-expansion-content-depth-pass.md

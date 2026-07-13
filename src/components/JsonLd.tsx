@@ -3,6 +3,7 @@ import { siteSettings } from '@/data/siteSettings';
 import { services } from '@/data/services';
 import { areas } from '@/data/areas';
 import { siteContent } from '@/data/content';
+import { toAbsoluteSiteUrl } from '@/lib/siteUrls';
 
 const BASE_URL = siteSettings.websiteUrl;
 
@@ -69,7 +70,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
           '@id': `${BASE_URL}/#business`,
           name: businessName,
           description: data && 'description' in data ? data.description : `Roof repairs, roof replacement, emergency roofing, leadwork, chimneys and exterior property services across ${siteContent.brand.serviceAreaLabel}.`,
-          url: isAreaPage && 'slug' in data ? `${BASE_URL}/${data.slug}` : BASE_URL,
+          url: isAreaPage && 'slug' in data ? toAbsoluteSiteUrl(BASE_URL, data.slug) : `${BASE_URL}/`,
           telephone: siteSettings.phone,
           email: siteSettings.email,
           address: showFullAddress ? {
@@ -154,7 +155,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
             '@type': 'Service',
             name: `${data.name} - ${siteContent.brand.serviceAreaLabel}`,
             description: data.description,
-            url: `${BASE_URL}/${data.slug}`,
+            url: toAbsoluteSiteUrl(BASE_URL, data.slug),
             provider: {
               '@type': 'LocalBusiness',
               '@id': `${BASE_URL}/#business`,
@@ -217,7 +218,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
               '@type': 'ListItem',
               position: index + 1,
               name: item.name,
-              item: `${BASE_URL}${item.path}`,
+              item: toAbsoluteSiteUrl(BASE_URL, item.path),
             })),
           };
         }
@@ -252,7 +253,7 @@ const JsonLd = ({ type, data, faqs, breadcrumbs }: JsonLdProps) => {
             image: articleImage,
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `${BASE_URL}${data.slug.startsWith('/') ? data.slug : `/${data.slug}`}`,
+              '@id': toAbsoluteSiteUrl(BASE_URL, data.slug),
             },
             author: {
               '@type': 'Organization',

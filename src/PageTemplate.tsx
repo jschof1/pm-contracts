@@ -2,6 +2,8 @@ import React from "react";
 import type { PageMetaData } from "./pageMetaMap";
 import { siteSettings } from "./data/siteSettings";
 import { siteContent } from "./data/content";
+import { areas } from "./data/areas";
+import { toAbsoluteSiteUrl } from "./lib/siteUrls";
 
 type PageTemplateProps = PageMetaData;
 
@@ -15,7 +17,7 @@ const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTempla
     description ||
     `Roof repairs, roof replacement, emergency roofing and exterior property services across ${siteContent.brand.serviceAreaLabel}.`;
   const metaImage = ogImage || `${BASE_URL}/pm-roofers-og.svg`;
-  const canonicalUrl = `${BASE_URL}${path === "/" || !path ? "" : path}`;
+  const canonicalUrl = toAbsoluteSiteUrl(BASE_URL, path);
 
   const robots = noindex
     ? "noindex, nofollow"
@@ -39,10 +41,10 @@ const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTempla
       addressCountry: "GB",
     },
     priceRange: "££",
-    areaServed: {
-      "@type": "State",
-      name: siteContent.brand.serviceAreaLabel,
-    },
+    areaServed: areas.map((area) => ({
+      "@type": "City",
+      name: area.name,
+    })),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
