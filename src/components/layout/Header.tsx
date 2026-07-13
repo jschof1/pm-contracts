@@ -9,7 +9,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -85,31 +84,27 @@ const Header = () => {
                           <NavigationMenuContent>
                             <ul className="grid w-[500px] gap-2 p-4 md:grid-cols-2 border-2 border-border bg-popover">
                               <li className="col-span-2 border-b border-border pb-2 mb-2">
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    to="/services"
-                                    className="block select-none space-y-1 p-3 leading-none no-underline outline-none transition-all hover:bg-accent/10 border-l-4 border-l-accent"
-                                  >
-                                    <div className="text-sm font-bold leading-none text-accent-text-on-light">{viewAllServices}</div>
-                                    <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                      {viewAllServicesDesc}
-                                    </p>
-                                  </Link>
-                                </NavigationMenuLink>
+                                <Link
+                                  to="/services"
+                                  className="block select-none space-y-1 p-3 leading-none no-underline outline-none transition-all hover:bg-accent/10 border-l-4 border-l-accent"
+                                >
+                                  <div className="text-sm font-bold leading-none text-accent-text-on-light">{viewAllServices}</div>
+                                  <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                                    {viewAllServicesDesc}
+                                  </p>
+                                </Link>
                               </li>
                               {services.map((service) => (
                                 <li key={service.href}>
-                                  <NavigationMenuLink asChild>
-                                    <Link
-                                      to={service.href}
-                                      className="block select-none space-y-1 p-3 leading-none no-underline outline-none transition-all hover:bg-accent/10 border-l-4 border-l-transparent hover:border-l-accent"
-                                    >
-                                      <div className="text-sm font-bold leading-none text-popover-foreground">{service.title}</div>
-                                      <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                        {service.description}
-                                      </p>
-                                    </Link>
-                                  </NavigationMenuLink>
+                                  <Link
+                                    to={service.href}
+                                    className="block select-none space-y-1 p-3 leading-none no-underline outline-none transition-all hover:bg-accent/10 border-l-4 border-l-transparent hover:border-l-accent"
+                                  >
+                                    <div className="text-sm font-bold leading-none text-popover-foreground">{service.title}</div>
+                                    <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                                      {service.description}
+                                    </p>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -124,18 +119,16 @@ const Header = () => {
                             <ul className="grid w-[300px] gap-2 p-4 border-2 border-border bg-popover">
                               {areas.map((area) => (
                                 <li key={area.href}>
-                                  <NavigationMenuLink asChild>
-                                    <Link
-                                      to={area.href}
-                                      className={cn(
-                                        "block select-none p-2 text-sm font-semibold leading-none no-underline outline-none transition-all hover:bg-accent/10 hover:text-accent-text-on-light border-l-4 border-l-transparent hover:border-l-accent-text-on-light text-popover-foreground",
-                                        area.title === viewAllAreas &&
-                                          "font-bold text-accent-text-on-light border-t-2 border-border pt-3 mt-2",
-                                      )}
-                                    >
-                                      {area.title}
-                                    </Link>
-                                  </NavigationMenuLink>
+                                  <Link
+                                    to={area.href}
+                                    className={cn(
+                                      "block select-none p-2 text-sm font-semibold leading-none no-underline outline-none transition-all hover:bg-accent/10 hover:text-accent-text-on-light border-l-4 border-l-transparent hover:border-l-accent-text-on-light text-popover-foreground",
+                                      area.title === viewAllAreas &&
+                                        "font-bold text-accent-text-on-light border-t-2 border-border pt-3 mt-2",
+                                    )}
+                                  >
+                                    {area.title}
+                                  </Link>
                                 </li>
                               ))}
                             </ul>

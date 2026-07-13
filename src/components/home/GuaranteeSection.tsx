@@ -40,7 +40,7 @@ const GuaranteeSection = () => {
 
             <div className="grid sm:grid-cols-2 gap-4">
               {content.items.map((guarantee, index) => {
-                const Icon = (Icons as any)[guarantee.iconName] || Icons.Shield;
+                const Icon = (Icons as unknown as Record<string, typeof Icons.Shield>)[guarantee.iconName] || Icons.Shield;
                 return (
                   <motion.div
                     key={guarantee.title}

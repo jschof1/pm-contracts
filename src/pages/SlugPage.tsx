@@ -11,11 +11,11 @@ const SlugPage = () => {
   const safeSlug = slug ?? "";
 
   if (getServiceData(safeSlug)) {
-    return <ServicePage slugOverride={safeSlug} />;
+    return <ServicePage />;
   }
 
   if (getAreaData(safeSlug)) {
-    return <AreaPage slugOverride={safeSlug} />;
+    return <AreaPage />;
   }
 
   return <NotFound />;

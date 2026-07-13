@@ -122,7 +122,7 @@ export const services: Service[] = [
   {
     title: "Emergency Roof Repairs",
     slug: "emergency-roof-repairs",
-    description: "24/7 emergency roofing response for urgent leaks and storm-related damage.",
+    description: "Urgent roofing support for active leaks and storm-related damage.",
     heroText:
       "When water is getting in or storm damage leaves your property exposed, we respond quickly to make the roof safe and secure.",
     images: { hero: heroImg, main: emergencyImg, gallery: [emergencyImg, repairsImg] },

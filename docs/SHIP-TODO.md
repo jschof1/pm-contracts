@@ -1,45 +1,63 @@
-# Dominion Trade - Ship TODOs
+# PM Contract - Site Status and Launch Checklist
 
-## Phase 1 - Must Do Before Launch
+Last checked: 2026-06-13.
 
-- [ ] Replace all template images with Dominion Trade-owned media.
-- [ ] Add final logo assets (header, footer, favicon, OG/social image).
-- [ ] Verify image usage rights and keep source notes for all media.
-- [ ] Set `RESEND_API_KEY` in Cloudflare Pages environment variables.
-- [ ] Test all forms end-to-end:
-  - [ ] Quick contact form
-  - [ ] Quote wizard
-  - [ ] Discount form/page
-  - [ ] Feedback form
-- [ ] Confirm form notification recipients and subject lines.
-- [ ] Replace fallback Google review URL with real Google Business review link.
-- [ ] Rewrite remaining legacy roofing copy in page components to cleaning-focused copy.
-- [ ] Verify primary navigation and footer links match final services/areas.
-- [ ] Decide whether `/add-customer` should stay as fallback or be replaced with final integration.
-- [ ] Run final SEO/build checks:
-  - [ ] `npm run validate:data`
-  - [ ] `npm run generate:seo`
-  - [ ] `npm run build`
-- [ ] Confirm key legal/contact details are accurate on privacy and terms pages.
-- [ ] Smoke test all core pages on desktop and mobile.
+## Current Verified Status
 
-## Phase 2 - Recommended Post-Launch Improvements
+- [x] Repo is configured for PM Contract / PM Roofers rather than Dominion Trade.
+- [x] Production site URL in code and generated SEO artifacts is `https://pmroofers.com`.
+- [x] Cloudflare Pages project `pm-contracts` appears in the Jack Cloudflare account with domains `pm-contracts.pages.dev` and `pmroofers.com`.
+- [x] `https://pmroofers.com/` returns HTTP 200.
+- [x] `https://pmroofers.com/internal/leads` returns HTTP 200 and loads the password-gated lead inbox shell.
+- [x] Contact and quote forms post to `/api/form-proxy` and depend on Cloudflare secrets for the GHL webhook URLs.
+- [x] `wrangler.toml` defines the `LEADS_KV` binding needed by the internal lead inbox.
+- [x] Local validation/build passes: `npm run validate:data`, `npm run check:theme-compliance`, and `npm run build`.
 
-- [ ] Replace placeholder/generated testimonials with real client testimonials.
-- [ ] Improve copy polish/tone consistency across all pages.
-- [ ] Add analytics/tracking and conversion events for forms/calls.
-- [ ] Submit sitemap to Google Search Console.
-- [ ] Improve performance:
-  - [ ] Compress/resize large images
-  - [ ] Review JS bundle size and code splitting opportunities
-- [ ] Run accessibility pass (headings, alt text, contrast, form labels).
-- [ ] Browser QA pass (Chrome, Safari, mobile browsers).
-- [ ] Add a post-launch monitoring checklist (forms, uptime, indexing, page health).
+## Payment Proof
 
-## Final Go/No-Go Checklist
+- [ ] Confirm externally that PM Contract payment proof has been received and stored in the work OS / client record.
+- [ ] Do not commit payment screenshots, bank details, card details, or client portal credentials to this repo.
+- [ ] If payment proof affects launch approval, mark the task blocked until the external record confirms it.
 
-- [ ] Contact details correct everywhere (phone, email, address).
-- [ ] Domain/canonical URLs set to `https://dominionepc.com`.
-- [ ] No template placeholders remain.
-- [ ] Form submissions confirmed in production.
-- [ ] Homepage + services + contact pages reviewed and approved.
+## Domain and DNS
+
+- [x] Current repo canonical, sitemap, robots, OG URLs, analytics domain, and site settings use `pmroofers.com`.
+- [x] Live Cloudflare Pages binding is `pmroofers.com`.
+- [ ] Confirm whether `pmroofers.com` is the final approved production domain or whether the original requested `rooferglasgow.uk` should still be used.
+- [ ] `https://rooferglasgow.uk/` did not connect during the 2026-06-13 check; do not switch canonicals without a confirmed DNS/Cloudflare plan.
+- [ ] If switching domains, update `src/data/siteSettings.ts`, `index.html`, generated SEO artifacts, Cloudflare Pages custom domains, analytics domain, and any GHL links before launch.
+
+## Login and Access Checklist
+
+- [ ] Confirm Cloudflare account selection for non-interactive Wrangler commands. `wrangler pages project list` can verify the project, but secret/deployment subcommands selected the wrong account during this check.
+- [ ] Verify Cloudflare Pages secrets without exposing values:
+  - `QUOTE_FORM_WEBHOOK`
+  - `MAIN_FORM_WEBHOOK`
+  - `NEGATIVE_REVIEW_WEBHOOK`
+  - `DISCOUNT_FORM_WEBHOOK`
+  - `SECRET_LEADS_PAGE_PASSWORD`
+  - `LEADS_INGEST_SECRET` only if using standalone lead ingest
+  - `GHL_LEAD_WEBHOOK_FORWARD` only if using standalone lead ingest forwarding
+- [ ] Confirm the `/internal/leads` password is stored in the team password manager and shared only through the approved secure channel.
+- [ ] Confirm GoHighLevel sub-account access and webhook ownership before any production form smoke test that creates client-visible records.
+- [ ] Confirm registrar/DNS login ownership for any future domain cutover.
+
+## Final Pre-Launch Checks
+
+- [ ] Submit one controlled test through each production form and confirm GHL receipt:
+  - Quick contact form
+  - Quote wizard
+  - Discount form/page
+  - Feedback form
+- [ ] Open `/internal/leads` with the stored password and confirm recent form rows appear.
+- [ ] Confirm notification recipients and subject lines in GHL.
+- [ ] Confirm legal/contact details: phone, email, address, privacy policy, and terms.
+- [ ] Browser QA key pages on desktop and mobile: home, services, one service detail, areas, one area detail, contact, get quote, reviews, and internal leads.
+- [ ] Submit sitemap in Google Search Console after final domain decision.
+
+## Post-Launch Monitoring
+
+- [ ] Check live forms again after deployment.
+- [ ] Check Cloudflare Pages deployment status and custom domain health.
+- [ ] Monitor GHL for missed or malformed submissions.
+- [ ] Monitor indexing and analytics for the final production domain.

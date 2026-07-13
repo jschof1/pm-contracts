@@ -19,7 +19,7 @@ import DiscountPage from "./pages/DiscountPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ProjectPage from "./pages/projects/ProjectPage";
-import SlugPage from "./pages/SlugPage";
+import SlugRoute from "./pages/SlugRoute";
 import AddCustomer from "./pages/AddCustomer";
 import MarketingForm from "./pages/MarketingForm";
 import InternalLeads from "./pages/InternalLeads";
@@ -53,7 +53,7 @@ const App = () => (
           <Route path="/add-customer" element={<AddCustomer />} />
           <Route path="/marketing-form" element={<MarketingForm />} />
           <Route path="/internal/leads" element={<InternalLeads />} />
-          <Route path="/:slug" element={<SlugPage />} />
+          <Route path="/:slug" element={<SlugRoute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

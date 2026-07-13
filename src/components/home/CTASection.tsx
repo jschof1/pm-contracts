@@ -155,7 +155,7 @@ const CTASection = () => {
           {/* Trust signals with stagger */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-primary-foreground/80 text-sm max-w-2xl mx-auto">
             {content.benefits.map((item, index) => {
-              const Icon = (Icons as any)[item.iconName] || Icons.CheckCircle;
+              const Icon = (Icons as unknown as Record<string, typeof Icons.CheckCircle>)[item.iconName] || Icons.CheckCircle;
               return (
                 <motion.div
                   key={item.text}

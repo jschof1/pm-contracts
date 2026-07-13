@@ -94,7 +94,7 @@ const ProcessSteps = () => {
           <div className="lg:w-2/3 w-full">
             <div className="relative space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
               {content.steps.map((step, index) => {
-                const Icon = (Icons as any)[index === 0 ? 'Calendar' : index === 1 ? 'FileText' : index === 2 ? 'HardHat' : 'ThumbsUp'] || Icons.CheckCircle;
+                const Icon = (Icons as unknown as Record<string, typeof Icons.CheckCircle>)[index === 0 ? 'Calendar' : index === 1 ? 'FileText' : index === 2 ? 'HardHat' : 'ThumbsUp'] || Icons.CheckCircle;
                 const color = index === 0 ? 'bg-accent-secondary' : index === 1 ? 'bg-accent' : index === 2 ? 'bg-primary' : 'bg-accent-secondary';
                 
                 return (

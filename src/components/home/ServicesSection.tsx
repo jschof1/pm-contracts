@@ -79,7 +79,7 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.items.map((service, index) => {
-            const Icon = (Icons as any)[service.iconName] || Icons.Layers;
+            const Icon = (Icons as unknown as Record<string, typeof Icons.Layers>)[service.iconName] || Icons.Layers;
             const serviceImage = getServiceImage(service.href);
 
             return (

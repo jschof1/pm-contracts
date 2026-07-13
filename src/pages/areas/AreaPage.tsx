@@ -1,13 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
 import JsonLd from '@/components/JsonLd';
 import { getAreaSEO } from '@/data/seoData';
 import QuoteWizard from '@/components/QuoteWizard';
 import { 
-  CheckCircle, MapPin, Phone, Star, Shield, Home, Calendar, 
+  CheckCircle, MapPin, Phone, Star, Shield, Home,
   Award, ArrowRight, Clock, Paintbrush, Wrench, Droplets, 
   Building, Hammer, PaintBucket, CloudRain, Trees, Quote,
   Sparkles
@@ -18,31 +17,8 @@ import { siteSettings } from '@/data/siteSettings';
 import { projects } from '@/data/projects';
 import SimpleContactForm from '@/components/SimpleContactForm';
 import { areaPageGalleryImages } from '@/data/images';
-import { GoogleReviewBadge, CertificationLogos } from '@/components/shared/TrustBadgeBar';
+import { CertificationLogos } from '@/components/shared/TrustBadgeBar';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
-// Animated Counter Component
-interface CounterProps {
-  value: number;
-  suffix?: string;
-  prefix?: string;
-}
-
-const Counter = ({ value, suffix = '', prefix = '' }: CounterProps) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 2000 });
-  const displayValue = useTransform(springValue, (v) => `${prefix}${Math.round(v).toLocaleString()}${suffix}`);
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  return <motion.span ref={ref}>{displayValue}</motion.span>;
-};
 
 // Service icon mapping
 const getServiceIcon = (slug: string) => {
@@ -89,13 +65,9 @@ const getFeaturedServices = (areaData: Area) => {
   return [...matchingServices, ...fallbackServices].slice(0, 3);
 };
 
-interface AreaPageProps {
-  slugOverride?: string;
-}
-
-const AreaPage = ({ slugOverride }: AreaPageProps) => {
-  const { area, slug } = useParams<{ area?: string; slug?: string }>();
-  const resolvedSlug = slugOverride || area || slug || '';
+const AreaPage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const resolvedSlug = slug ?? '';
   const data = getAreaData(resolvedSlug);
   const nearbyAreas = getNearbyAreas(resolvedSlug, 6);
   
@@ -123,7 +95,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
 
   const benefits = [
     { text: `Local service across ${areaData.name} and surrounding areas`, icon: MapPin },
-    { text: '24/7 emergency roof repair availability', icon: Award },
+    { text: 'Urgent roof issues prioritised where possible', icon: Award },
     { text: 'Fully insured and reliable service', icon: Shield },
     { text: 'Family-run service with clear communication', icon: CheckCircle },
     { text: 'Free quotes with no obligation', icon: Star },
@@ -132,16 +104,19 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
     { text: 'Fast site visits and practical advice', icon: Clock },
   ];
 
+  const areaStats = [
+    { icon: Clock, value: `${areaData.yearsServing}+`, label: 'Years Experience' },
+    { icon: Shield, value: 'Insured', label: 'Liability Cover' },
+    { icon: CheckCircle, value: 'Free', label: 'No-obligation Quotes' },
+    { icon: MapPin, value: 'Covered', label: `${areaData.name} Service Area` },
+  ];
+
   return (
     <Layout>
       <SEOHead 
         title={seo.title}
         description={seo.description}
         canonicalPath={`/${areaData.slug}`}
-      />
-      <JsonLd 
-        type="LocalBusiness" 
-        data={{ name: areaData.name, slug: areaData.slug, description: areaData.description }} 
       />
       <JsonLd 
         type="BreadcrumbList" 
@@ -187,7 +162,6 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               
               {/* Trust Badges */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <GoogleReviewBadge />
                 <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2">
                   <Shield className="w-4 h-4 text-accent" />
                   <span className="text-xs font-bold text-primary-foreground">Fully Insured</span>
@@ -261,7 +235,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                     Get Your Free Quote
                   </h2>
                   <p className="text-sm text-muted-foreground text-center mb-6">
-                    No obligation • Same-day response
+                    No obligation • Clear quote
                   </p>
                   <SimpleContactForm compact />
                 </div>
@@ -282,12 +256,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 items-center"
           >
-            {[
-              { icon: Home, value: areaData.projectsCompleted, suffix: '+', label: `Projects in ${areaData.name}` },
-              { icon: Star, value: 4.9, label: 'Google Rating', isDecimal: true },
-              { icon: Calendar, value: areaData.yearsServing, suffix: '+', label: 'Years Experience' },
-              { icon: Award, value: 100, suffix: '%', label: 'Satisfaction Rate' },
-            ].map((stat, index) => (
+            {areaStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -297,11 +266,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                 className="text-center"
               >
                 <div className="text-lg sm:text-2xl md:text-4xl font-bold text-accent font-display leading-tight">
-                  {stat.isDecimal ? (
-                    <span>{stat.value}</span>
-                  ) : (
-                    <Counter value={stat.value} suffix={stat.suffix} />
-                  )}
+                  {stat.value}
                 </div>
                 <div className="text-[10px] md:text-xs text-primary-foreground/70 uppercase tracking-wider mt-0.5">
                   {stat.label}
@@ -731,9 +696,9 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               </p>
               <div className="space-y-4 mb-8">
                 {[
-                  `${areaData.projectsCompleted}+ projects completed across this service area`,
                   `${areaData.yearsServing}+ years of roofing experience`,
                   'Family-run, fully insured service with clear quotes and tidy site standards',
+                  'Recommendations based on an inspection of the roof and the work it needs',
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
@@ -879,7 +844,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                       </div>
 
                       <div className="absolute bottom-4 right-4 label-solid text-[10px] font-bold tracking-wider uppercase">
-                        {nearbyArea.projectsCompleted}+ Projects
+                        Area Coverage
                       </div>
                     </div>
                     
@@ -974,7 +939,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
                 </div>
                 <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
                   <Star className="w-4 h-4 text-accent" />
-                  <span className="text-sm font-medium">4.9/5 Rating</span>
+                  <span className="text-sm font-medium">Clear Quotes</span>
                 </div>
               </div>
               
@@ -997,7 +962,7 @@ const AreaPage = ({ slugOverride }: AreaPageProps) => {
               {/* Urgency banner */}
               <div className="bg-accent/10 border border-accent rounded-lg p-4 mb-6">
                 <p className="text-center text-sm font-medium text-accent">
-                  ⏰ Limited availability in {areaData.name} this month – book your free roofing quote now!
+                  Tell us what you need and we will arrange the next suitable roofing survey in {areaData.name}.
                 </p>
               </div>
               

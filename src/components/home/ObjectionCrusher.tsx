@@ -44,7 +44,7 @@ const ObjectionCrusher = () => {
         {/* Objections Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {content.items.map((objection, index) => {
-            const Icon = (Icons as any)[objection.iconName] || Icons.HelpCircle;
+            const Icon = (Icons as unknown as Record<string, typeof Icons.HelpCircle>)[objection.iconName] || Icons.HelpCircle;
             return (
               <motion.div
                 key={objection.question}

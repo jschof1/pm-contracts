@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
         {/* Reasons Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {content.items.map((reason, index) => {
-            const Icon = (Icons as any)[reason.iconName] || Icons.CheckCircle;
+            const Icon = (Icons as unknown as Record<string, typeof Icons.CheckCircle>)[reason.iconName] || Icons.CheckCircle;
             return (
               <motion.div
                 key={reason.title}

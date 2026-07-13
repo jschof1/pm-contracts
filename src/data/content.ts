@@ -436,7 +436,7 @@ export const siteContent: SiteContent = {
       aboutLabel: "About PM Roofers",
     },
     footer: {
-      companyBlurb: "PM Roofers is a family-run roofing business offering 24/7 support, honest advice, and dependable workmanship across Glasgow and surrounding areas.",
+      companyBlurb: "PM Roofers is a family-run roofing business offering honest advice and dependable workmanship across Glasgow and surrounding areas.",
       servicesLinks: [
         { title: "Roof Replacement", href: "/roof-replacement" },
         { title: "Roof Repairs", href: "/roof-repairs" },
@@ -468,7 +468,7 @@ export const siteContent: SiteContent = {
         { title: "Privacy Policy", href: "/privacy-policy" },
         { title: "Terms of Service", href: "/terms-of-service" },
       ],
-      workingHours: "24/7 Roofing Support",
+      workingHours: "Mon - Sat: 7:00 AM - 7:00 PM",
       paymentLabel: "Payment Options:",
       contactLabel: "Contact Info",
     },

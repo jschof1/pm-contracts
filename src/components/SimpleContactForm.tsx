@@ -137,7 +137,7 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
         </Button>
         
         <p className="text-xs text-muted-foreground text-center pt-1">
-          ✓ No obligation · ✓ Response within 2 hours
+          ✓ No obligation · ✓ Clear next steps
         </p>
       </div>
     </form>

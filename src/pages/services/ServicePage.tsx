@@ -10,13 +10,9 @@ import { getServiceData } from '@/data/services';
 import { siteSettings } from '@/data/siteSettings';
 import { GoogleReviewBadge, CertificationLogos } from '@/components/shared/TrustBadgeBar';
 
-interface ServicePageProps {
-  slugOverride?: string;
-}
-
-const ServicePage = ({ slugOverride }: ServicePageProps) => {
-  const { service, slug } = useParams<{ service?: string; slug?: string }>();
-  const resolvedSlug = slugOverride || service || slug || '';
+const ServicePage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const resolvedSlug = slug ?? '';
   const data = getServiceData(resolvedSlug);
 
   if (!data) {

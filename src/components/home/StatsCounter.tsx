@@ -58,7 +58,7 @@ const StatsCounter = () => {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {content.map((stat, index) => {
-            const Icon = (Icons as any)[stat.iconName] || Icons.CheckCircle;
+            const Icon = (Icons as unknown as Record<string, typeof Icons.CheckCircle>)[stat.iconName] || Icons.CheckCircle;
             const isDecimal = stat.number.includes('.');
             const value = parseFloat(stat.number);
             const suffix = stat.number.replace(/[0-9.]/g, '');

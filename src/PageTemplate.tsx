@@ -47,14 +47,14 @@ const PageTemplate = ({ title, description, ogImage, noindex, path }: PageTempla
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "00:00",
-        closes: "23:59",
+        opens: "07:00",
+        closes: "19:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Saturday",
-        opens: "00:00",
-        closes: "23:59",
+        opens: "07:00",
+        closes: "19:00",
       },
     ],
   };

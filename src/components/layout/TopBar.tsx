@@ -13,7 +13,7 @@ const TopBar = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="hidden md:inline text-accent font-medium">
-            Same-Day Quotes Available
+            Free, No-Obligation Quotes
           </span>
           <a 
             href={`tel:${siteSettings.phoneFormatted}`} 

@@ -181,6 +181,18 @@ async function prerender() {
       try {
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+        await page.setRequestInterception(true);
+        page.on('request', (request) => {
+          const requestUrl = new URL(request.url());
+          const isLocalRequest = requestUrl.origin === new URL(baseUrl).origin;
+
+          if (!isLocalRequest && request.resourceType() !== 'document') {
+            request.abort();
+            return;
+          }
+
+          request.continue();
+        });
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 45000 });
 
         const html = await page.content();
