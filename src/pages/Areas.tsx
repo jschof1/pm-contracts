@@ -177,11 +177,12 @@ const Areas = () => {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
-              {areas.slice(0, displayCount).map((area, index) => {
+              {areas.map((area, index) => {
                 const areaImage = getAreaImage(area.slug);
                 return (
                   <motion.div
                     key={area.slug}
+                    className={index < displayCount ? undefined : 'hidden'}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
