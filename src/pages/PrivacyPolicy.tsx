@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground mb-8">
-            Last updated: January 2025
+            Last updated: August 2026
           </p>
 
           <div className="prose prose-lg max-w-none space-y-8">
@@ -42,8 +42,7 @@ const PrivacyPolicy = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                 <li><strong>Personal Information:</strong> Name, email address, phone number, postal address when you contact us or request a quote.</li>
                 <li><strong>Property Information:</strong> Details about your property and project requirements for providing accurate quotes.</li>
-                <li><strong>Usage Data:</strong> Information about how you interact with our website, including IP address, browser type, and pages visited.</li>
-                <li><strong>Cookies:</strong> We use cookies and similar tracking technologies to enhance your browsing experience.</li>
+                <li><strong>Optional service data:</strong> If you accept optional services, Plausible analytics and LeadConnector tracking/chat may process information about your website use.</li>
               </ul>
             </section>
 
@@ -57,8 +56,8 @@ const PrivacyPolicy = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                 <li>Provide and maintain our services</li>
                 <li>Process and respond to your enquiries and quote requests</li>
-                <li>Communicate with you about our services, promotions, and updates</li>
-                <li>Improve our website and customer experience</li>
+                <li>Communicate with you about your enquiry or requested services</li>
+                <li>Understand website use and provide chat only where you have accepted those optional services</li>
                 <li>Comply with legal obligations</li>
               </ul>
             </section>
@@ -72,6 +71,18 @@ const PrivacyPolicy = () => {
                 without your consent, except as necessary to provide our services or as required by law. 
                 We may share information with trusted service providers who assist us in operating our 
                 website and conducting our business, provided they agree to keep this information confidential.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">
+                Optional analytics and chat
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Optional services are off by default. If you choose to accept them, this website loads Plausible analytics and LeadConnector tracking/chat. Your choice is stored only in this browser so the website can remember it. You can change it at any time using the Cookie settings link in the footer.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mt-4">
+                The separate Customer Portal page embeds a LeadConnector form only when you choose to open that page.
               </p>
             </section>
 
@@ -109,8 +120,7 @@ const PrivacyPolicy = () => {
                 7. Cookies
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our website uses cookies to enhance your experience. You can choose to disable cookies 
-                through your browser settings, but this may affect the functionality of our website.
+                Essential technical storage may be used to provide the website and protect forms. Optional analytics and chat are not loaded unless you choose to accept them. You can revisit that choice using Cookie settings in the footer.
               </p>
             </section>
 
