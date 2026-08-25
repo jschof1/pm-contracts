@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import TopBar from './TopBar';
 import Header from './Header';
 import Footer from './Footer';
+import OptionalServicesConsent from '@/components/OptionalServicesConsent';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const Layout = ({ children, hideFooter }: LayoutProps) => {
       <Header />
       <main className="flex-1">{children}</main>
       {!hideFooter && <Footer />}
+      <OptionalServicesConsent />
     </div>
   );
 };

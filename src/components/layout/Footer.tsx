@@ -185,6 +185,16 @@ const Footer = () => {
                     {link.title}
                   </Link>
                 ))}
+              <button
+                type="button"
+                onClick={() => {
+                  window.localStorage.removeItem('pm-roofers-optional-services');
+                  window.location.reload();
+                }}
+                className="hover:text-accent transition-colors"
+              >
+                Cookie settings
+              </button>
             </div>
           </div>
         </div>
