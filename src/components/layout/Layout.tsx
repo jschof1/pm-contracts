@@ -1,3 +1,4 @@
+import PoweredByUKTradeLeads from './PoweredByUKTradeLeads';
 import { ReactNode } from 'react';
 import TopBar from './TopBar';
 import Header from './Header';
@@ -14,7 +15,10 @@ const Layout = ({ children, hideFooter }: LayoutProps) => {
       <TopBar />
       <Header />
       <main className="flex-1">{children}</main>
-      {!hideFooter && <Footer />}
+      {!hideFooter && <>
+      <Footer />
+      <PoweredByUKTradeLeads />
+      </>}
     </div>
   );
 };
