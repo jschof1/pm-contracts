@@ -7,7 +7,7 @@ export interface PoweredByUKTradeLeadsProps {
 
 const PoweredByUKTradeLeads = ({ className }: PoweredByUKTradeLeadsProps) => (
   <a
-    href="https://uktradeleads.co.uk/"
+    href="https://uktradeleads.com/"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Powered by UK Trade Leads"
