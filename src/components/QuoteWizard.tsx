@@ -124,6 +124,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
       }
 
       toast.dismiss(loadingToast);
+      if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
       toast.success('Quote request sent successfully!');
       setIsSubmitted(true);
       setCurrentStep(6);

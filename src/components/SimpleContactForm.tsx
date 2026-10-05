@@ -68,6 +68,7 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
       }
 
       toast.dismiss(loadingToast);
+      if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
       toast.success('Thanks! We\'ll call you back shortly.');
       setFormData({ name: '', phone: '', service: '' });
     } catch (error) {

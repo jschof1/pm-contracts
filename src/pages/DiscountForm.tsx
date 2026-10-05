@@ -49,6 +49,7 @@ const DiscountForm = () => {
       });
 
       if (response.ok) {
+        if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
         setIsSubmitted(true);
         toast({
           title: "Request submitted!",

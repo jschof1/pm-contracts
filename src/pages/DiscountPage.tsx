@@ -122,6 +122,7 @@ const DiscountPage = () => {
       });
 
       if (response.ok) {
+        if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
         setIsSubmitted(true);
       } else {
         throw new Error("Submission failed");
