@@ -1,8 +1,8 @@
 export const siteSettings = {
   businessName: "PM Roofers",
   websiteUrl: "https://pmroofers.com",
-  phone: "+44 7411 133790",
-  phoneFormatted: "+447411133790",
+  phone: "+44 7748 391835",
+  phoneFormatted: "+447748391835",
   email: "pmcontracts99@gmail.com",
   address: "11 Lanrig Place, Glasgow G69 9AT, UK",
   feedbackWebhook: "/api/form-proxy?type=negative-review",
