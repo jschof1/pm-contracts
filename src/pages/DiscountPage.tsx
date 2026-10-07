@@ -1,3 +1,4 @@
+import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -123,6 +124,7 @@ const DiscountPage = () => {
 
       if (response.ok) {
         if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
+        trackLeadFormSubmit({ phone: formData.phone });
         setIsSubmitted(true);
       } else {
         throw new Error("Submission failed");

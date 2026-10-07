@@ -1,3 +1,4 @@
+import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Home, Ruler, Layers, Palette, User, Check } from 'lucide-react';
@@ -125,6 +126,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
 
       toast.dismiss(loadingToast);
       if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
+      trackLeadFormSubmit({ service: formData.serviceInterest, email: formData.email, phone: formData.phone });
       toast.success('Quote request sent successfully!');
       setIsSubmitted(true);
       setCurrentStep(6);

@@ -195,6 +195,12 @@ async function prerender() {
         });
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 45000 });
 
+        // The bootstrap creates this loader at runtime. Do not bake a second
+        // executable loader into the generated HTML on every prerendered route.
+        await page.evaluate(() => {
+          document.querySelectorAll('script[src^="https://www.googletagmanager.com/gtm.js"]')
+            .forEach((script) => script.remove());
+        });
         const html = await page.content();
         const normalizedHtml = html.replaceAll(baseUrl, '');
         const outputPath = route === '/'

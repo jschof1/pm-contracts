@@ -1,3 +1,4 @@
+import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,6 +51,7 @@ const DiscountForm = () => {
 
       if (response.ok) {
         if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
+        trackLeadFormSubmit({ phone: formData.phone });
         setIsSubmitted(true);
         toast({
           title: "Request submitted!",
