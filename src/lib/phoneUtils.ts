@@ -1,7 +1,8 @@
 /**
- * Normalizes a UK phone number to always include the +44 country code.
+ * Normalizes UK local numbers while preserving an explicit international code.
  * Handles various input formats:
- * - Already has +44: returns as-is
+ * - Already has +: preserves the country code
+ * - Starts with 00: converts the international prefix to +
  * - Starts with 44: adds + prefix
  * - Starts with 0: removes 0 and adds +44
  * - Other formats: prepends +44
@@ -13,9 +14,13 @@ export function normalizeUKPhone(phone: string): string {
   // If empty, return empty
   if (!cleaned) return '';
   
-  // Already has +44
-  if (cleaned.startsWith('+44')) {
+  // An explicit international code must never be prefixed with +44.
+  if (cleaned.startsWith('+')) {
     return cleaned;
+  }
+
+  if (cleaned.startsWith('00')) {
+    return '+' + cleaned.slice(2);
   }
   
   // Starts with 44 (without +)
