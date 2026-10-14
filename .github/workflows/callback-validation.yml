@@ -1,0 +1,48 @@
+name: Callback validation and build
+
+on:
+  pull_request:
+    paths:
+      - 'functions/api/form-proxy.js'
+      - 'tests/form-proxy-*.test.mjs'
+      - 'tests/phoneUtils.test.ts'
+      - 'src/lib/phoneUtils.ts'
+      - 'src/components/SimpleContactForm.tsx'
+      - 'src/components/QuoteWizard.tsx'
+      - 'src/pages/DiscountPage.tsx'
+      - 'src/pages/DiscountForm.tsx'
+      - 'test/callback-forms.browser.mjs'
+      - '.github/workflows/callback-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Validate proxy syntax
+        run: node --check functions/api/form-proxy.js
+      - name: Run callback and summary regression tests
+        run: node --test tests/form-proxy-callback-guard.test.mjs tests/form-proxy-summary.test.mjs
+      - name: Install dependencies
+        run: npm ci
+      - name: Run callback phone and tracking regressions
+        run: node --import tsx --test tests/phoneUtils.test.ts tests/externalTracking.test.ts
+      - name: Confirm prerender browser
+        run: command -v google-chrome || command -v google-chrome-stable || command -v chromium
+      - name: Build complete production site including prerender
+        run: npm run build
+        env:
+          SKIP_PRERENDER: 'false'
+      - name: Check callback forms without submitting enquiries
+        run: node test/callback-forms.browser.mjs

@@ -144,7 +144,30 @@ export async function onRequestPost(context) {
     );
   }
 
-  const payload = await normalizePayload(request);
+  // Browser-side checks alone are not enough: do not forward callback requests
+  // that lack the details Peter needs to respond. Feedback keeps optional phone.
+  let payload;
+  try {
+    payload = await normalizePayload(request);
+  } catch {
+    return jsonResponse({ success: false, error: "Invalid request body." }, 400);
+  }
+
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return jsonResponse({ success: false, error: "Invalid request body." }, 400);
+  }
+
+  if (formType === "main" || formType === "quote" || formType === "discount") {
+    const name = typeof payload?.name === "string" ? payload.name.trim() : "";
+    const phone = typeof payload?.phone === "string" ? payload.phone.trim() : "";
+    const digits = phone.replace(/\D/g, "");
+    if (!name || !/^\+?[\d\s().-]+$/.test(phone) || digits.length < 10 || digits.length > 15) {
+      return jsonResponse(
+        { success: false, error: "Please enter your name and a valid phone number." },
+        400
+      );
+    }
+  }
   const forwardedPayload =
     formType === "quote"
       ? {

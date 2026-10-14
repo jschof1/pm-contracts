@@ -65,6 +65,11 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
       });
 
       if (!response.ok) {
+        if (response.status === 400) {
+          toast.dismiss(loadingToast);
+          toast.error('Please enter your name and a valid phone number.');
+          return;
+        }
         throw new Error("Submission failed");
       }
 

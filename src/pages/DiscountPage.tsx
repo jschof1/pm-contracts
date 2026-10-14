@@ -127,6 +127,10 @@ const DiscountPage = () => {
         trackLeadFormSubmit({ phone: formData.phone });
         setIsSubmitted(true);
       } else {
+        if (response.status === 400) {
+          toast.error('Please enter your name and a valid phone number.');
+          return;
+        }
         throw new Error("Submission failed");
       }
     } catch (error) {

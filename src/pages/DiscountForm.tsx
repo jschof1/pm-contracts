@@ -58,6 +58,13 @@ const DiscountForm = () => {
           description: "We'll be in touch with your exclusive offer soon.",
         });
       } else {
+        if (response.status === 400) {
+          toast({
+            title: "Please enter your name and a valid phone number.",
+            variant: "destructive",
+          });
+          return;
+        }
         throw new Error("Submission failed");
       }
     } catch (error) {

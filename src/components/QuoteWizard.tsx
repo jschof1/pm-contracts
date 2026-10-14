@@ -121,6 +121,11 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
       });
 
       if (!response.ok) {
+        if (response.status === 400) {
+          toast.dismiss(loadingToast);
+          toast.error('Please enter your name and a valid phone number.');
+          return;
+        }
         throw new Error("Submission failed");
       }
 
@@ -142,7 +147,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
       case 2: return formData.projectSize !== '';
       case 3: return formData.serviceInterest !== '';
       case 4: return formData.preferredStyle !== '';
-      case 5: return formData.name !== '' && formData.phone !== '' && formData.email !== '';
+      case 5: return Boolean(formData.name.trim() && formData.phone.trim() && formData.email.trim());
       default: return true;
     }
   };
