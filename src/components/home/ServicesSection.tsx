@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Layers } from 'lucide-react';
@@ -152,7 +153,7 @@ const ServicesSection = () => {
 
                       <div className="mb-6">
                         <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-accent font-bold">
-                          Glasgow roofing service
+                          Scottish roofing service
                         </span>
                       </div>
                       
@@ -166,17 +167,17 @@ const ServicesSection = () => {
                         </div>
                         
                         <div className="pt-4 border-t border-border/50 flex flex-col gap-2">
-                          <div
+                          <a
+                            href={`tel:${siteSettings.phoneFormatted}`}
                             className="action-inverse w-full py-3 text-center font-bold text-sm flex items-center justify-center gap-2 cursor-pointer"
                             onClick={(e) => {
-                              e.preventDefault();
                               e.stopPropagation();
-                              window.location.href = `tel:${siteSettings.phoneFormatted}`;
+                              trackCallClick('Call Now');
                             }}
                           >
                             <Phone className="w-4 h-4" />
-                            {siteContent.cta.callNow}
-                          </div>
+                            {siteSettings.phoneDisplay}
+                          </a>
                           <Link
                             to="/get-quote"
                             className="action-primary w-full py-3 text-center font-bold text-sm flex items-center justify-center gap-2"
@@ -205,6 +206,7 @@ const ServicesSection = () => {
           <p className="text-muted-foreground text-lg mb-4">{content.ctaText}</p>
           <motion.a
             href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
             className="action-primary action-primary-inverse inline-flex items-center gap-2 px-3 py-2.5 md:px-10 md:py-5 text-sm md:text-xl group relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -214,7 +216,7 @@ const ServicesSection = () => {
             <Phone className="w-7 h-7 relative z-10" />
             <div className="flex flex-col items-center relative z-10 leading-tight">
               <span className="text-sm uppercase tracking-widest font-bold opacity-80">Speak Directly With PM Roofers</span>
-              <span className="text-2xl font-black">{siteContent.cta.callNow}</span>
+              <span className="text-2xl font-black">{siteSettings.phoneDisplay}</span>
             </div>
           </motion.a>
           <div className="mt-5">

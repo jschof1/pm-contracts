@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -192,12 +193,13 @@ const AreaPage = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a 
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center justify-center gap-3 px-8 py-5 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-xl text-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <Phone className="w-6 h-6 animate-pulse" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </motion.a>
                 <a 
                   href="#quote" 
@@ -434,6 +436,7 @@ const AreaPage = () => {
             </p>
             <motion.a
               href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
               className="inline-flex items-center justify-center gap-3 px-8 py-5 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg group relative overflow-hidden"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -500,13 +503,14 @@ const AreaPage = () => {
               
               <motion.a
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all shadow-lg group relative overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Phone className="w-5 h-5 animate-pulse relative z-10" />
-                <span className="relative z-10">Call Now</span>
+                <span className="relative z-10">{siteSettings.phoneDisplay}</span>
               </motion.a>
             </motion.div>
             
@@ -726,6 +730,7 @@ const AreaPage = () => {
           >
             <a 
               href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-xl"
             >
               <Phone className="w-5 h-5 animate-pulse" />
@@ -786,6 +791,7 @@ const AreaPage = () => {
               <p className="text-muted-foreground mb-4">Still have questions?</p>
               <a 
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg"
               >
                 <Phone className="w-5 h-5 animate-pulse" />

@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, ArrowRight, Phone, Sparkles } from 'lucide-react';
@@ -170,7 +171,7 @@ const HeroSection = () => {
                 Emergency callouts 24/7
               </div>
               <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-2 text-sm font-semibold text-primary-foreground">
-                Glasgow and surrounding areas
+                Across Scotland
               </div>
             </motion.div>
 
@@ -183,6 +184,7 @@ const HeroSection = () => {
             >
               <motion.a
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-semibold rounded-lg border-2 border-black/40 bg-accent text-accent-foreground group relative overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-sharp-lg),var(--shadow-accent-glow)] hover:-translate-x-0.5 hover:-translate-y-0.5"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -190,7 +192,7 @@ const HeroSection = () => {
                 {/* Shimmer effect on hover */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Phone className="w-5 h-5 relative z-10 text-accent-foreground" />
-                <span className="relative z-10">{siteContent.cta.callNow}</span>
+                <span className="relative z-10">{siteSettings.phoneDisplay}</span>
               </motion.a>
               <motion.div
                 className="lg:hidden action-secondary inline-flex items-center justify-center gap-2 bg-card/10 backdrop-blur-xl text-primary-foreground px-8 py-4 text-lg border-primary-foreground/20 group"

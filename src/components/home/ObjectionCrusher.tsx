@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Clock, Banknote, Droplets, Wrench, Phone, ArrowRight } from 'lucide-react';
 import { siteSettings } from '@/data/siteSettings';
@@ -95,13 +96,14 @@ const ObjectionCrusher = () => {
           </p>
           <motion.a
             href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
             className="action-primary inline-flex items-center gap-3 px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl group relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Icons.Phone className="w-6 h-6 relative z-10" />
-            <span className="relative z-10">{content.ctaButton}</span>
+            <span className="relative z-10">{siteSettings.phoneDisplay}</span>
           </motion.a>
         </motion.div>
       </div>

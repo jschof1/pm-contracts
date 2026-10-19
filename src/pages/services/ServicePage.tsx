@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
@@ -88,10 +89,11 @@ const ServicePage = () => {
                 </a>
                 <a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center justify-center px-10 py-5 border-2 border-primary-foreground text-primary-foreground font-bold rounded-lg hover:bg-primary-foreground hover:text-primary transition-all text-lg"
                 >
                   <Phone className="w-5 h-5 mr-3" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
               </div>
             </motion.div>
@@ -215,10 +217,11 @@ const ServicePage = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg hover:bg-primary/90 transition-all shadow-sharp"
                 >
                   <Phone className="w-5 h-5" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
                 <a
                   href="#quote"

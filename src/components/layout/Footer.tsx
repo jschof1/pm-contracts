@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, ArrowRight, CreditCard } from 'lucide-react';
 import { siteSettings } from '@/data/siteSettings';
@@ -102,11 +103,12 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 md:space-y-4">
               <li>
-                <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-start gap-3 text-xs md:text-sm text-primary-foreground/80 hover:text-accent transition-colors font-medium group">
+                <a href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")} className="flex items-start gap-3 text-xs md:text-sm text-primary-foreground/80 hover:text-accent transition-colors font-medium group">
                   <div className="w-7 h-7 md:w-8 md:h-8 bg-accent/20 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-all">
                     <Phone className="h-3.5 w-3.5 md:h-4 md:w-4 text-accent group-hover:text-accent-foreground" />
                   </div>
-                  <span className="pt-1">{siteContent.cta.callNow}</span>
+                  <span className="pt-1">{siteSettings.phoneDisplay}</span>
                 </a>
               </li>
               <li>
