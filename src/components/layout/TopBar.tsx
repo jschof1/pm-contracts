@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { Phone, Clock } from 'lucide-react';
 import { siteSettings } from '@/data/siteSettings';
 
@@ -16,11 +17,12 @@ const TopBar = () => {
             Free, No-Obligation Quotes
           </span>
           <a 
-            href={`tel:${siteSettings.phoneFormatted}`} 
+            href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")} 
             className="flex items-center gap-2 font-semibold hover:text-accent transition-colors px-3 py-1 border-2 border-primary-foreground/20 hover:border-accent"
           >
             <Phone className="h-4 w-4 text-accent" />
-            <span>Call Now</span>
+            <span>{siteSettings.phoneDisplay}</span>
           </a>
         </div>
       </div>

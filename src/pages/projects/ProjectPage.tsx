@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
@@ -128,10 +129,11 @@ const ProjectPage = () => {
                 </a>
                 <a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center justify-center px-10 py-5 border-2 border-primary-foreground text-primary-foreground font-bold rounded-lg hover:bg-primary-foreground hover:text-primary transition-all text-lg"
                 >
                   <Phone className="w-5 h-5 mr-3" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
               </div>
             </motion.div>
@@ -230,7 +232,7 @@ const ProjectPage = () => {
                 <div className="space-y-5 mb-12 text-muted-foreground leading-relaxed">
                   <p>
                     This {project.style.toLowerCase()} project in {project.location} reflects the kind of roofing work
-                    PM Roofers is regularly asked to carry out across Glasgow and the surrounding areas. Customers
+                    PM Roofers is regularly asked to carry out across Scotlands. Customers
                     usually come to us when the issue has moved beyond a minor maintenance job and they need clear
                     advice on the right next step, realistic timescales, and workmanship that protects the property for
                     the long term.
@@ -384,10 +386,11 @@ const ProjectPage = () => {
                     </p>
                     <a 
                       href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                       className="inline-flex items-center justify-center w-full py-5 bg-accent text-accent-foreground font-bold hover:bg-card hover:text-primary transition-all gap-3 shadow-sharp text-lg"
                     >
                       <Phone className="w-5 h-5" />
-                      Call Now
+                      {siteSettings.phoneDisplay}
                     </a>
                   </div>
                 </motion.div>
@@ -404,7 +407,7 @@ const ProjectPage = () => {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">More Recent Work</h2>
               <p className="text-muted-foreground max-w-xl">
-                Explore other recent PM Roofers projects from across the Glasgow service area.
+                Explore other recent PM Roofers projects from across Scotland.
               </p>
             </div>
             <Link to="/" className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group">

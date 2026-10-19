@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -164,9 +165,10 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center">
               <Button asChild variant="accent" size="lg">
-                <a href={`tel:${siteSettings.phoneFormatted}`}>
+                <a href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}>
                   <Phone className="h-4 w-4 mr-2" />
-                  {siteContent.cta.callUsNow}
+                  {siteSettings.phoneDisplay}
                 </a>
               </Button>
             </div>
@@ -174,9 +176,10 @@ const Header = () => {
             {/* Mobile Controls */}
             <div className="flex lg:hidden items-center gap-3">
               <Button asChild variant="accent" size="sm">
-                <a href={`tel:${siteSettings.phoneFormatted}`}>
+                <a href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}>
                   <Phone className="h-4 w-4 mr-2" />
-                  {siteContent.cta.callNow}
+                  {siteSettings.phoneDisplay}
                 </a>
               </Button>
               <button

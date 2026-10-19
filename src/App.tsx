@@ -14,6 +14,7 @@ import Reviews from "./pages/Reviews";
 import Feedback from "./pages/Feedback";
 import FeedbackGoogle from "./pages/FeedbackGoogle";
 import GetQuote from "./pages/GetQuote";
+import ThankYou from "./pages/ThankYou";
 import DiscountForm from "./pages/DiscountForm";
 import DiscountPage from "./pages/DiscountPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -46,6 +47,9 @@ const App = () => (
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/feedback/google" element={<FeedbackGoogle />} />
           <Route path="/get-quote" element={<GetQuote />} />
+          <Route path="/get-a-quote" element={<GetQuote />} />
+          <Route path="/thank-you-home" element={<ThankYou source="home" />} />
+          <Route path="/thank-you-quote" element={<ThankYou source="quote" />} />
           <Route path="/special-offer" element={<DiscountForm />} />
           <Route path="/discount" element={<DiscountPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

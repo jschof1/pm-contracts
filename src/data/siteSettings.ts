@@ -3,6 +3,8 @@ export const siteSettings = {
   websiteUrl: "https://pmroofers.com",
   phone: "+44 7748 391835",
   phoneFormatted: "+447748391835",
+  // Number is rendered as text for external call-number insertion.
+  phoneDisplay: "07748 391835",
   email: "pmcontracts99@gmail.com",
   address: "11 Lanrig Place, Glasgow G69 9AT, UK",
   feedbackWebhook: "/api/form-proxy?type=negative-review",
@@ -18,5 +20,5 @@ export const siteSettings = {
   facebookUrl: "",
   instagramUrl: "",
   linkedinUrl: "",
-  serviceArea: "Glasgow and surrounding Central Scotland areas",
+  serviceArea: "Scotland",
 };

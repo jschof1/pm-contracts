@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { CheckCircle2, Star, MessageSquare, RefreshCw, ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { siteSettings } from "@/data/siteSettings";
@@ -89,6 +90,7 @@ const MarketingForm = () => {
               Questions or need to manually adjust anything?{" "}
               <a 
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="inline-flex items-center gap-1 text-primary font-bold hover:underline"
               >
                 <MessageSquare className="w-3.5 h-3.5" />

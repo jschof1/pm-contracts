@@ -295,9 +295,9 @@ export interface SiteContent {
 
 export const routeSeo: Record<string, SeoEntry> = {
   "/": {
-    title: "PM Roofers | Roofers in Glasgow & Surrounding Areas",
+    title: "PM Roofers | Roofers Across Scotland",
     description:
-      "Family-run roofers for repairs, replacements, leadwork, and emergency callouts across Glasgow and surrounding areas.",
+      "Family-run roofers for repairs, replacements, leadwork, and emergency callouts across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/about": {
@@ -308,27 +308,27 @@ export const routeSeo: Record<string, SeoEntry> = {
   },
   "/contact": {
     title: "Contact PM Roofers | Free Roofing Quotes",
-    description: "Contact PM Roofers for free roof inspections, quotes, and urgent roofing support across Glasgow, Greenock, and surrounding areas.",
+    description: "Contact PM Roofers for free roof inspections, quotes, and urgent roofing support across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/faq": {
-    title: "Roofing FAQs in Glasgow | PM Roofers",
-    description: "Common questions about roof repairs, replacements, emergency callouts, leadwork, guarantees, and coverage from PM Roofers in Glasgow.",
+    title: "Roofing FAQs Across Scotland | PM Roofers",
+    description: "Common questions about roof repairs, replacements, emergency callouts, leadwork, guarantees, and coverage from PM Roofers across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/services": {
-    title: "Roofing Services in Glasgow | PM Roofers",
-    description: "Roof replacement, roof repairs, emergency roofing, chimney repairs, leadwork, roughcasting, damp proofing, guttering, and more in Glasgow.",
+    title: "Roofing Services Across Scotland | PM Roofers",
+    description: "Roof replacement, roof repairs, emergency roofing, chimney repairs, leadwork, roughcasting, damp proofing, guttering, and more across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/areas": {
     title: "Roofing Areas We Cover Across Central Scotland | PM Roofers",
-    description: "PM Roofers covers Glasgow, Greenock, and surrounding Central Scotland locations for roof repairs, replacements, leadwork, gutters, and emergency callouts.",
+    description: "PM Roofers covers areas across Scotland, Greenock, and surrounding Central Scotland locations for roof repairs, replacements, leadwork, gutters, and emergency callouts.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/reviews": {
-    title: "Roofing Reviews in Glasgow | PM Roofers",
-    description: "Read what customers say about PM Roofers' roofing work, communication, reliability, and emergency response across Glasgow and nearby areas.",
+    title: "Roofing Reviews Across Scotland | PM Roofers",
+    description: "Read what customers say about PM Roofers' roofing work, communication, reliability, and emergency response across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/feedback": {
@@ -338,7 +338,7 @@ export const routeSeo: Record<string, SeoEntry> = {
     noindex: true,
   },
   "/get-quote": {
-    title: "Free Roofing Quote in Glasgow | PM Roofers",
+    title: "Free Roofing Quote Across Scotland | PM Roofers",
     description: "Request a free, no-obligation roofing quote from PM Roofers for repairs, replacements, leadwork, gutters, and emergency roofing work.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
@@ -355,13 +355,13 @@ export const routeSeo: Record<string, SeoEntry> = {
     noindex: true,
   },
   "/privacy-policy": {
-    title: "Privacy Policy for PM Roofers | Glasgow Roofing Services",
+    title: "Privacy Policy for PM Roofers | Scottish Roofing Services",
     description: "Read the PM Roofers privacy policy covering enquiries, quote requests, customer communications, and website data handling.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
   "/terms-of-service": {
-    title: "Terms of Service for PM Roofers | Glasgow Roofing Services",
+    title: "Terms of Service for PM Roofers | Scottish Roofing Services",
     description: "Read the PM Roofers terms of service for roofing enquiries, quotes, website use, and customer communications.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
@@ -378,6 +378,18 @@ export const routeSeo: Record<string, SeoEntry> = {
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
+  "/thank-you-home": {
+    title: "Thank You for Your Enquiry | PM Roofers",
+    description: "Your callback request has been received.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
+  "/thank-you-quote": {
+    title: "Thank You for Your Quote Request | PM Roofers",
+    description: "Your roofing quote request has been received.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
   "/internal/leads": {
     title: "Internal Lead Inbox | PM Roofers",
     description: "Private team page for reviewing captured lead submissions.",
@@ -390,8 +402,8 @@ export const siteContent: SiteContent = {
   brand: {
     businessName: "PM Roofers",
     shortName: "PM Roofers",
-    serviceAreaLabel: "Glasgow, Greenock, and surrounding areas",
-    trustedByline: "Family-run roofing specialists serving Glasgow and the surrounding area.",
+    serviceAreaLabel: "Scotland",
+    trustedByline: "Family-run roofing specialists serving communities across Scotland.",
   },
   cta: {
     primaryQuote: "Request Your Free Roofing Quote",
@@ -436,7 +448,7 @@ export const siteContent: SiteContent = {
       aboutLabel: "About PM Roofers",
     },
     footer: {
-      companyBlurb: "PM Roofers is a family-run roofing business offering honest advice and dependable workmanship across Glasgow and surrounding areas.",
+      companyBlurb: "PM Roofers is a family-run roofing business offering honest advice and dependable workmanship across Scotland.",
       servicesLinks: [
         { title: "Roof Replacement", href: "/roof-replacement" },
         { title: "Roof Repairs", href: "/roof-repairs" },
@@ -480,7 +492,7 @@ export const siteContent: SiteContent = {
       badgeInsured: "Fully Liability Insured",
       titlePart1: "Premium Roofing",
       titlePart2: "Repairs & Replacements",
-      titlePart3: "Across Glasgow",
+      titlePart3: "Across Scotland",
       subtitle: "PM Roofers delivers roof repairs, roof replacement, emergency callouts, leadwork, and roofline work with direct communication and practical advice.",
       experienceYears: "30 years of experience",
       benefits: [
@@ -491,7 +503,7 @@ export const siteContent: SiteContent = {
       ],
     },
     urgency: {
-      offer: "Need urgent roofing help? PM Roofers offers 24/7 emergency callouts across Glasgow and surrounding areas.",
+      offer: "Need urgent roofing help? PM Roofers offers 24/7 emergency callouts across Scotland.",
       slotsLeft: "Fast response available today",
     },
     about: {
@@ -596,7 +608,7 @@ export const siteContent: SiteContent = {
     beforeAfter: {
       kicker: "Recent Work",
       title: "Real Roofing Work From PM Roofers",
-      description: "Examples of the kinds of roofing and roofline jobs PM Roofers carries out across the wider Glasgow region.",
+      description: "Examples of the kinds of roofing and roofline jobs PM Roofers carries out across Scotland.",
       ctaText: "Need help with a roof issue at your property?",
       ctaButton: "Get Your Free Quote",
       transformations: [
@@ -646,7 +658,7 @@ export const siteContent: SiteContent = {
       kicker: "Project Highlights",
       titlePart1: "Selected",
       titlePart2: "Recent Jobs",
-      description: "A look at the kind of roofing and roofline work PM Roofers completes across Glasgow and the surrounding area.",
+      description: "A look at the kind of roofing and roofline work PM Roofers completes across Scotland.",
       viewAll: "View All Roofing Projects",
       ctaTitle: "Need A Roofer You Can Depend On?",
       ctaDescription: "Get a clear quote, practical advice, and direct contact with a family-run roofing company that takes workmanship seriously.",
@@ -715,7 +727,7 @@ export const siteContent: SiteContent = {
         },
         {
           question: "Do you cover my area?",
-          answer: "We cover Glasgow and a broad surrounding radius. If you're unsure, call and we'll confirm straight away.",
+          answer: "We cover a broad area of Scotland. If you're unsure, call and we'll confirm straight away.",
           stat: "60",
           statLabel: "Mile radius",
           iconName: "MapPin",
@@ -750,15 +762,15 @@ export const siteContent: SiteContent = {
     },
     areas: {
       kicker: "Coverage",
-      titlePart1: "Serving Glasgow",
+      titlePart1: "Serving Scotland",
       titlePart2: "And The Wider Region",
-      description: "PM Roofers covers a broad service radius from the Glasgow area, including Greenock, Paisley, East Kilbride, Edinburgh, and more.",
+      description: "PM Roofers covers a broad service radius across central Scotland, including Greenock, Paisley, East Kilbride, Edinburgh, and more.",
       viewAll: "View All Areas We Cover",
     },
     cta: {
       kicker: "Get Started Today",
       titlePart1: "Need A Reliable",
-      titlePart2: "Glasgow Roofer?",
+      titlePart2: "Scottish Roofer?",
       description: "Speak directly with PM Roofers for a free quote, honest advice, and roofing work carried out with care, speed, and clear communication.",
       benefits: [
         { text: "Free Quote", iconName: "CheckCircle" },
@@ -828,7 +840,7 @@ export const siteContent: SiteContent = {
           },
           {
             question: "What areas do you cover?",
-            answer: "We cover Glasgow and a broad surrounding radius including Greenock, Paisley, East Kilbride, Cumbernauld, Edinburgh, and more.",
+            answer: "We cover a broad area of Scotland including Greenock, Paisley, East Kilbride, Cumbernauld, Edinburgh, and more.",
           },
           {
             question: "Are you fully insured?",
@@ -898,7 +910,7 @@ export const siteContent: SiteContent = {
   },
   servicesPage: {
     heroTitle: "Roofing & Exterior Repair Services",
-    heroSubtitle: "From urgent roof repairs to full replacements, PM Roofers delivers practical roofing work across Glasgow and surrounding areas.",
+    heroSubtitle: "From urgent roof repairs to full replacements, PM Roofers delivers practical roofing work across Scotland.",
     heroPrimaryCta: "Explore Services",
     heroSecondaryCtaPrefix: "Call",
     benefitsKicker: "Why PM Roofers",
@@ -927,9 +939,9 @@ export const siteContent: SiteContent = {
   areasPage: {
     breadcrumbLabel: "Areas",
     heroTitle: "Areas We Cover",
-    heroSubtitle: "PM Roofers covers Glasgow and a broad surrounding service radius for roofing and roofline work.",
+    heroSubtitle: "PM Roofers covers areas across Scotland and a broad surrounding service radius for roofing and roofline work.",
     heroTitlePart1: "Roofing Support",
-    heroTitlePart2: "Across Glasgow & Beyond",
+    heroTitlePart2: "Across Scotland & Beyond",
     heroPrimaryCta: "View Areas",
     heroSecondaryCtaPrefix: "Call",
     badgeLabel: "Family Run, Fully Insured",
@@ -973,7 +985,7 @@ export const siteContent: SiteContent = {
       {
         key: "serviceArea",
         title: "Service Area",
-        subtext: "Glasgow and surrounding areas",
+        subtext: "areas across Scotland",
         href: "/areas",
         contentType: "address",
         content: "",
@@ -999,8 +1011,8 @@ export const siteContent: SiteContent = {
     preferToTalkDescription: "Call PM Roofers directly to speak about your roof issue.",
     formTitle: "Request Your Free Quote",
     formSubtitle: "Complete the form below and we'll be in touch as soon as possible",
-    mapTitle: "Serving Glasgow, Greenock, and surrounding areas",
-    mapDescription: "PM Roofers covers a broad radius for roofing work across Glasgow and surrounding Scotland locations.",
+    mapTitle: "Serving Scotland",
+    mapDescription: "PM Roofers covers a broad radius for roofing work across Scotland.",
   },
 };
 

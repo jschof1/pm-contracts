@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
@@ -24,7 +25,7 @@ const contactInfo = [
     let href = item.href;
 
     if (item.contentType === 'phone') {
-      content = siteContent.cta.callNow;
+      content = siteSettings.phoneDisplay;
       href = `tel:${siteSettings.phoneFormatted}`;
     }
     if (item.contentType === 'email') {
@@ -162,6 +163,7 @@ const Contact = () => {
                 </p>
                 <motion.a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center gap-2 text-primary label-solid font-semibold text-lg hover:underline break-all"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -169,7 +171,7 @@ const Contact = () => {
                   transition={{ delay: 0.1 }}
                 >
                   <Phone className="w-5 h-5 shrink-0 back" />
-                  {siteContent.cta.callNow}
+                  {siteSettings.phoneDisplay}
                 </motion.a>
               </div>
             </motion.div>

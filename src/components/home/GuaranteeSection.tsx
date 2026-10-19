@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Shield, CheckCircle, Award, Banknote, FileCheck, Phone } from 'lucide-react';
 import { siteSettings } from '@/data/siteSettings';
@@ -97,13 +98,14 @@ const GuaranteeSection = () => {
               <div className="border-t-2 border-primary-foreground/20 pt-5">
                 <motion.a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="action-primary flex items-center justify-center gap-3 px-6 py-4 font-bold text-base group relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <Icons.Phone className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">{content.ctaButton}</span>
+                  <span className="relative z-10">{siteSettings.phoneDisplay}</span>
                 </motion.a>
               </div>
             </div>
