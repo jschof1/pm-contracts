@@ -342,6 +342,13 @@ export const routeSeo: Record<string, SeoEntry> = {
     description: "Request a free, no-obligation roofing quote from PM Roofers for repairs, replacements, leadwork, gutters, and emergency roofing work.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
+  // Landing-page alias used in ads; the page keeps /get-quote canonical.
+  "/get-a-quote": {
+    title: "Free Roofing Quote Across Scotland | PM Roofers",
+    description: "Request a no-obligation roofing quote from PM Roofers.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
   "/special-offer": {
     title: "Priority Quote Request | PM Roofers",
     description: "Request a priority roofing quote from PM Roofers.",
