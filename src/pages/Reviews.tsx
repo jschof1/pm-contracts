@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Star, Quote, MapPin, CheckCircle, Shield, Award, ThumbsUp, Phone, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -371,9 +372,10 @@ const Reviews = () => {
                 <Link to="/get-quote">Get Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10">
-                <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-center gap-2">
+                <a href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")} className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
               </Button>
             </div>
@@ -439,9 +441,10 @@ const Reviews = () => {
                 <Link to="/get-quote">Get Your Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                <a href={`tel:${siteSettings.phoneFormatted}`} className="flex items-center gap-2">
+                <a href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")} className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
               </Button>
             </div>

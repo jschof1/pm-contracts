@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
@@ -165,9 +166,10 @@ const DiscountPage = () => {
             </p>
             <a 
               href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
               className="text-xl font-bold text-primary hover:underline"
             >
-              Call Now
+              {siteSettings.phoneDisplay}
             </a>
           </div>
         </div>

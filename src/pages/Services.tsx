@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
@@ -119,12 +120,13 @@ const Services = () => {
               </motion.a>
               <motion.a
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="action-secondary px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-5 h-5" />
-                {siteContent.cta.callNow}
+                {siteSettings.phoneDisplay}
               </motion.a>
             </div>
           </motion.div>
@@ -256,6 +258,7 @@ const Services = () => {
       <div className="fixed bottom-6 right-6 z-50 md:hidden">
         <motion.a
           href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
@@ -541,12 +544,13 @@ const Services = () => {
             >
               <motion.a
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="action-primary-foreground px-8 py-3 font-bold text-base md:text-lg w-full sm:w-auto min-w-[200px]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                {siteContent.cta.callNow}
+                {siteSettings.phoneDisplay}
               </motion.a>
               <Link
                 to="/contact"

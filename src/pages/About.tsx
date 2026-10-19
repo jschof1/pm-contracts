@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import SEOHead from '@/components/SEOHead';
@@ -236,9 +237,10 @@ const About = () => {
               </a>
               <a
                 href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-foreground text-primary-foreground font-semibold rounded-md hover:bg-primary-foreground hover:text-primary transition-colors"
               >
-                {siteContent.cta.callNow}
+                {siteSettings.phoneDisplay}
               </a>
             </div>
             {/* Certifications */}

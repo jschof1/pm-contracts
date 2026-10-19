@@ -1,3 +1,4 @@
+import { trackCallClick } from "@/lib/leadTracking";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
@@ -128,10 +129,11 @@ const ProjectPage = () => {
                 </a>
                 <a
                   href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                   className="inline-flex items-center justify-center px-10 py-5 border-2 border-primary-foreground text-primary-foreground font-bold rounded-lg hover:bg-primary-foreground hover:text-primary transition-all text-lg"
                 >
                   <Phone className="w-5 h-5 mr-3" />
-                  Call Now
+                  {siteSettings.phoneDisplay}
                 </a>
               </div>
             </motion.div>
@@ -384,10 +386,11 @@ const ProjectPage = () => {
                     </p>
                     <a 
                       href={`tel:${siteSettings.phoneFormatted}`}
+                onClick={() => trackCallClick("Call Now")}
                       className="inline-flex items-center justify-center w-full py-5 bg-accent text-accent-foreground font-bold hover:bg-card hover:text-primary transition-all gap-3 shadow-sharp text-lg"
                     >
                       <Phone className="w-5 h-5" />
-                      Call Now
+                      {siteSettings.phoneDisplay}
                     </a>
                   </div>
                 </motion.div>
