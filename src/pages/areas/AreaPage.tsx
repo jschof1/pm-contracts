@@ -443,7 +443,7 @@ const AreaPage = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <Phone className="w-5 h-5 animate-pulse relative z-10" />
-              <span className="relative z-10">Discuss Your {areaData.name} Project</span>
+              <span className="relative z-10">Discuss Your {areaData.name} Project · {siteSettings.phoneDisplay}</span>
             </motion.a>
             <div className="mt-5">
               <Link
@@ -734,7 +734,7 @@ const AreaPage = () => {
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-xl"
             >
               <Phone className="w-5 h-5 animate-pulse" />
-              Book Your Roofing Quote
+              Book Your Roofing Quote · {siteSettings.phoneDisplay}
             </a>
           </motion.div>
         </div>
@@ -795,7 +795,7 @@ const AreaPage = () => {
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-md hover:bg-accent/90 transition-all hover:scale-105 shadow-lg"
               >
                 <Phone className="w-5 h-5 animate-pulse" />
-                Call For Instant Answers
+                Call For Instant Answers · {siteSettings.phoneDisplay}
               </a>
             </motion.div>
           </div>

@@ -232,7 +232,7 @@ const ProjectPage = () => {
                 <div className="space-y-5 mb-12 text-muted-foreground leading-relaxed">
                   <p>
                     This {project.style.toLowerCase()} project in {project.location} reflects the kind of roofing work
-                    PM Roofers is regularly asked to carry out across Glasgow and the surrounding areas. Customers
+                    PM Roofers is regularly asked to carry out across Scotlands. Customers
                     usually come to us when the issue has moved beyond a minor maintenance job and they need clear
                     advice on the right next step, realistic timescales, and workmanship that protects the property for
                     the long term.
@@ -407,7 +407,7 @@ const ProjectPage = () => {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">More Recent Work</h2>
               <p className="text-muted-foreground max-w-xl">
-                Explore other recent PM Roofers projects from across the Glasgow service area.
+                Explore other recent PM Roofers projects from across Scotland.
               </p>
             </div>
             <Link to="/" className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group">

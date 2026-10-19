@@ -269,9 +269,10 @@ const Areas = () => {
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="surface-icon w-16 h-16 border-2 border-accent"
+          className="surface-icon min-h-14 w-auto px-4 py-3 gap-2 border-2 border-accent rounded-full"
         >
-          <Phone className="w-8 h-8" />
+          <Phone className="w-5 h-5" />
+          <span className="text-sm font-bold">{siteSettings.phoneDisplay}</span>
         </motion.a>
       </div>
 
