@@ -20,5 +20,5 @@ export const siteSettings = {
   facebookUrl: "",
   instagramUrl: "",
   linkedinUrl: "",
-  serviceArea: "Glasgow and surrounding Central Scotland areas",
+  serviceArea: "Scotland",
 };

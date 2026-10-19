@@ -313,12 +313,12 @@ export const routeSeo: Record<string, SeoEntry> = {
   },
   "/faq": {
     title: "Roofing FAQs Across Scotland | PM Roofers",
-    description: "Common questions about roof repairs, replacements, emergency callouts, leadwork, guarantees, and coverage from PM Roofers in Glasgow.",
+    description: "Common questions about roof repairs, replacements, emergency callouts, leadwork, guarantees, and coverage from PM Roofers across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/services": {
     title: "Roofing Services Across Scotland | PM Roofers",
-    description: "Roof replacement, roof repairs, emergency roofing, chimney repairs, leadwork, roughcasting, damp proofing, guttering, and more in Glasgow.",
+    description: "Roof replacement, roof repairs, emergency roofing, chimney repairs, leadwork, roughcasting, damp proofing, guttering, and more across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/areas": {
@@ -328,7 +328,7 @@ export const routeSeo: Record<string, SeoEntry> = {
   },
   "/reviews": {
     title: "Roofing Reviews Across Scotland | PM Roofers",
-    description: "Read what customers say about PM Roofers' roofing work, communication, reliability, and emergency response across Glasgow and nearby areas.",
+    description: "Read what customers say about PM Roofers' roofing work, communication, reliability, and emergency response across Scotland.",
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
   },
   "/feedback": {
@@ -608,7 +608,7 @@ export const siteContent: SiteContent = {
     beforeAfter: {
       kicker: "Recent Work",
       title: "Real Roofing Work From PM Roofers",
-      description: "Examples of the kinds of roofing and roofline jobs PM Roofers carries out across the wider Glasgow region.",
+      description: "Examples of the kinds of roofing and roofline jobs PM Roofers carries out across Scotland.",
       ctaText: "Need help with a roof issue at your property?",
       ctaButton: "Get Your Free Quote",
       transformations: [
@@ -1012,7 +1012,7 @@ export const siteContent: SiteContent = {
     formTitle: "Request Your Free Quote",
     formSubtitle: "Complete the form below and we'll be in touch as soon as possible",
     mapTitle: "Serving Scotland",
-    mapDescription: "PM Roofers covers a broad radius for roofing work across Glasgow and surrounding Scotland locations.",
+    mapDescription: "PM Roofers covers a broad radius for roofing work across Scotland.",
   },
 };
 

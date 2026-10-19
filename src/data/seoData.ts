@@ -36,7 +36,7 @@ export const seoData = {
 };
 
 export const getServiceSEO = (title: string) => ({
-  title: `${title} in Glasgow | ${siteContent.brand.businessName}`,
+  title: `${title} Across Scotland | ${siteContent.brand.businessName}`,
   description: `${title} across Scotland. Family-run roofers offering free quotes and fast response.`,
 });
 
