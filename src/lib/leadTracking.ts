@@ -7,6 +7,7 @@ interface LeadFormFields {
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
+    $wc_leads?: { track?: { event?: (category: string, action: string, label: string) => void } };
   }
 }
 
@@ -25,5 +26,15 @@ export function trackLeadFormSubmit({ service = '', email = '', phone }: LeadFor
     });
   } catch {
     // A blocked or broken tracking tag must not turn an accepted lead into an error.
+  }
+}
+
+// Call-click tracking is independent of whether the dialler connects.
+export function trackCallClick(label = 'Call Now') {
+  if (typeof window === 'undefined') return;
+  try {
+    window.$wc_leads?.track?.event?.('Lead', 'Click', label);
+  } catch {
+    // Never interfere with dialing if the third-party tracker fails.
   }
 }

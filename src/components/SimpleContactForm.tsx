@@ -1,5 +1,6 @@
 import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -38,6 +39,7 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
     service: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,8 +78,7 @@ const SimpleContactForm = ({ compact, className }: SimpleContactFormProps) => {
       toast.dismiss(loadingToast);
       if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
       trackLeadFormSubmit({ service: formData.service, phone: formData.phone });
-      toast.success('Thanks! We\'ll call you back shortly.');
-      setFormData({ name: '', phone: '', service: '' });
+      navigate('/thank-you-home');
     } catch (error) {
       toast.dismiss(loadingToast);
       toast.error('Something went wrong. Please try again.');

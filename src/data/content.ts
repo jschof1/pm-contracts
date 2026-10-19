@@ -378,6 +378,18 @@ export const routeSeo: Record<string, SeoEntry> = {
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
+  "/thank-you-home": {
+    title: "Thank You for Your Enquiry | PM Roofers",
+    description: "Your callback request has been received.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
+  "/thank-you-quote": {
+    title: "Thank You for Your Quote Request | PM Roofers",
+    description: "Your roofing quote request has been received.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
   "/internal/leads": {
     title: "Internal Lead Inbox | PM Roofers",
     description: "Private team page for reviewing captured lead submissions.",

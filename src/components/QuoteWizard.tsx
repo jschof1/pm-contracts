@@ -1,5 +1,6 @@
 import { trackLeadFormSubmit } from "@/lib/leadTracking";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Home, Ruler, Layers, Palette, User, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -84,6 +85,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const updateFormData = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -132,9 +134,7 @@ const QuoteWizard = ({ compact = false }: QuoteWizardProps) => {
       toast.dismiss(loadingToast);
       if (typeof document !== "undefined") document.dispatchEvent(new Event("uktl:enquiry-accepted"));
       trackLeadFormSubmit({ service: formData.serviceInterest, email: formData.email, phone: formData.phone });
-      toast.success('Quote request sent successfully!');
-      setIsSubmitted(true);
-      setCurrentStep(6);
+      navigate('/thank-you-quote');
     } catch (error) {
       toast.dismiss(loadingToast);
       toast.error('Something went wrong. Please try again or call us directly.');
