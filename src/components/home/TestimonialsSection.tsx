@@ -1,3 +1,4 @@
+import { trackCallClick } from '@/lib/leadTracking';
 import { motion } from 'framer-motion';
 import { Star, Quote, MapPin, CheckCircle, Phone, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -154,6 +155,7 @@ const TestimonialsSection = () => {
           <p className="text-muted-foreground mb-4">{content.ctaText}</p>
           <motion.a
             href={`tel:${siteSettings.phoneFormatted}`}
+            onClick={() => trackCallClick('Call Now')}
             className="action-primary inline-flex items-center gap-3 px-8 py-5 text-lg group relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -161,7 +163,7 @@ const TestimonialsSection = () => {
             {/* Shimmer effect */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Icons.Phone className="w-6 h-6 relative z-10" />
-            <span className="relative z-10">{content.ctaButton}</span>
+            <span className="relative z-10 whitespace-nowrap">{siteSettings.phoneDisplay}</span>
           </motion.a>
           <div className="mt-4">
             <Link

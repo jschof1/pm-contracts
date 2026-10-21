@@ -234,7 +234,7 @@ export const services: Service[] = [
     description: "UPVC gutter replacement and roofline upgrades to improve drainage and tidy up the finish.",
     heroText:
       "We repair or replace damaged guttering and roofline elements to help keep rainwater moving away from the property properly.",
-    images: { hero: heroImg, main: guttersImg, gallery: [guttersImg] },
+    images: { hero: guttersImg, main: guttersImg, gallery: [guttersImg] },
     benefits: [
       "UPVC gutter replacement",
       "Improved roof drainage",

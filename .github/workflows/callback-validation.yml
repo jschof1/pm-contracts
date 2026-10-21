@@ -12,6 +12,12 @@ on:
       - 'src/pages/DiscountPage.tsx'
       - 'src/pages/DiscountForm.tsx'
       - 'test/callback-forms.browser.mjs'
+      - 'test/homepage-calls.browser.mjs'
+      - 'src/components/home/**'
+      - 'src/components/layout/**'
+      - 'src/data/siteSettings.ts'
+      - 'src/data/services.ts'
+      - 'src/lib/leadTracking.ts'
       - '.github/workflows/callback-validation.yml'
   workflow_dispatch:
 
@@ -46,3 +52,5 @@ jobs:
           SKIP_PRERENDER: 'false'
       - name: Check callback forms without submitting enquiries
         run: node test/callback-forms.browser.mjs
+      - name: Check homepage calls and gutters on desktop and mobile
+        run: node test/homepage-calls.browser.mjs
