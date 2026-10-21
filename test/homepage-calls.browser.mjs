@@ -61,7 +61,7 @@ try {
       assert.ok(link.text.includes('07748 391835'), 'Every call link exposes readable number text');
       assert.equal(link.href, 'tel:+447748391835', 'Every call link uses the correct UK number');
     }
-    for (const heading of ['A Simple', 'Selected', 'Why People Recommend']) {
+    for (const heading of ['A Simple', 'Selected', 'Recommend PM Roofers']) {
       const selector = await page.evaluate(heading => {
         const section = [...document.querySelectorAll('section')].find(s => s.querySelector('h2')?.textContent.includes(heading));
         if (!section) return false;
