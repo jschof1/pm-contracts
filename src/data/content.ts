@@ -337,6 +337,12 @@ export const routeSeo: Record<string, SeoEntry> = {
     ogImage: "https://pmroofers.com/pm-roofers-og.svg",
     noindex: true,
   },
+  "/feedback/google": {
+    title: "Google Reviews | PM Roofers",
+    description: "Review handoff page for PM Roofers.",
+    ogImage: "https://pmroofers.com/pm-roofers-og.svg",
+    noindex: true,
+  },
   "/get-quote": {
     title: "Free Roofing Quote Across Scotland | PM Roofers",
     description: "Request a free, no-obligation roofing quote from PM Roofers for repairs, replacements, leadwork, gutters, and emergency roofing work.",
