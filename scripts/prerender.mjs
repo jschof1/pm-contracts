@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import http from 'node:http';
 import net from 'node:net';
+import { interceptPrerenderRequest, assertPreviewCapture } from './prerender-network-policy.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '..', 'dist');
@@ -182,17 +183,9 @@ async function prerender() {
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
         await page.setRequestInterception(true);
-        page.on('request', (request) => {
-          const requestUrl = new URL(request.url());
-          const isLocalRequest = requestUrl.origin === new URL(baseUrl).origin;
-
-          if (!isLocalRequest && request.resourceType() !== 'document') {
-            request.abort();
-            return;
-          }
-
-          request.continue();
-        });
+        page.on('request', (request) => interceptPrerenderRequest(request, {
+          baseUrl, route, mainFrame: page.mainFrame(),
+        }));
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 45000 });
 
         // The bootstrap creates this loader at runtime. Do not bake a second
@@ -202,6 +195,7 @@ async function prerender() {
             .forEach((script) => script.remove());
         });
         const html = await page.content();
+        assertPreviewCapture({ pageUrl: page.url(), baseUrl, html });
         const normalizedHtml = html.replaceAll(baseUrl, '');
         const outputPath = route === '/'
           ? path.join(distDir, 'index.html')
