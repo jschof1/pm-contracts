@@ -9,7 +9,10 @@
  */
 export function normalizeUKPhone(phone: string): string {
   // Remove all whitespace and non-digit characters except +
-  const cleaned = phone.replace(/[^\d+]/g, '');
+  // UK numbers are often printed as +44 (0)20...; the (0) is not dialled internationally.
+  // Strip that explicit optional trunk before removing other formatting.
+  const withoutOptionalUkTrunk = phone.replace(/^(\s*(?:\+44|0044|44))[\s.-]*\(0\)/, '$1');
+  const cleaned = withoutOptionalUkTrunk.replace(/[^\d+]/g, '');
   
   // If empty, return empty
   if (!cleaned) return '';

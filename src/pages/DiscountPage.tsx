@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { siteSettings } from "@/data/siteSettings";
+import { normalizeUKPhone } from "@/lib/phoneUtils";
 import { Gift, Clock, Shield, CheckCircle2, Users, Star, Flame, AlertTriangle, X } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
@@ -115,7 +116,7 @@ const DiscountPage = () => {
         },
         body: JSON.stringify({
           name: formData.name.trim(),
-          phone: formData.phone.trim(),
+          phone: normalizeUKPhone(formData.phone.trim()),
           message: formData.message.trim(),
           source: "special-offer-page",
           offer: "PRIORITY ROOFING QUOTE REQUEST",
