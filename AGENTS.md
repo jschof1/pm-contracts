@@ -1,3 +1,9 @@
+## UK Trade Leads website work
+
+When working from the original standalone checkout, resolve client website development and releases in the monorepo. This checkout remains available for original source evidence, review bots and guarded content sync. The website workroot is `jschof1/uktl-client-sites/sites/pm-contracts`. Read the monorepo's `AGENTS.md`, `README.md` and `docs/cutover.md` for current lifecycle, publisher and site-specific instructions. Add the site to the MacBook sparse checkout as needed, or use a fresh Mini worktree from `origin/main`.
+
+Treat file paths and template procedures below as relative to the selected site folder. For an active monorepo site run the root `node tools/sites.mjs check --site pm-contracts`, `node tools/sites.mjs build --site pm-contracts --test` and `npm test` under the light resource guard. For any release, follow the monorepo's build, check-readback, prepare and deploy dry run. Execution requires Jack's explicit go-ahead for the site. Check the registry gates for sites still awaiting cutover.
+
 # PM Contract — Agent Context
 
 ## Learned Workspace Facts
